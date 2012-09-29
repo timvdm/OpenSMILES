@@ -1439,7 +1439,7 @@ Revision History
 | Revision | Date | Description | Name
 | 1.0 | 2007-11-13 | Draft | Craig A. James
 | 1.0 | 2012-09-29 | Reformatting | Tim Vandermeersch
-| 1.0 | 2012-09-29 | Corrections | Anrew Dalke & Tim Vandermeersch
+| 1.0 | 2012-09-29 | Corrections | Andrew Dalke & Tim Vandermeersch
 |======================
 
 * link:https://github.com/timvdm/OpenSMILES/blob/master/ChangeLog[ChangeLog]
