@@ -119,7 +119,7 @@ concerned with syntax.
 Grammar
 ~~~~~~~
 
-[options="header",frame="topbot",grid="rows",width="90%",cols="1,4"]
+[options="header",frame="topbot",grid="rows",cols="1,4"]
 |============================
 | Section                  | Formal Grammar
 2+| **ATOMS**
@@ -131,7 +131,7 @@ Grammar
 .5+| <<inatoms,Bracket Atoms>>      | _bracket_atom_ ::= `'['` _isotope_? _symbol_ _chiral_? _hcount_? _charge_? _class_? `']'`
 |                            _symbol_ ::= _element_symbols_ \| _aromatic_symbols_ \| `'*'`
 |                            _isotope_ ::= _NUMBER_
-|                            _element_symbols_ ::= `'H'` \| `'He'` \| `'Li'` \| `'Be'` \| `'B'` \| `'C'` \| `'N'` \| `'O'` \| `'F'` \| `'Ne'` \| `'Na'` \| `'Mg'` \| `'Al'` \| `'Si'` \| `'P'` \| `'S'` \| `'Cl'` \| `'Ar'` \| `'K'` \| `'Ca'` \| `'Sc'` \| `'Ti'` \| `'V'` \| `'Cr'` \| `'Mn'` \| `'Fe'` \| `'Co'` \| `'Ni'` \| `'Cu'` \| `'Zn'` \| `'Ga'` \| `'Ge'` \| `'As'` \| `'Se'` \| `'Br'` \| `'Kr'` \| `'Rb'` \| `'Sr'` \| `'Y'` \| `'Zr'` \| `'Nb'` \| `'Mo'` \| `'Tc'` \| `'Ru'` \| `'Rh'` \| `'Pd'` \| `'Ag'` \| `'Cd'` \| `'In'` \| `'Sn'` \| `'Sb'` \| `'Te'` \| `'I'` \| `'Xe'` \| `'Cs'` \| `'Ba'` \| `'Hf'` \| `'Ta'` \| `'W'` \| `'Re'` \| `'Os'` \| `'Ir'` \| `'Pt'` \| `'Au'` \| `'Hg'` \| `'Tl'` \| `'Pb'` \| `'Bi'` \| `'Po'` \| `'At'` \| `'Rn'` \| `'Fr'` \| `'Ra'` \| `'Rf'` \| `'Db'` \| `'Sg'` \| `'Bh'` \| `'Hs'` \| `'Mt'` \| `'Ds'` \| `'Rg'` \| `'Cn'` \| `'Fl'` \| `'Lv'` \| `'La'` \| `'Ce'` \| `'Pr'` \| `'Nd'` \| `'Pm'` \| `'Sm'` \| `'Eu'` \| `'Gd'` \| `'Tb'` \| `'Dy'` \| `'Ho'` \| `'Er'` \| `'Tm'` \| `'Yb'` \| `'Lu'` \| `'Ac'` \| `'Th'` \| `'Pa'` \| `'U'` \| `'Np'` \| `'Pu'` \| `'Am'` \| `'Cm'` \| `'Bk'` \| `'Cf'` \| `'Es'` \| `'Fm'` \| `'Md'` \| `'No'` \| `'Lr'` | 
+|                            _element_symbols_ ::= `'H'` \| `'He'` \| `'Li'` \| `'Be'` \| `'B'` \| `'C'` \| `'N'` \| `'O'` \| `'F'` \| `'Ne'` \| `'Na'` \| `'Mg'` \| `'Al'` \| `'Si'` \| `'P'` \| `'S'` \| `'Cl'` \| `'Ar'` \| `'K'` \| `'Ca'` \| `'Sc'` \| `'Ti'` \| `'V'` \| `'Cr'` \| `'Mn'` \| `'Fe'` \| `'Co'` \| `'Ni'` \| `'Cu'` \| `'Zn'` \| `'Ga'` \| `'Ge'` \| `'As'` \| `'Se'` \| `'Br'` \| `'Kr'` \| `'Rb'` \| `'Sr'` \| `'Y'` \| `'Zr'` \| `'Nb'` \| `'Mo'` \| `'Tc'` \| `'Ru'` \| `'Rh'` \| `'Pd'` \| `'Ag'` \| `'Cd'` \| `'In'` \| `'Sn'` \| `'Sb'` \| `'Te'` \| `'I'` \| `'Xe'` \| `'Cs'` \| `'Ba'` \| `'Hf'` \| `'Ta'` \| `'W'` \| `'Re'` \| `'Os'` \| `'Ir'` \| `'Pt'` \| `'Au'` \| `'Hg'` \| `'Tl'` \| `'Pb'` \| `'Bi'` \| `'Po'` \| `'At'` \| `'Rn'` \| `'Fr'` \| `'Ra'` \| `'Rf'` \| `'Db'` \| `'Sg'` \| `'Bh'` \| `'Hs'` \| `'Mt'` \| `'Ds'` \| `'Rg'` \| `'Cn'` \| `'Fl'` \| `'Lv'` \| `'La'` \| `'Ce'` \| `'Pr'` \| `'Nd'` \| `'Pm'` \| `'Sm'` \| `'Eu'` \| `'Gd'` \| `'Tb'` \| `'Dy'` \| `'Ho'` \| `'Er'` \| `'Tm'` \| `'Yb'` \| `'Lu'` \| `'Ac'` \| `'Th'` \| `'Pa'` \| `'U'` \| `'Np'` \| `'Pu'` \| `'Am'` \| `'Cm'` \| `'Bk'` \| `'Cf'` \| `'Es'` \| `'Fm'` \| `'Md'` \| `'No'` \| `'Lr'`
 |                            _aromatic_symbols_ ::= `'b'` \| `'c'` \| `'n'` \| `'o'` \| `'p'` \| `'s'` \| `'se'` \| `'as'`
 2+| **CHIRALITY**
 | <<chirality,Chirality>>  | _chiral_ ::= `'@'` \| `'@@'` \| `'\@TH1'` \| `'\@TH2'` \| `'\@AL1'` \| `'\@AL2'` \| `'\@SP1'` \| `'\@SP2'` \| `'\@SP3'` \| `'\@TB1'` \| `'\@TB2'` \| `'\@TB3'` \| ... \| `'\@TB20'` \| `'\@OH1'` \| `'\@OH2'` \| `'\@OH3'` \| ... \| `'\@OH30'`
@@ -149,7 +149,7 @@ Grammar
 |                            _chain_ ::= _branched_atom_ \| _chain_ _branched_atom_ \| _chain_ _bond_ _branched_atom_ \| _chain_ _dot_ _branched_atom_
 |                            _dot_ ::= `'.'`
 2+| **SMILES STRINGS**
-.2+|                       | _smiles_ ::= _terminator_ | _chain_ _terminator_
+.2+|                       | _smiles_ ::= _terminator_ \| _chain_ _terminator_
 |                            _terminator_ ::= _SPACE_ \| _TAB_ \| _LINEFEED_ \| _CARRIAGE_RETURN_ \| _END_OF_STRING_
 |============================
 
@@ -1439,6 +1439,7 @@ Revision History
 | Revision | Date | Description | Name
 | 1.0 | 2007-11-13 | Draft | Craig A. James
 | 1.0 | 2012-09-29 | Reformatting | Tim Vandermeersch
+| 1.0 | 2012-09-29 | Corrections | Anrew Dalke & Tim Vandermeersch
 |======================
 
 * link:https://github.com/timvdm/OpenSMILES/blob/master/ChangeLog[ChangeLog]
