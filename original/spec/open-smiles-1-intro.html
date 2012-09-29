@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>OpenSMILES Specification: Introduction</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="keywords" content="chemistry smiles opensmiles definition specification">
+<link rel="stylesheet" type="text/css" href="open-smiles.css" >
+
+</head>
+
+<body>
+
+<h1>OpenSMILES Specification</h1>
+
+<table width="100%" cellspacing="0">
+  <tr>
+    <td class="header_nl" align="left"   width="33%">&lt;&lt;&nbsp;Previous: n/a</td>
+    <td class="header" align="center" width="33%"><a href="open-smiles.html">Up: Table of Contents</a></td>
+    <td class="header" align="right"  width="33%"><a href="open-smiles-2-grammar.html">Next: Formal Grammar&nbsp;&gt;&gt;</a></td>
+  </tr>
+</table>
+
+<p style="text-align: center; font-style: italic;">
+Contributors:<br>
+ Richard Apodaca,
+ Noel O'Boyle,
+ Andrew Dalke,
+ John van Drie,
+ Peter Ertl,<br>
+ Geoff Hutchison,
+ Craig A. James,
+ Greg Landrum,
+ Chris Morley,
+ Egon Willighagen,
+ Hans De Winter
+</p>
+
+
+<a name="1"></a><h2>1. Introduction</h2>
+
+<table class="et" width="60%">
+  <tr>
+    <td class="ec">
+      "... we cannot improve the language of any science, without, at the
+      same time improving the science itself; neither can we, on the other
+      hand, improve a science, without improving the language or nomenclature
+      which belongs to it ..."<br>
+      <a href="http://en.wikipedia.org/wiki/Antoine_Lavoisier"><i>Antoine Lavoisier, 1787</i></a>
+    </td>
+  </tr>
+</table>
+
+<a name="1.1"></a><h3>1.1 Purpose</h3>
+
+
+<p>This document formally defines an
+<a href="http://en.wikipedia.org/wiki/Open_specifications">open specification</a> version of the
+<a href="http://en.wikipedia.org/wiki/Simplified_molecular_input_line_entry_specification">SMILES</a>
+language, a typographical <a href="http://en.wikipedia.org/wiki/Line_notation">line notation</a>
+for specifying chemical structure.  It is hosted under the banner of the
+<a href="http://blueobelisk.sourceforge.net">Blue Obelisk</a>
+project, with the intent to solicit contributions and comments from the
+entire computational chemistry community.</p>
+
+
+<a name="1.2"></a><h3>1.2 Motivation</h3>
+
+<p>SMILES was originally developed as a proprietary specification by <a href="http://www.daylight.com">Daylight
+Chemical Information Systems</a>.  Since the introduction of SMILES in the late 1980's, it has
+become widely accepted as a defacto standard for exchange of molecular structures.  Many independent
+SMILES software packages have been written in C, C++, Java, Python, LISP, and probably even
+FORTRAN.</p>
+
+<p>At this point in the history of SMILES, is appropriate for the chemistry community
+to develop a new, non-proprietary specification for the SMILES language.  Daylight's
+<a href="http://www.daylight.com/dayhtml/doc/theory/theory.smiles.html">SMILES Theory
+Manual</a> has long been the "gold standard" for the SMILES language, but as a
+proprietary specification, it limits the universal adoption of SMILES, and has no
+mechanism for contributions from the chemistry community.  We salute Daylight for
+their past contributions, and the excellent SMILES documentation they provided free
+of charge for the past two decades.</p>
+
+<a name="1.3"></a><h3>1.3 Audience</h3>
+
+<p>This document is intended for developers designing or improving a SMILES
+parser or writer. <b>Readers are expected to be acquainted with
+SMILES.</b> Due to the formality of this document, it is not a good
+tutorial for those trying to learn SMILES. This document is written with
+<i>precision</i> as the primary goal; <i>readability</i> is secondary.</p>
+
+<a name="1.4"></a><h3>1.4 What is a Molecule? The Valence Model of Chemistry</h3>
+
+<p>Before defining the SMILES language, it is important to state the physical model on which it is
+based: the valence model of chemistry, which uses a mathematician's
+<a href="http://en.wikipedia.org/wiki/Graph_%28mathematics%29">graph</a> to
+represent a molecule.  In a chemical graph, the <i>nodes</i>
+are atoms, and the <i>edges</i> are semi-rigid bonds that can be single, double, or
+triple according to the rules of 
+<a href="http://en.wikipedia.org/wiki/Valence_bond_theory">valence bond theory</a>.</p>
+
+<p>This simple mental model has little resemblance to the underlying quantum-mechanical reality of
+electrons, protons and neutrons, yet it has proved to be a remarkably useful approximation of how
+atoms behave in close proximity to one another.  However, the valence model is an imperfect
+representation of molecular structure, and the SMILES language inherits these imperfections.
+Chemical bonds are often tautomeric, aromatic or otherwise fractional rather than neat integer
+multiples.  Delocalized bonds, bond-centered bonds, hydrogen bonds and various other inter-atom
+forces that are well characterized by a quantum-mechanics description simply don't fit into the
+valence model.</p>
+
+<table class="et" width="60%">
+  <tr>
+    <td class="ec">
+      "If you can build a molecule from a modeling kit, you can name it."<br>
+      <a href="http://www.daylight.com/meetings/mug03/McLeod/MUG03McLeodPeters.pdf"><i>-- McLeod and Peters</i></a>
+    </td>
+  </tr>
+</table>
+
+<p>McLeod and Peter's quip captures the deficiencies of SMILES well: if you
+<i>can't</i> build a molecule from a modeling kit, the deficiencies of SMILES and other
+connection-table formats become apparent.</p>
+
+<table width="100%" cellspacing="0">
+  <tr>
+    <td class="footer_nl" align="left"   width="33%">&lt;&lt;&nbsp;Previous: n/a</td>
+    <td class="footer" align="center" width="33%"><a href="open-smiles.html">Up: Table of Contents</a></td>
+    <td class="footer" align="right"  width="33%"><a href="open-smiles-2-grammar.html">Next: Formal Grammar&nbsp;&gt;&gt;</a></td>
+  </tr>
+</table>
+
+<p class="copyright">Copyright &copy; 2007, Craig A. James<br>Content is available under <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a></p>
+
+</body>
+</html>

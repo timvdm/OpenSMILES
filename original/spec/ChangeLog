@@ -1,0 +1,63 @@
+2007-10-18  Craig A. James <craig_james@emolecules.com>
+	
+	* Moved CSS styles to a separate file.
+
+	* Split document into parts:
+
+	  open_smiles.html                Table of contents
+	  open_smiles_1_intro.html        Purpose, valence-model of chemistry, history
+	  open_smiles_2_grammar.html      Formal SMILES grammar
+	  open_smiles_3_input.html        SMILES Input
+	  open_smiles_4_output.html       SMILES Output
+	  open_smiles_5_nonstandard.html  Non-standard SMILES
+	  open_smiles_6_extensions.html   Proposed extensions
+	  open_smiles_7_references.html   References and citations
+
+	* Made original smiles_spec.html forward to the new
+	  open_smiles_toc.html
+	
+	* Changed titles and headings to "OpenSMILES".
+
+	* Replaced formal grammar section with Andrew Dalke's version
+	  (slightly edited).
+
+	* Incorporated many of Andrew's comments into the SMILES-Input
+	  chapter.
+
+	* Created make_toc.pl, a perl script to regenerate the table of
+	  contents by scanning the HTML files.  Added
+	  open-smiles-toc-template.html, which is used by the perl script.
+
+2007-11-13  Craig A. James <craig_james@emolecules.com>
+
+	* Many more changes, too many to enumerate.  Completed work on the
+	  first major revision.  Most important change: aromticity
+	  defined.
+	
+2007-11-13  Craig A. James <craig_james@emolecules.com>
+
+	* Fixed error, SMILES for ortho-substituted phenol was wrong.
+	
+	* Added GNU license notice to make_toc.pl, changed copyright
+	  notice.
+
+	* Added LICENSE.txt, with the contents of the GFDL.
+	
+	* Fixed error in 4.3.4, "Only use dot bonds ...", ring digits
+	  shouldn't have been mentioned.
+	
+2007-11-14  Craig A. James <craig_james@emolecules.com>
+
+	* Fixed incorrect cis/trans example in 3.9.3.  C(\F)=C\F changed
+	  to C(\F)=C/F.  Found by Peter Ertl.
+	
+2007-11-21  Craig A. James <craig_james@emolecules.com>
+
+	* Appendix 7.3: Corrected URL for Marvin Toolkit (correction from
+	  Alex Allerdyce).
+	
+2007-12-02  Craig A. James <craig_james@emolecules.com>
+
+	* Greatly expanded definition of aromaticity per BlueObelisk
+	  mailing list discussions.
+	

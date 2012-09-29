@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>OpenSMILES Specification: Proposed Extensions</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="keywords" content="chemistry smiles opensmiles definition specification">
+<link rel="stylesheet" type="text/css" href="open-smiles.css" >
+
+</head>
+
+<body>
+
+<h1>OpenSMILES Specification</h1>
+
+<table width="100%" cellspacing="0">
+  <tr>
+    <td class="header" align="left"   width="33%"><a href="open-smiles-5-nonstandard.html">&lt;&lt;&nbsp;Previous: Nonstandard SMILES</a></td>
+    <td class="header" align="center" width="33%"><a href="open-smiles.html">Up: Table of Contents</a></td>
+    <td class="header" align="right"  width="33%"><a href="open-smiles-7-references.html">Next: References&nbsp;&gt;&gt;</a></td>
+  </tr>
+</table>
+
+<a name="6"></a><h2>6. Proposed Extensions</h2>
+
+<a name="6.1"></a><h3>6.1 External R-Groups</h3>
+
+<p>Daylight proposed, and OpenEye actually implemented, an extension that
+specifies bonds to external R-groups.  An external R-group is specified
+using ampersand '&amp;' followed by a ring-closure specification (either a
+digit, or % and two digits).  However, unlike ring-closures, the bond is to
+an external, unspecified R-group.  Example: "n1c(&1)c(&2)cccc1" - 2,3-substituted pyridine.</p>
+
+<a name="6.2"></a><h3>6.2 Polymers and Crystals</h3>
+
+<p>Daylight (Weininger) proposed, but never implemented, an extension for crystals and
+polymers.  Daylight also used the ampersand '&amp;' character, (which may
+conflict with the R-group proposal, above), but with the added rule that 
+if a number appears more than once, it creates a repeating unit.
+
+<table class="et">
+  <tr><td class="ecbc"> c1ccccc1C&1&1 </td> <td class="ec"> polystyrene </td> </tr>
+  <tr><td class="ecbc"> C&1&1&1&1     </td> <td class="ec"> diamond     </td> </tr>
+  <tr><td class="ecbc"> c&1&1&1       </td> <td class="ec"> graphite    </td> </tr>
+</table>
+
+<a name="6.3"></a><h3>6.3 '@' for Cis/Trans around Double Bonds</h3>
+
+<p>The '/' and '\' marks for cis/trans bonds seem simple on the surface but
+are problematic for complex systems.  For example, in a long series of
+conjugated double bonds, changing the configuration of one bond can require
+rewriting dozens of bond symbols.</p>
+
+<p>More importantly, there is a theoretical flaw with the use of '/' and
+'\'.  In a cyclo-ene (<i>name??</i>) ring with an even number of double bonds, it is
+not possible to write a valid SMILES.  (Recall that '/' and '\' reverse
+sense if moved from the left to the right of the atom, thus "C/1=C/CCCCCCC1"
+represents a cis configuration even though '/' appears twice.)
+
+<table class="et">
+  <tr><td class="ec"><img src="cyclooctatetraene.gif"><td class="ecbc"> C/1=C/C=C\C=C/C=C\1 </td> <td class="ec"> Illegal SMILES </td> </tr>
+</table>
+
+<p>The SMILES above is illegal because the first and second "C1" have
+opposite bond symbols '/' versus '\', so the single bond that was "broken"
+to create the ring has to be both "up" and "down".  This logical
+flaw follows from using "up" and "down" in a linear notation, when in
+fact the atoms form a circle.</p>
+
+<p>The proposed syntax for cis/trans configurations uses the '@' symbol on
+the allenal atoms.  For example:
+
+<table class="et">
+  <tr>
+    <td class="ec"><img src="trans-difluoroethene.gif"></td>
+    <td class="ecbc"> F[C@@H]=[C@H]F<br>F[C@H]=[C@@H]F  </td>
+    <td class="ec"> trans-difluoroethene</td>
+  </tr>
+  <tr>
+    <td class="ec"><img src="cis-difluoroethene.gif"></td>
+    <td class="ecbc"> F[C@H]=[C@H]F<br>F[C@@H]=[C@@H]F</td>
+    <td class="ec"> cis-difluoroethene</td>
+  </tr>
+</table>
+
+<p>Interpretation of '@' and '@@' follows the tetrahedral convention:
+The atoms, as encountered in the SMILES string, are either in anticlockwise
+'@' or clockwise '@@' order as viewed on the page.  Since cis/trans
+configurations are planar, they can also be "viewed from underneath the
+page", which results in the two valid SMILES shown for each compound,
+above.</p>
+
+<p>Note that in all cases, cis and trans are easy for the chemist to
+distinguish visually: A trans form always has opposite "clock-ness" (@,@@ or
+@@,@), and the cis form always has the same "clock-ness" (@,@ or @@,@@) for
+the allenal atoms.</p>
+
+<p>This proposed form of cis/trans specification using '@' and '@@' does not suffer from the
+theoretical flaw illustrated above:</p>
+
+<table class="et">
+  <tr><td class="ec"><img src="cyclooctatetraene.gif"><td class="ecbc"> [C@H]1=[C@@H][C@@H]=[C@@H][C@@H]=[C@@H][C@@H]=[C@@H]1 </td> <td class="ec"> cyclooctatetraene </td> </tr>
+</table>
+
+<p>Note that the first allenal carbon must be represented as '@' since the
+'1' follows the H, whereas the rest of the allenal carbons use '@@' to
+characterize the cis configuration of each bond.  Since this is a
+specification on the atom, rather than the single bond, no conflict arises
+at the ring-closure bond.</p>
+
+<a name="6.5"></a><h3>6.5 Radicals</h3>
+
+<p><i>This section needs considerable work.  The following text is courtesy Chris Morley, who
+commented: "I guess the last paragraph doesn't look too good in a formal specification. There are
+two reasons for the frailty: lack of proof that the radical and aromatic uses can always be
+unambigous (I doubt anybody has tried); and a known deficiency in the parser."  However, it is a
+good starting point...</i></p>
+
+<p>A single lowercase symbol is interpreted as a radical center. CCc is an alternative to CC[CH2] and
+is the 1-propyl radical; CcC or C[CH]C is the 2-propyl radical, Co is the methoxy radical. An odd
+number of adjacent lowercase symbols is a delocalised conjugated radical. So Cccccc is CC=CC=C[CH2]
+or CC=C[CH]C=C or C[CH]C=CC=C Lowercase "c" or "n" can be used in a ring: C1cCCCC1 is the cyclohexyl
+radical.</p>
+
+<p>The use of the non-aromatic lowercase symbol is a shorted form with improved intelligibilty that
+allows the use of implicit hydrogen in radicals. However it is intended only for simple unambiguous
+molecules and is not reliable when combined with aromatic atoms.</p>
+
+<a name="6.6"></a><h3>6.6 Twisted SMILES</h3>
+
+<p>An interesting extension that specifies conformational information via
+bond dihedral angles and bond lengths was proposed by McLeod and Peters:
+
+<table class="et"><tr><td class="ec">
+   <a href="http://www.daylight.com/meetings/mug03/McLeod/MUG03McLeodPeters.pdf">http://www.daylight.com/meetings/mug03/McLeod/MUG03McLeodPeters.pdf</a>
+</td></tr></table>
+<br>
+
+<table width="100%" cellspacing="0">
+  <tr>
+    <td class="footer" align="left"   width="33%"><a href="open-smiles-5-nonstandard.html">&lt;&lt;&nbsp;Previous: Nonstandard SMILES</a></td>
+    <td class="footer" align="center" width="33%"><a href="open-smiles.html">Up: Table of Contents</a></td>
+    <td class="footer" align="right"  width="33%"><a href="open-smiles-7-references.html">Next: References&nbsp;&gt;&gt;</a></td>
+  </tr>
+</table>
+
+<p class="copyright">Copyright &copy; 2007, Craig A. James<br>Content is available under <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a></p>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>OpenSMILES Specification: Nonstandard Extensions</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="keywords" content="chemistry smiles opensmiles definition specification">
+<link rel="stylesheet" type="text/css" href="open-smiles.css" >
+
+</head>
+
+<body>
+
+<h1>OpenSMILES Specification</h1>
+
+<table width="100%" cellspacing="0">
+  <tr>
+    <td class="header" align="left"   width="33%"><a href="open-smiles-4-output.html">&lt;&lt;&nbsp;Previous: SMILES Output</a></td>
+    <td class="header" align="center" width="33%"><a href="open-smiles.html">Up: Table of Contents</a></td>
+    <td class="header" align="right"  width="33%"><a href="open-smiles-6-extensions.html">Next: SMILES Extensions&nbsp;&gt;&gt;</a></td>
+  </tr>
+</table>
+
+<a name="5"></a><h2>5. Nonstandard Forms of SMILES</h2>
+
+<p>Several SMILES-generating systems are in use that either generate
+incorrect SMILES, or that interpreted some of the ambiguous features of the
+original SMILES specification in different ways.  Although these SMILES are
+illegal according to this formal OpenSMILES specification, it is often useful to
+parse them, in order to make use of the information that accompanies these
+SMILES.</p>
+
+<p>These "relaxed" SMILES rules should only be allowed when the user
+(presumably after thinking about the consequences) requests it.  A SMILES
+parser that allows any or all of these "relaxed" rules <i>must
+not do it by default</i>.  The user must specifically request these relaxed
+rules before a parser can accept such SMILES.</p>
+
+<p>The following table lists "relaxed" rules that SMILES parsers may
+accept.</p>
+
+<table class="et">
+
+  <tr>
+    <td class="ecb">
+      Rule
+    </td>
+    <td class="ecb">
+      Example
+    </td>
+    <td class="ecb">
+      Interpred as...
+    </td>
+    <td class="ecb">
+      Details
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ec" rowspan="3">
+      Extra parentheses
+    </td>
+    <td class="ecbc">
+      C((C))O
+    </td>
+    <td class="ecbc">
+      C(C)O
+    </td>
+    <td class="ec"  rowspan="3">
+      Extra parentheses are ignored in places where there is no ambiguity
+      as to the meaning.  Note that the form "(CO)N" is never allowed,
+      since it isn't clear which atom the nitrogen should connect to.
+    </td>
+  </tr>
+  <tr>
+    <td class="ecbc">
+      C((C))O
+    </td>
+    <td class="ecbc">
+      C(C)O
+    </td>
+  </tr>
+  <tr>
+    <td class="ecbc">
+      (N1CCCC1)
+    </td>
+    <td class="ecbc">
+      N1CCCCC1
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ec" rowspan="3">
+      Misplaced dots
+    </td>
+    <td class="ecbc">
+      [Na+]..[Cl-]
+    </td>
+    <td class="ecbc">
+      [Na+].[Cl-]
+    </td>
+    <td class="ec" rowspan="3">
+      Two or more dot-bonds in a row are condensed into one.  A leading or
+      trailing dot-bond is ignored.  Note that a dot that starts a branch
+      is <i>legal</i> in strict SMILES; for example,
+      C1CC(.[Na+])CC1[O-] is a legal (though strange) SMILES.
+    </td>
+  </tr>
+  <tr>
+    <td class="ecbc">
+      .CCO
+    </td>
+    <td class="ecbc">
+      CCO
+    </td>
+  </tr>
+  <tr>
+    <td class="ecbc">
+      CCO.
+    </td>
+    <td class="ecbc">
+      CCO
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ec">
+      Mismatched Ring Bonds
+    </td>
+    <td class="ecbc">
+      C1CCC
+    </td>
+    <td class="ecbc">
+      CCCC
+    </td>
+    <td class="ec">
+      Mismatched ring bonds are ignored.  Note that this is almost always a
+      bad idea.  For example, "C1CCCCC2" is almost certainly supposed to be
+      cyclohexane "C1CCCCC1", but with "relaxed" parsing would be
+      interpreted as hexane.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ec" rowspan="3">
+      Invalid Cis/Trans specification
+    </td>
+    <td class="ecbc">
+      C/C=C
+    </td>
+    <td class="ecbc">
+      CC=C
+    </td>
+    <td class="ec" rowspan="3">
+      Mismatched or incomplete cis/trans bonds are ignored.
+    </td>
+  </tr>
+  <tr>
+    <td class="ecbc">
+      C/C=CC
+    </td>
+    <td class="ecbc">
+      CC=CC
+    </td>
+  </tr>
+  <tr>
+    <td class="ecbc">
+      CC/=C/C
+    </td>
+    <td class="ecbc">
+      CC=CC
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ec">
+      Conflicting cis/trans specification
+    </td>
+    <td class="ecbc">
+      C/C(\F)=C/C
+    </td>
+    <td class="ecbc">
+      CC(F)=CC
+    </td>
+    <td class="ec">
+      Conflicting cis/trans bonds are ignored. (In this case, both the
+      methyl and fluorine on the left are shown as <i>trans</i> to the methyl
+      on the right, an impossible configuration.)
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ec" rowspan="2">
+      D and T
+    </td>
+    <td class="ecbc">
+      D[CH3]
+    </td>
+    <td class="ecbc">
+      [2H][CH3]
+    </td>
+    <td class="ec" rowspan="2">
+      The symbols "D" and "T" are treated as synonyms for [2H] and [3H].
+    </td>
+  </tr>
+  <tr>
+    <td class="ecbc">
+      T[CH3]
+    </td>
+    <td class="ecbc">
+      [3H][CH3]
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ec" rowspan="2">
+      Lowercase as sp<sup>2</sup>
+    </td>
+    <td class="ecbc">
+      CccccC<br>
+      
+    </td>
+    <td class="ecbc">
+      CC=CC=CC 2,4-hexadiene
+    </td>
+    <td class="ec" rowspan="2">
+      Lowercase letters are interpreted as sp<sup>2</sup>, even outside of
+      ring systems.
+    </td>
+  </tr>
+  <tr>
+    <td class="ecbc">
+      Ccc
+    </td>
+    <td class="ecbc">
+      CC=C propene
+    </td>
+  </tr>
+
+</table>
+<br>
+
+<table width="100%" cellspacing="0">
+  <tr>
+    <td class="footer" align="left"   width="33%"><a href="open-smiles-4-output.html">&lt;&lt;&nbsp;Previous: SMILES Output</a></td>
+    <td class="footer" align="center" width="33%"><a href="open-smiles.html">Up: Table of Contents</a></td>
+    <td class="footer" align="right"  width="33%"><a href="open-smiles-6-extensions.html">Next: SMILES Extensions&nbsp;&gt;&gt;</a></td>
+  </tr>
+</table>
+
+<p class="copyright">Copyright &copy; 2007, Craig A. James<br>Content is available under <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a></p>
+
+
+

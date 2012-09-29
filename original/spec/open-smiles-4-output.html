@@ -1,0 +1,539 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>OpenSMILES Specification: Output</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="keywords" content="chemistry smiles opensmiles definition specification">
+<link rel="stylesheet" type="text/css" href="open-smiles.css" >
+
+</head>
+
+<body>
+
+<h1>OpenSMILES Specification</h1>
+
+<table width="100%" cellspacing="0">
+  <tr>
+    <td class="header" align="left"   width="33%"><a href="open-smiles-3-input.html">&lt;&lt;&nbsp;Previous: SMILES Input</a></td>
+    <td class="header" align="center" width="33%"><a href="open-smiles.html">Up: Table of Contents</a></td>
+    <td class="header" align="right"  width="33%"><a href="open-smiles-5-nonstandard.html">Next: Nonstandard SMILES&nbsp;&gt;&gt;</a></td>
+  </tr>
+</table>
+
+
+<a name="4"></a><h2>4. Writing SMILES: Normalizations</h2>
+
+<a name="4.1"></a><h3>4.1 What is Normalization?</h3>
+
+<p>A wide variety of SMILES strings are acceptable as input.  For example, all of the following
+represent ethanol:</p>
+
+<table class="et">
+  <tr> <td class="ecbc"> CCO  </td> <td class="ec"> ethanol  </td> </tr>
+  <tr> <td class="ecbc"> OCC  </td> <td class="ec"> ethanol  </td> </tr>
+  <tr> <td class="ecbc"> C(O)C  </td> <td class="ec"> ethanol  </td> </tr>
+  <tr> <td class="ecbc"> [CH3][CH2][OH]  </td> <td class="ec"> ethanol  </td> </tr>
+  <tr> <td class="ecbc"> [H][C]([H])([H])C([H])([H])[O][H]  </td> <td class="ec"> ethanol  </td> </tr>
+</table>
+
+<p>However, it is desirable to write SMILES in more standard forms; the first two forms above are
+preferred by most chemists, and require fewer bytes to store on a computer. Several levels of
+normalization of SMILES are recommended for systems that generate SMILES strings.  Although these are not
+mandatory in any sense, they should be considered guidelines for software engineers creating SMILES systems.
+
+<a name="4.2"></a><h3>4.2 No Normalization</h3>
+
+<p>The simplest "normalization" is no normalization.  SMILES can be written in any form whatsoever,
+as long as they meet the rules for SMILES.  Some examples of systems that might produce
+un-normalized SMILES are:</p>
+
+<ul>
+<li> A system that enumerates combinatorial libraries using the rnum/dot-bond technique 
+     <a href="#2.11">discussed above</a>.  SMILES produced by such a system will typically be a series
+     of partial SMILES that are concatenated with dots into a complete molecule.</li>
+<li> Simple pass-through "filters" that don't have a full SMILES writer, but merely copy the input
+     SMILES to the output.  An example might be a molecular modeling program that reads SMILES to
+     generates logP values, but has no capability to convert its molecular data structures back to a
+     SMILES; instead it just copies its input SMILES to its output.</li>
+</ul>
+
+
+<a name="4.3"></a><h3>4.3 Standard Form</h3>
+
+<p>The "standard form" of a SMILES is designed to produce a compact SMILES,
+and one that is human readable (for smaller molecules).</p>
+
+<p>In addition, a normalized SMILES has the important property that it
+matches itself as a 
+<a href="http://www.daylight.com/dayhtml/doc/theory/theory.smarts.html">SMARTS</a>
+string.  This is a very important feature of normalized SMILES in
+cheminformatics systems.</p>
+
+<p><i>Note: In the example below, the "Wrong" SMILES examples are all valid SMILES, but are "wrong"
+in the sense that they are not the preferred form for standard normalization.</i></p>
+
+<a name="4.3.1"></a><h4>4.3.1 Atoms</h4>
+
+<table class="et">
+  <tr>
+    <td class="ecb">
+      Correct
+    </td>
+    <td class="ecb">
+      Wrong
+    </td>
+    <td class="ecb">
+      Normalization Rule
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      CC
+    </td>
+    <td class="ecbc">
+      [CH3][CH3]
+    </td>
+    <td class="ec">
+      Write atoms in the "organic subset" as bare atomic symbols whenever possible.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      [CH3-]
+    </td>
+    <td class="ecbc">
+      [CH3-1]
+    </td>
+    <td class="ec">
+      If the charge is +1 or -1, leave off the digit.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      C[13CH](C)C
+    </td>
+    <td class="ecbc">
+      C[13CH1](C)C
+    </td>
+    <td class="ec">
+      If the hydrogen count is 1, leave off the digit.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      [CH3-]
+    </td>
+    <td class="ecbc">
+      [C-H3]
+    </td>
+    <td rowspan="2" class="ec">
+      Always write the atom properties in the order: Chirality, hydrogen-count, charge.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      C[C@H](Br)Cl
+    </td>
+    <td class="ecbc">
+      C[CH@](Br)Cl
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      [CH3-]      
+    </td>
+    <td class="ecbc">
+      [H][C-]([H])[H]
+    </td>
+    <td class="ec">
+      Represent hydrogens as a property of the heavy atom rather than as explicit atoms,
+      unless other rules (e.g. [2H]) require that the hydrogen be explicit.
+    </td>
+  </tr>
+
+</table>
+
+<a name="4.3.2"></a><h4>4.3.2 Bonds</h4>
+
+<table class="et">
+
+  <tr>
+    <td class="ecb">
+      Correct
+    </td>
+    <td class="ecb">
+      Wrong
+    </td>
+    <td class="ecb">
+      Normalization Rule
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      CC
+    </td>
+    <td class="ecbc">
+      C-C
+    </td>
+    <td class="ec" rowspan="3">
+      Only write '-' (single bond) when it is between two aromatic atoms.  Never
+      write the ':' (aromatic bond) symbol.  Bonds are single or aromatic by
+      default (as appropriate).
+    </td>
+  </tr>
+  <tr>
+    <td class="ecbc">
+      c1ccccc1
+    </td>
+    <td class="ecbc">
+      c:1:c:c:c:c:c:1
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      c1ccccc1-c2ccccc2
+    </td>
+    <td class="ecbc">
+      c1ccccc1c2ccccc2
+    </td>
+  </tr>
+
+
+</table>
+
+
+<a name="4.3.3"></a><h4>4.3.3 Cycles</h4>
+
+<table class="et">
+
+  <tr>
+    <td class="ecb">
+      Correct
+    </td>
+    <td class="ecb">
+      Wrong
+    </td>
+    <td class="ecb">
+      Normalization Rule
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      c1ccccc1C2CCCC2
+    </td>
+    <td class="ecbc">
+      c1ccccc1C1CCCC1
+    </td>
+    <td class="ec">
+      Don't reuse ring-closure digits.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      c1ccccc1C2CCCC2
+    </td>
+    <td class="ecbc">
+      c0ccccc0C1CCCC1
+    </td>
+    <td class="ec">
+      Begin ring numbering with 1, not zero (or any other number)
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      CC1=CCCCC1
+    </td>
+    <td class="ecbc">
+      CC=1CCCCC=1
+    </td>
+    <td class="ec">
+      Avoid making a ring-closure on a double or triple bond.  For the ring-closure digits, choose
+      a single bond whenever possible.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      C1CC2CCCCC2CC1
+    </td>
+    <td class="ecbc">
+      C12(CCCCC1)CCCCC2
+    </td>
+    <td class="ec">
+      Avoid starting a ring system on an atom that is in two or more rings, such that two ring-closure
+      bonds will be on the same atom.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      C1CCCCC1
+    </td>
+    <td class="ecbc">
+      C%01CCCCC%01
+    </td>
+    <td class="ec">
+      Use the simpler single-digit form for rnums less than 10.
+    </td>
+  </tr>
+
+</table>
+
+
+<a name="4.3.4"></a><h4>4.3.4 Starting Atom and Branches</h4>
+
+
+<table class="et">
+  <tr>
+    <td class="ecb">
+      Correct
+    </td>
+    <td class="ecb">
+      Wrong
+    </td>
+    <td class="ecb">
+      Normalization Rule
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      OCc1ccccc1      
+    </td>
+    <td class="ecbc">
+      c1cc(CO)ccc1
+    </td>
+    <td class="ec">
+      Start on a terminal atom if possible.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      CC(C)CCCCCC
+    </td>
+    <td class="ecbc">
+      CC(CCCCCC)C      
+    </td>
+    <td class="ec">
+      Try to make "side chains" short; pick the longest chains as the "main branch"
+      of the SMILES.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      OCCC
+    </td>
+    <td class="ecbc">
+      CCCO
+    </td>
+    <td class="ec">
+      Start on a heteroatom if possible.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      CC
+    </td>
+    <td class="ecbc">
+      C1.C1
+    </td>
+    <td class="ec">
+      Only use dots for disconnected components.
+    </td>
+  </tr>
+
+</table>
+
+<a name="4.3.5"></a><h4>4.3.5 Aromaticity</h4>
+
+<table class="et">
+  <tr>
+    <td class="ecb">
+      Correct
+    </td>
+    <td class="ecb">
+      Wrong
+    </td>
+    <td class="ecb">
+      Normalization Rule
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      c1ccccc1
+    </td>
+    <td class="ecbc">
+      C1=CC=CC=C1
+    </td>
+    <td class="ec">
+      Write the aromatic form in preference to the Kekul&eacute; form.
+    </td>
+  </tr>
+</table>
+
+<a name="4.3.6"></a><h4>4.3.6 Chirality</h4>
+
+<table class="et">
+  <tr>
+    <td class="ecb">
+      Correct
+    </td>
+    <td class="ecb">
+      Wrong
+    </td>
+    <td class="ecb">
+      Normalization Rule
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      BrC(Br)C
+    </td>
+    <td class="ecbc">
+      Br[C@H](Br)C
+    </td>
+    <td class="ec">
+      Remove chiral markings for atoms that are not chiral.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      FC(F)=CF
+    </td>
+    <td class="ecbc">
+      F/C(/F)=C/F
+    </td>
+    <td class="ec">
+      Remove cis/trans markings for double bonds that are not cis or trans.
+    </td>
+  </tr>
+
+</table>
+
+<a name="4.4"></a><h3>4.4 Canonical SMILES</h3>
+
+<p>A <i>Canonical SMILES</i> is one that follows the <a href="#4.3">Standard
+Form</a> above, and additionally, always writes the atoms and bonds of any particular molecule in
+the <i>exact same order</i>, regardless of the source of the molecule or its history in the
+computer.  Here are a few examples of Canonical versus non-Canonical SMILES:</p>
+
+<table class="et">
+
+  <tr>
+    <td class="ecb">
+      Canonical SMILES
+    </td>
+    <td class="ecb">
+      Non-canonical
+    </td>
+    <td class="ecb">
+      Name
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      OCC
+    </td>
+    <td class="ecbc">
+      CCO<br>
+      C(C)O
+    </td>
+    <td class="ec">
+      ethanol
+    </td>
+  </tr>
+
+  <tr>
+    <td class="ecbc">
+      Oc1ccccc1
+    </td>
+    <td class="ecbc">
+      c1ccccc1O<br>
+      c1(O)ccccc1<br>
+      c1(ccccc1)O
+    </td>
+    <td class="ec">
+      phenol
+    </td>
+  </tr>
+
+</table>
+
+<p>The primary use of Canonical SMILES is in
+<a href="http://www.emolecules.com/doc/cheminformatics-101.htm">cheminformatics</a>
+systems.  A molecule's structure, when expressed as a canonical SMILES,
+will always yield the same SMILES string, which allows a chemical database
+system to:</p>
+
+<ul>
+  <li>Create a unique name (the SMILES) for each molecule in the system</li>
+  <li>Consolidate data about one molecule from a variety of sources into a
+  single record</li>
+  <li>Given a molecule, find its record in the database</li>
+</ul>
+
+<p>Canonical SMILES should <i>not</i> be considered a universal, global
+identifier (such as a permanent name that spans the WWW).  Two
+systems that produces a canonical SMILES may use different rules in their
+code, or the same system may be improved or have bugs fixed as time passes,
+thus changing the SMILES it produces.  A Canonical SMILES is primarily
+useful in a single database, or a system of related databases or information,
+in which all molecules were created using a single canonicalizer.</p>
+
+<p>The rules (algorithms) by which the canonical ordering of the atoms in a
+SMILES are generated are quite complex, and beyond the scope of this
+document.  There are many chemistry and mathematical graph-theory
+papers describing the canonical labeling of a graph, and writing a
+canonical SMILES string.  See the <a href="open-smiles-7-references.html">Appendix</a> for further
+information.</p>
+
+<p>Those considering Canonical SMILES for a database system should also investigate
+<a href="http://www.iupac.org/inchi">InChI</a>, a canonical naming system for chemicals that is an
+approved IUPAC naming convention.</p>
+
+
+<a name="4.5"></a><h3>4.5 SMILES Files</h3>
+
+<p>A <i>SMILES file</i> consists of zero or more SMILES strings, one per line, optionally followed
+by at least one whitespace character (space or tab), and other data.  There can be no leading
+whitespace before the SMILES string on a line.  The optional whitespace character and data that
+follows it are not part of the SMILES specification, and interpretation of this data is up to
+applications that use the SMILES file.  Each line of the file is terminated by either a singe LF
+character, or by a CR/LF pair of characters (commonly called the "Unix" and "Windows" line
+terminators, respectively).  A SMILES parser must accept either line terminator.  A blank line in
+the SMILES file, or a line that begins with a whitespace character, should be completely ignored by
+a SMILES parser.</p>
+
+
+<table width="100%" cellspacing="0">
+  <tr>
+    <td class="footer" align="left"   width="33%"><a href="open-smiles-3-input.html">&lt;&lt;&nbsp;Previous: SMILES Input</a></td>
+    <td class="footer" align="center" width="33%"><a href="open-smiles.html">Up: Table of Contents</a></td>
+    <td class="footer" align="right"  width="33%"><a href="open-smiles-5-nonstandard.html">Next: Nonstandard SMILES&nbsp;&gt;&gt;</a></td>
+  </tr>
+</table>
+
+
+<p class="copyright">Copyright &copy; 2007, Craig A. James<br>Content is available under <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a></p>
+
+</body>
+</html>
