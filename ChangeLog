@@ -1,3 +1,44 @@
+2012-09-29  Tim Vandermeersch <tim.vandermeersch@gmail.com>
+
+	* Grammar: Add '|' between SPACE and TAB
+
+	* Grammar: correction: Change TB30 to TB20
+
+	* Grammar: correction: Swap clockwise and anti-clockwise
+
+2007-12-02  Craig A. James <craig_james@emolecules.com>
+
+	* Greatly expanded definition of aromaticity per BlueObelisk
+	  mailing list discussions.
+
+2007-11-14  Craig A. James <craig_james@emolecules.com>
+
+	* Fixed incorrect cis/trans example in 3.9.3.  C(\F)=C\F changed
+	  to C(\F)=C/F.  Found by Peter Ertl.
+	
+2007-11-21  Craig A. James <craig_james@emolecules.com>
+
+	* Appendix 7.3: Corrected URL for Marvin Toolkit (correction from
+	  Alex Allerdyce).
+	
+2007-11-13  Craig A. James <craig_james@emolecules.com>
+
+	* Many more changes, too many to enumerate.  Completed work on the
+	  first major revision.  Most important change: aromticity
+	  defined.
+	
+2007-11-13  Craig A. James <craig_james@emolecules.com>
+
+	* Fixed error, SMILES for ortho-substituted phenol was wrong.
+	
+	* Added GNU license notice to make_toc.pl, changed copyright
+	  notice.
+
+	* Added LICENSE.txt, with the contents of the GFDL.
+	
+	* Fixed error in 4.3.4, "Only use dot bonds ...", ring digits
+	  shouldn't have been mentioned.
+
 2007-10-18  Craig A. James <craig_james@emolecules.com>
 	
 	* Moved CSS styles to a separate file.
@@ -27,37 +68,3 @@
 	* Created make_toc.pl, a perl script to regenerate the table of
 	  contents by scanning the HTML files.  Added
 	  open-smiles-toc-template.html, which is used by the perl script.
-
-2007-11-13  Craig A. James <craig_james@emolecules.com>
-
-	* Many more changes, too many to enumerate.  Completed work on the
-	  first major revision.  Most important change: aromticity
-	  defined.
-	
-2007-11-13  Craig A. James <craig_james@emolecules.com>
-
-	* Fixed error, SMILES for ortho-substituted phenol was wrong.
-	
-	* Added GNU license notice to make_toc.pl, changed copyright
-	  notice.
-
-	* Added LICENSE.txt, with the contents of the GFDL.
-	
-	* Fixed error in 4.3.4, "Only use dot bonds ...", ring digits
-	  shouldn't have been mentioned.
-	
-2007-11-14  Craig A. James <craig_james@emolecules.com>
-
-	* Fixed incorrect cis/trans example in 3.9.3.  C(\F)=C\F changed
-	  to C(\F)=C/F.  Found by Peter Ertl.
-	
-2007-11-21  Craig A. James <craig_james@emolecules.com>
-
-	* Appendix 7.3: Corrected URL for Marvin Toolkit (correction from
-	  Alex Allerdyce).
-	
-2007-12-02  Craig A. James <craig_james@emolecules.com>
-
-	* Greatly expanded definition of aromaticity per BlueObelisk
-	  mailing list discussions.
-	

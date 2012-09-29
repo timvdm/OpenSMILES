@@ -915,8 +915,8 @@ configurations:
 | `OH`   | Octahedral
 |==============================
 
-The shorthand notations `'@'` and `'@@'` correspond to clockwise and
-anti-clockwise tetrahedral chirality, and are the same a `'@TH1'` and
+The shorthand notations `'@'` and `'@@'` correspond to anti-clockwise and
+clockwise tetrahedral chirality, and are the same a `'@TH1'` and
 `'@TH2'`, respectively.  Likewise, in an allenal configuration, the shorthand
 notations `'@'` and `'@@'` correspond to `'@AL1'` and `'@AL2'`, respectively.
 
