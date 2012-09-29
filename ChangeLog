@@ -1,5 +1,9 @@
 2012-09-29  Tim Vandermeersch <tim.vandermeersch@gmail.com>
 
+        * Grammar: Support for [b] (Andrew Dalke)
+
+2012-09-29  Tim Vandermeersch <tim.vandermeersch@gmail.com>
+
 	* Grammar: Allow empty SMILES (Andrew Dalke,
           see discussion_summary.txt for details)
 
