@@ -1,5 +1,10 @@
 2012-09-29  Tim Vandermeersch <tim.vandermeersch@gmail.com>
 
+        * Add support for elements 112 (Cn), 114 (Fl) and 116 (Lv). (Andrew
+          Dalke, see discussion_summary.txt for deatils)
+
+2012-09-29  Tim Vandermeersch <tim.vandermeersch@gmail.com>
+
         * Grammar: Support for [b] (Andrew Dalke)
 
 2012-09-29  Tim Vandermeersch <tim.vandermeersch@gmail.com>
