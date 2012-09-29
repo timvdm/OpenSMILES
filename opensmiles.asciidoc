@@ -149,7 +149,7 @@ Grammar
 |                            _chain_ ::= _branched_atom_ \| _chain_ _branched_atom_ \| _chain_ _bond_ _branched_atom_ \| _chain_ _dot_ _branched_atom_
 |                            _dot_ ::= `'.'`
 2+| **SMILES STRINGS**
-.2+|                       | _smiles_ ::= _chain_ _terminator_
+.2+|                       | _smiles_ ::= _terminator_ | _chain_ _terminator_
 |                            _terminator_ ::= _SPACE_ \| _TAB_ \| _LINEFEED_ \| _CARRIAGE_RETURN_ \| _END_OF_STRING_
 |============================
 
