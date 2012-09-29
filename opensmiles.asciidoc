@@ -134,7 +134,7 @@ Grammar
 |                            _element_symbols_ ::= `'H'` \| `'He'` \| `'Li'` \| `'Be'` \| `'B'` \| `'C'` \| `'N'` \| `'O'` \| `'F'` \| `'Ne'` \| `'Na'` \| `'Mg'` \| `'Al'` \| `'Si'` \| `'P'` \| `'S'` \| `'Cl'` \| `'Ar'` \| `'K'` \| `'Ca'` \| `'Sc'` \| `'Ti'` \| `'V'` \| `'Cr'` \| `'Mn'` \| `'Fe'` \| `'Co'` \| `'Ni'` \| `'Cu'` \| `'Zn'` \| `'Ga'` \| `'Ge'` \| `'As'` \| `'Se'` \| `'Br'` \| `'Kr'` \| `'Rb'` \| `'Sr'` \| `'Y'` \| `'Zr'` \| `'Nb'` \| `'Mo'` \| `'Tc'` \| `'Ru'` \| `'Rh'` \| `'Pd'` \| `'Ag'` \| `'Cd'` \| `'In'` \| `'Sn'` \| `'Sb'` \| `'Te'` \| `'I'` \| `'Xe'` \| `'Cs'` \| `'Ba'` \| `'Hf'` \| `'Ta'` \| `'W'` \| `'Re'` \| `'Os'` \| `'Ir'` \| `'Pt'` \| `'Au'` \| `'Hg'` \| `'Tl'` \| `'Pb'` \| `'Bi'` \| `'Po'` \| `'At'` \| `'Rn'` \| `'Fr'` \| `'Ra'` \| `'Rf'` \| `'Db'` \| `'Sg'` \| `'Bh'` \| `'Hs'` \| `'Mt'` \| `'Ds'` \| `'Rg'` \| `'Cn'` \| `'Fl'` \| `'Lv'` \| `'La'` \| `'Ce'` \| `'Pr'` \| `'Nd'` \| `'Pm'` \| `'Sm'` \| `'Eu'` \| `'Gd'` \| `'Tb'` \| `'Dy'` \| `'Ho'` \| `'Er'` \| `'Tm'` \| `'Yb'` \| `'Lu'` \| `'Ac'` \| `'Th'` \| `'Pa'` \| `'U'` \| `'Np'` \| `'Pu'` \| `'Am'` \| `'Cm'` \| `'Bk'` \| `'Cf'` \| `'Es'` \| `'Fm'` \| `'Md'` \| `'No'` \| `'Lr'`
 |                            _aromatic_symbols_ ::= `'b'` \| `'c'` \| `'n'` \| `'o'` \| `'p'` \| `'s'` \| `'se'` \| `'as'`
 2+| **CHIRALITY**
-| <<chirality,Chirality>>  | _chiral_ ::= `'@'` \| `'@@'` \| `'\@TH1'` \| `'\@TH2'` \| `'\@AL1'` \| `'\@AL2'` \| `'\@SP1'` \| `'\@SP2'` \| `'\@SP3'` \| `'\@TB1'` \| `'\@TB2'` \| `'\@TB3'` \| ... \| `'\@TB20'` \| `'\@OH1'` \| `'\@OH2'` \| `'\@OH3'` \| ... \| `'\@OH30'`
+| <<chirality,Chirality>>  | _chiral_ ::= `'@'` \| `'@@'` \| `'@TH1'` \| `'@TH2'` \| `'@AL1'` \| `'@AL2'` \| `'@SP1'` \| `'@SP2'` \| `'@SP3'` \| `'@TB1'` \| `'@TB2'` \| `'@TB3'` \| ... \| `'@TB20'` \| `'@OH1'` \| `'@OH2'` \| `'@OH3'` \| ... \| `'@OH30'` \| `'@TB'` _DIGIT_ _DIGIT_ \| `'@OH'` _DIGIT_ _DIGIT_
 2+| **HYDROGENS**
 | <<hydrogens,Hydrogens>>  | _hcount_ ::= `'H'` \| `'H'` _DIGIT_
 2+| **CHARGES**
@@ -552,7 +552,7 @@ A lowercase aromatic symbol is defined as an atom in the sp^2^ configuration in 
 aromatic or anti-aromatic ring system.  For example:
 
 [options="header",frame="topbot",grid="rows",width="90%"]
-|============================================================================================
+|=========================================================================================
 | Depiction                                 | SMILES                      | Name
 .2+| image:depict/benzene.gif[]             | `c1ccccc1`               .2+| benzene
 |                                             `C1=CC=CC=C1`
@@ -562,7 +562,7 @@ aromatic or anti-aromatic ring system.  For example:
 |                                             `C1O=CC=C1`
 .2+| image:depict/cyclobutadiene.gif[]      | `c1ccc1`                 .2+| cyclobutadiene
 |                                             `C1=CC=C1`
-|============================================================================================
+|=========================================================================================
 
 The Kekule form is always acceptable for SMILES input.  For output, the aromatic form
 (using lowercase letters) <<outaromaticity,is preferred>>.  The lowercase
