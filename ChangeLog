@@ -1,5 +1,10 @@
 2012-09-29  Tim Vandermeersch <tim.vandermeersch@gmail.com>
 
+	* Chrages: change minimum supported range: -15 to +15 (Andrew Dalke,
+          see discussion_summary.txt for details)
+
+2012-09-29  Tim Vandermeersch <tim.vandermeersch@gmail.com>
+
 	* Grammar: Add '|' between SPACE and TAB
 
 	* Grammar: correction: Change TB30 to TB20

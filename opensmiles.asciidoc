@@ -3,17 +3,15 @@ OpenSMILES specification
 Craig A. James
 v1.0,2012-29-09: Current specification
 
+http://www.opensmiles.org[www.opensmiles.org]
+
+Copyright &copy; 2007, Craig A. James
+
+Content is available under http://www.gnu.org/copyleft/fdl.html[GNU Free Documentation License 1.2]
+
 Contributors: Richard Apodaca, Noel O'Boyle, Andrew Dalke, John van Drie, Peter Ertl,
 Geoff Hutchison, Craig A. James, Greg Landrum, Chris Morley, Egon Willighagen, Hans De Winter,
 Tim Vandermeersch
-
-.Revision History
-[options="header",frame="topbot",grid="rows",cols="1,1,4,2"]
-|======================
-| Revision | Date | Description | Name
-| 1.0 | 2007-11-13 | Draft | Craig A. James
-| 1.0 | 2012-09-29 | Reformatting | Tim Vandermeersch
-|======================
 
 Introduction
 ------------
@@ -140,7 +138,7 @@ Grammar
 2+| **HYDROGENS**
 | <<hydrogens,Hydrogens>>  | _hcount_ ::= `'H'` \| `'H'` _DIGIT_
 2+| **CHARGES**
-| <<charge,Charge>>        | _charge_ ::= `'-'` \| `'-'` _DIGIT_ \| `'+'` \| `'+'` _DIGIT_ \| `'--'` *deprecated*  \| `'++'` *deprecated*
+| <<charge,Charge>>        | _charge_ ::= `'-'` \| `'-'` _DIGIT_? _DIGIT_ \| `'+'` \| `'+'` _DIGIT_? _DIGIT_ \| `'--'` *deprecated*  \| `'++'` *deprecated*
 2+| **ATOM CLASS**
 | <<atomclass,Atom Class>> | _class_ ::= `':'` _NUMBER_
 2+| **BONDS AND CHAINS**
@@ -242,7 +240,7 @@ Examples:
 | `[Cu++]`  | copper anion          | `+2` charge, `H0` implied
 |==============================================================
 
-_Question: do we need to allow two-digit charges, like `10`?_
+An implementation is required to accept charges in the range `-15` to `+15`.
 
 Isotopes
 ^^^^^^^^
@@ -1433,11 +1431,15 @@ Molecule Editors that can produce SMILES
 * ACD/ChemSketch
 * http://www.chemaxon.com/product/msketch.html[MarvinSketch]
 
+Revision History
+----------------
 
+[options="header",frame="topbot",grid="rows",cols="1,1,4,2"]
+|======================
+| Revision | Date | Description | Name
+| 1.0 | 2007-11-13 | Draft | Craig A. James
+| 1.0 | 2012-09-29 | Reformatting | Tim Vandermeersch
+|======================
 
-http://www.opensmiles.org[www.opensmiles.org]
-
-Copyright &copy; 2007, Craig A. James
-
-Content is available under http://www.gnu.org/copyleft/fdl.html[GNU Free Documentation License 1.2]
-
+* link:https://github.com/timvdm/OpenSMILES/blob/master/ChangeLog[ChangeLog]
+* link:https://github.com/timvdm/OpenSMILES/blob/master/discussion_summary.txt[Discussion Summary]
