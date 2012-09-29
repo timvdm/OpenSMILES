@@ -1,5 +1,127 @@
 SUMMARY OF MAILING LIST KEY POINTS
 
+TODO:
+Tim bullet 4
+
+--------------------------------------------------------------------------------
+
+Tim Vandermeersch:
+
+Two comments about the specification:
+
+* section 2.2 Grammar: definition chiral for trigonal bipyrimidal has
+  too many class (currently TB1, ..., TB30, should be TB1, ..., TB20).
+
+* Grammar: '|' missing between SPACE and TAB
+
+* section 3.9.6: Second paragraph: "The shorthand notations '@' and
+  '@@' correspond to clockwise and anti-clockwise tetrahedral chirality,
+  and are the same a '@TH1' and '@TH2', respectively. Likewise, in an
+  allenal configuration, the shorthand notations '@' and '@@' correspond
+  to '@AL1' and '@AL2', respectively." The words "clockwise" and
+  "anti-clockwise" should be exchanged for clarity I think.
+
+* OpenSMILES Section 3.9.2 (Tetrahedral Centers):
+
+  "A chiral center can be written starting from any of its neighbor
+  atoms, and the choice of whether to list the remaining neighbor in
+  clockwise or anticlockwise order is also arbitrary."
+
+  I think the first part should be changed. A chiral atom may also be
+  specified as the first atom. This is even required when writing a
+  canonical smiles where the canonicalization algorithm places a chiral
+  atom to be the one with the lowest rank.
+
+  The SMILES [C@H]1=[C@@H][C@@H]=[C@@H][C@@H]=[C@@H][C@@H]=[C@@H]1 in
+  section 6.3 also allows this. Most toolkits support this. See also:
+  http://baoilleach.blogspot.be/2009/03/clockwisdom-of-smiles-part-ii.html
+
+  Also, I think the phrasing of "The the remaining three neighbor atoms
+  are written by listing them in anticlockwise order" could be clarified
+  with:
+
+  "... by listing the bonds connecting them to the chiral center in
+  anticlockwise order of in the SMILES string ..."
+
+  It's actually the bond's order in the SMILES string that should be
+  considered. These are different than the atom order when one or more
+  ring bonds originate from the chiral atom. (see link to Noel's blog)
+
+  Noel O'Boyle:
+
+    I noted some of these in the past too, but didn't have the chance to
+    change them.
+
+--------------------------------------------------------------------------------
+
+Andrew Dalke:
+
+* The OpenSMILES spec does not place bound on the acceptable range of charges.
+
+  My view is that we say OpenSMILES parsers must support charges from -15 to +15
+  (that's 5 bits). Support for a wider range is implementation specific.
+
+  This would go into the "Programming Practices" section.
+
+  There was general agreement that this is acceptable. See the thread
+  "spec clarification on charge limits" for a full discussion, including
+  my observation that existing PubChem records have charges from -4 to +9.
+
+* support the empty string as valid SMILES for an empty molecule
+
+* support for [b] (omission in the spec)
+
+* only support for @TB1 ... @TB20 (.. @TB30 is an error in the spec)
+
+* support for '0' as the first digit of two digit chiral indicators,
+  that is, I support both @OH01 and @OH1.
+
+* The OpenSMILES list of element symbols ends with:
+
+  Hs'|'Mt'|'Ds'|'Rg'
+
+  There have been three IUPAC elements since then: copernicium (Cn),
+  flerovium (Fl) and livermorium (Lv).
+
+  These likely should be added to OpenSMILES. However, this is a nearly
+  theoretical point as only a few score atoms of each have been detected
+  and it won't be in any cheminformatics databases.
+
+  There is a slight problem of adding them. Currently [Cn] means to
+  match an atom which is an aliphatic carbon and is an aromatic nitrogen.
+  Which of course means it matches nothing. This is a round-about way
+  to write "don't match".
+
+  With the above change, Cn would match copernicium atoms, so it's not
+  completely backwards compatible.
+
+  We could also say that elements after Rg must be written in '#' form,
+  as '[#112]' for Cn.
+
+  Or we could do nothing. Which annoys the OCD part of me. ;) I would
+  prefer adding Cn, Dl, and Lv as possible symbols.
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+--------------------------------------------------------------------------------
+
+    OLDER ARCHIVE
+
+    Updated through 10/05/2007 10:40 PM.
+
 --------------------------------------------------------------------------------
 
 Greg Landrum: I would like to see something ... that flags the format type
@@ -361,4 +483,3 @@ I think this means, "what does the ring digit represent?"
 
 --------------------------------------------------------------------------------
 
-Updated through 10/05/2007 10:40 PM.
