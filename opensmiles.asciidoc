@@ -236,7 +236,7 @@ Examples:
 | `[Cl-]`   | chloride anion        | `-1` charge, `H0` implied
 | `[OH1-]`  | hydroxyl anion        | `-1` charge, `H1`
 | `[OH-1]`  | hydroxyl anion        | `-1` charge, `H1`
-| `[Cu+2]`  | coppor cation         | `+2` charge, `H0` implied
+| `[Cu+2]`  | copper cation         | `+2` charge, `H0` implied
 | `[Cu++]`  | copper anion          | `+2` charge, `H0` implied
 |==============================================================
 
@@ -258,7 +258,7 @@ preceeding the atomic symbol; for example:
 
 An isotope is interpreted as a number, so that `[2H]`,
 `[02H]` and `[002H]` all mean deuterium.  If the isotope field
-is not specified then the atom is assumed to have the naturally-occuring isotopic ratios.  The
+is not specified then the atom is assumed to have the naturally-occurring isotopic ratios.  The
 isotope value 0 also indicates an isotope of zero, that is
 `[0S]` is *not* the same as `[S]`.
 
@@ -445,8 +445,8 @@ depth. For example, the following SMILES, though peculiar, is legal:
 Rings
 ~~~~~
 
-In a SMILES string such as "C1CCCCC1", the first occurance of a ring-closure
-number (an "rnum") creates an "open bond" to the atom that preceeds the
+In a SMILES string such as "C1CCCCC1", the first occurrence of a ring-closure
+number (an "rnum") creates an "open bond" to the atom that precedes the
 ring-closure number (the "rnum").  When that same rnum is encountered
 later in the string, a bond is made between the two atoms, which typically
 forms a cyclic structure.
@@ -474,7 +474,7 @@ both bonded atoms, the two bond symbols must be the same.
 Ring closures must be matched pairs in a SMILES string, for example, `C1CCC`
 is not a valid SMILES.
 
-It is permissable to re-use ring-closure numbers.  Once a particular number
+It is permissible to re-use ring-closure numbers.  Once a particular number
 has been encountered twice, that number is available again for subsequent ring closures.
 
 [options="header",frame="topbot",grid="rows",width="90%",cols="2,2,1,2"]
@@ -488,7 +488,7 @@ has been encountered twice, that number is available again for subsequent ring c
 Note that the ring number zero is valid, for example cyclohexane can be
 written `C0CCCCC0`.
 
-Two-digit ring numbers are permitted, but must be preceeded by the percent
+Two-digit ring numbers are permitted, but must be preceded by the percent
 `'%'` symbol, such as `C%25CCCCC%25` for cyclohexane. Three-digit numbers and
 larger are never permitted.  However, note that three digits are not invalid; for
 example, `C%123` is the same as `C3%12`, that is, an atom with two rnum
@@ -559,7 +559,7 @@ aromatic or anti-aromatic ring system.  For example:
 .2+| image:depict/indane.gif[]              | `c1ccc2CCCc2c1`          .2+| indane
 |                                             `C1=CC=CC(CCC2)=C12`
 .2+| image:depict/furan.gif[]               | `c1occc1`                .2+| furan
-|                                             `C1O=CC=C1`
+|                                             `C1OC=CC=1`
 .2+| image:depict/cyclobutadiene.gif[]      | `c1ccc1`                 .2+| cyclobutadiene
 |                                             `C1=CC=C1`
 |=========================================================================================
@@ -582,7 +582,7 @@ participate in aromatic systems.*
 A single, isolated ring that meets the following criteria is aromatic:
 
 * All atoms must be sp^2^ hybridized.
-* The number of availabile "shared" http://en.wikipedia.org/wiki/Pi_electron[&#960; electrons]
+* The number of available "shared" http://en.wikipedia.org/wiki/Pi_electron[&#960; electrons]
   must equal 4N+2 where N = 1, 2 or 3 (http://en.wikipedia.org/wiki/H%C3%BCckel's_rule[Huckel's rule]).
 
 Each element that can participate in an aromatic ring is defined to have the following
@@ -623,9 +623,9 @@ assigned without violating the valence rules, consistent with the sp^2^ markings
 specified or implied hydrogens, external bonds, and charges on the atoms.
 
 The aromatic-bond symbol `':'` can be used between aromatic atoms, but it is never necessary; a
-bond between two aromatic atoms is assumed to be aromatic unless it is explicitely represented as a
+bond between two aromatic atoms is assumed to be aromatic unless it is explicitly represented as a
 single bond `'-'`.  However, a single bond (nonaromatic bond) between two aromatic atoms *must*
-be explicitely represented.  For example:
+be explicitly represented.  For example:
 
 [options="header",frame="topbot",grid="rows",width="90%"]
 |================================================================
@@ -655,7 +655,7 @@ All three forms are equivalent.  However, some situations require that one form 
 
 * Implicit hydrogen count may only be used for elements of the <<orgsbst,organic elements>> subset.
 * Any atom that is specified with square brackets *must* have its attached hydrogens 
-  explicitely represented, either as a hydrogen count or as normal atoms.
+  explicitly represented, either as a hydrogen count or as normal atoms.
 
 A hydrogen that meets one of the following criteria must be represented as an explicit atom:
 
@@ -678,7 +678,6 @@ hydrogens.  For example:
 
 Disconnected Structures
 ~~~~~~~~~~~~~~~~~~~~~~~
-
 
 The dot `'.'` symbol (also called a "dot bond") is legal most places where
 a bond symbol would occur, but indicates that the atoms are *not*
@@ -718,7 +717,7 @@ Other Uses of Ring Numbers and Dot Bond
 
 A ring-number specifications ("rnum") is most commonly used to specify a ring-closure bond, but
 when used with the `'.'` dot-bond symbol, it can also specify a non-ring bond.  Two rnums in a SMILES
-mean that the two atoms that preceed the rnums are bonded.  A dot-bond `'.'` means that the atoms to
+mean that the two atoms that precede the rnums are bonded.  A dot-bond `'.'` means that the atoms to
 which it is adjacent in the SMILES string are *not* bonded to each other.  By combining these
 two constructs, one can "piece together" fragments of SMILES into a whole molecule.  The following
 SMILES illustrate this:
@@ -748,7 +747,7 @@ and can specify the chiral configuration of specific atoms in a molecule.
 SMILES strings do *not* represent all types of stereochemistry.  Examples of
 stereochemistry that cannot be encoded into a SMILES include:
 
-* Gross conformational left or right handedness such as helicenes
+* Gross conformational left or right handedness such as helices
 * Mechanical interferences, such as rotatable bonds that are
   constrained by mechanical interferences
 * Gross conformational stereochemistry such as the shape of a protein after folding
@@ -769,27 +768,38 @@ the SMILES string itself is used as the basis for the chirality marking.
 |=========================================================================
 
 For the structure above, starting with the nitrogen atom, one "looks" toward the chiral
-center. The the remaining three neighbor atoms are written by listing them in anticlockwise order using the `'@'`
+center. The remaining three neighbor atoms are written by listing them in anticlockwise order using the `'@'`
 chiral property on the atom, or in clockwise order using the `'@@'` chiral property, as illustrated
 above.  The `'@'` symbol is a "visual mnemonic" in that the spiral around the character goes in the
 anticlockwise direction, and means "anticlockwise" in the SMILES string (thus, `'@@'` can be thought of
 as anti-anti-clockwise).
 
-A chiral center can be written starting from any of its neighbor atoms, and the choice of
-whether to list the remaining neighbor in clockwise or anticlockwise order is also arbitrary.  The
+A chiral center can be written starting anywhere in the SMILES string, and the choice of
+whether to list the remaining neighbor in clockwise or anticlockwise order is also arbitrary. The
 following SMILES are all equivalent and all specify the exact same chiral center illustrated above:
 
 [options="header",frame="topbot",grid="rows",width="50%"]
-|======================================
+|========================================
 | Equivalent SMILES  | 
 | `N[C@](Br)(O)C`    | `Br[C@](O)(N)C`
 | `O[C@](Br)(C)N`    | `Br[C@](C)(O)N`
 | `C[C@](Br)(N)O`    | `Br[C@](N)(C)O`
 | `C[C@@](Br)(O)N`   | `Br[C@@](N)(O)C`
-|======================================
+| `[C@@](C)(Br)(O)N` | `[C@@](Br)(N)(O)C`
+|========================================
+
+One exception to the atom order is when these atoms are bonded to the chiral center via a
+ring bond. In these cases, it is to order of the bonds to these atoms that should be considered.
+The two SMILES below are equivalent:
+
+[options="header",frame="topbot",grid="rows",width="50%"]
+|=========================
+| Equivalent SMILES      |
+| `FC1C[C@](Br)(Cl)CCC1` | `[C@]1(Br)(Cl)CCCC(F)C1`
+|=========================
 
 If one of the neighbor atoms is a hydrogen and is represented as an atomic property of the
-chiral center (rather than explicitely as `[H]`), then it is considered to be the first atom in the
+chiral center (rather than explicitly as `[H]`), then it is considered to be the first atom in the
 clockwise or anticlockwise accounting.  For example, if we replaced the bromine in the illustration
 above with a hydrogen atom, its SMILES would be:
 
@@ -892,7 +902,7 @@ string do not.  For example:
 [options="header",frame="topbot",grid="rows",width="60%",cols="2,1"]
 |===========================================================
 | SMILES                              | Comment
-| `F/C=C/C/C=C\\C`                    | completely specified
+| `F/C=C/C/C=C\C`                     | completely specified
 | `F/C=C/CC=CC`                       | partially specified
 | `N1[C@H](Cl)[C@@H](Cl)C(Cl)CC1`     | partially specified
 |===========================================================
@@ -956,11 +966,11 @@ it is preferable to place no limits on the number of rings a molecule can contai
 
 Branches (parentheses) can be nested to an arbitrary depth.  Some SMILES strings in standard
 databases contain over 30 levels of branches, and much deeper nesting is possible.  A general
-purpose parser must handle at least 100 levels; it is preferrable to place no limits on nesting
+purpose parser must handle at least 100 levels; it is preferable to place no limits on nesting
 depth for parentheses.
 
 There is no formal limit on the number of bonds an atom can have.  SMILES parsers should allow at
-least ten bonds to each atom; it is preferrable to place no limits on the number of bonds to each
+least ten bonds to each atom; it is preferable to place no limits on the number of bonds to each
 atom.
 
 There is no limit to the number of "dot-disconnected" fragments in a SMILES.  A SMILES of 100,000
@@ -1175,7 +1185,7 @@ illegal according to this formal OpenSMILES specification, it is often useful to
 parse them, in order to make use of the information that accompanies these
 SMILES.
 
-hese "relaxed" SMILES rules should only be allowed when the user
+These "relaxed" SMILES rules should only be allowed when the user
 (presumably after thinking about the consequences) requests it.  A SMILES
 parser that allows any or all of these "relaxed" rules _must
 not do it by default_.  The user must specifically request these relaxed
@@ -1313,7 +1323,7 @@ number of adjacent lowercase symbols is a delocalised conjugated radical. So `Cc
 or `CC=C[CH]C=C` or `C[CH]C=CC=C` Lowercase `'c'` or `'n'` can be used in a ring: `C1cCCCC1` is the cyclohexyl
 radical.
 
-The use of the non-aromatic lowercase symbol is a shorted form with improved intelligibilty that
+The use of the non-aromatic lowercase symbol is a shorted form with improved intelligibility that
 allows the use of implicit hydrogen in radicals. However it is intended only for simple unambiguous
 molecules and is not reliable when combined with aromatic atoms.
 
