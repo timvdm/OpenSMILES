@@ -73,7 +73,7 @@ based: the valence model of chemistry, which uses a mathematician's
 http://en.wikipedia.org/wiki/Graph_%28mathematics%29[graph] to
 represent a molecule.  In a chemical graph, the *nodes*
 are atoms, and the *edges* are semi-rigid bonds that can be single, double, or
-triple according to the rules of 
+triple according to the rules of
 http://en.wikipedia.org/wiki/Valence_bond_theory[valence bond theory].
 
 This simple mental model has little resemblance to the underlying quantum-mechanical reality of
@@ -484,7 +484,7 @@ has been encountered twice, that number is available again for subsequent ring c
 |                                      `C1CCCCC1C2CCCCC2`  | dicyclohexyl  |
 |=================================================================================================
 
-      
+
 Note that the ring number zero is valid, for example cyclohexane can be
 written `C0CCCCC0`.
 
@@ -654,7 +654,7 @@ Hydrogens in a SMILES can be represented in three different ways:
 All three forms are equivalent.  However, some situations require that one form must be used:
 
 * Implicit hydrogen count may only be used for elements of the <<orgsbst,organic elements>> subset.
-* Any atom that is specified with square brackets *must* have its attached hydrogens 
+* Any atom that is specified with square brackets *must* have its attached hydrogens
   explicitly represented, either as a hydrogen count or as normal atoms.
 
 A hydrogen that meets one of the following criteria must be represented as an explicit atom:
@@ -780,7 +780,7 @@ following SMILES are all equivalent and all specify the exact same chiral center
 
 [options="header",frame="topbot",grid="rows",width="50%"]
 |========================================
-| Equivalent SMILES  | 
+| Equivalent SMILES  |
 | `N[C@](Br)(O)C`    | `Br[C@](O)(N)C`
 | `O[C@](Br)(C)N`    | `Br[C@](C)(O)N`
 | `C[C@](Br)(N)O`    | `Br[C@](N)(C)O`
@@ -901,12 +901,12 @@ belongs based on the SMILES alone, the SP class is not the default class for
 tetravalent stereocenters. Therefore are the shorthand notations (`@`, `@@`) not
 equivalent to `@SP1` and `@SP2`. That is, the full specification must be there
 (`@SP` followed by 1, 2 or 3). The square planar also differs from the other
-chiral primitives in that it does not use the notion of (anti-)clockwise. 
-Instead, each primitive represents a shape that is formed by drawing a line 
+chiral primitives in that it does not use the notion of (anti-)clockwise.
+Instead, each primitive represents a shape that is formed by drawing a line
 starting from the atom that is first in the SMILES pattern to the next until
 the end atom is reached. This may result in 3 possible shaped which are
 referred to by a character with identical shape: `'U'` for `@SP1`, `'4'` for `@SP2` and
-`'Z'` for `@SP3`. The graphical from of these shapes is illustrated in the image 
+`'Z'` for `@SP3`. The graphical from of these shapes is illustrated in the image
 below.
 
 image:images/SPshapes.png[]
@@ -1194,7 +1194,7 @@ The simplest "normalization" is no normalization.  SMILES can be written in any 
 as long as they meet the rules for SMILES.  Some examples of systems that might produce
 un-normalized SMILES are:
 
-* A system that enumerates combinatorial libraries using the rnum/dot-bond technique 
+* A system that enumerates combinatorial libraries using the rnum/dot-bond technique
   <<inatoms,discussed above>>.  SMILES produced by such a system will typically be a series
   of partial SMILES that are concatenated with dots into a complete molecule.
 * Simple pass-through "filters" that don't have a full SMILES writer, but merely copy the input
@@ -1211,7 +1211,7 @@ The "standard form" of a SMILES is designed to produce a compact SMILES,
 and one that is human readable (for smaller molecules).
 
 In addition, a normalized SMILES has the important property that it
-matches itself as a 
+matches itself as a
 http://www.daylight.com/dayhtml/doc/theory/theory.smarts.html[SMARTS]
 string.  This is a very important feature of normalized SMILES in
 cheminformatics systems.
@@ -1410,7 +1410,7 @@ Polymers and Crystals
 
 Daylight (Weininger) proposed, but never implemented, an extension for crystals and
 polymers.  Daylight also used the ampersand `'&'` character, (which may
-conflict with the R-group proposal, above), but with the added rule that 
+conflict with the R-group proposal, above), but with the added rule that
 if a number appears more than once, it creates a repeating unit.
 
 [options="header",frame="topbot",grid="rows",width="40%"]
@@ -1565,27 +1565,27 @@ Toolkits
 http://openbabel.sourceforge.net/wiki/Main_Page[http://openbabel.sourceforge.net/wiki/Main_Page]
 
 *The Chemistry Development Kit*
- 
+
 http://cdk.sourceforge.net/[http://cdk.sourceforge.net/]
 
 *Marvin*
- 
+
 http://www.chemaxon.com/marvin/doc/user/smiles-doc.html[http://www.chemaxon.com/marvin/doc/user/smiles-doc.html]
 
 *RDKit*
- 
+
 http://www.rdkit.org/[http://www.rdkit.org/]
 
 *Frowns*
- 
+
 http://frowns.sourceforge.net/frowns.html[http://frowns.sourceforge.net/frowns.html]
 
 *PerlMol.org*
- 
+
 http://search.cpan.org/\~itub/Chemistry-File-SMILES-0.45/SMILES.pm[http://search.cpan.org/\~itub/Chemistry-File-SMILES-0.45/SMILES.pm]
 
 *InChI*
-  
+
 http://www.iupac.org/inchi/[http://www.iupac.org/inchi/]
 
 http://inchi.info/[http://inchi.info/]
