@@ -892,6 +892,187 @@ To determine the correct clockwise or anticlockwise specification, the allene is
 "collapsed" into a single tetrahedral chiral center, and the resulting chirality is marked as a
 property of the center atom of the extended allene system.
 
+Square Panar Centers
+^^^^^^^^^^^^^^^^^^^^
+
+There are three tags to represent square planar stereochemistry: `@SP1`, `@SP2`
+and `@SP3`. Since there is no way to determine to what chirality class an atom
+belongs based on the SMILES alone, the SP class is not the default class for
+tetravalent stereocenters. Therefore are the shorthand notations (`@`, `@@`) not
+equivalent to `@SP1` and `@SP2`. That is, the full specification must be there
+(`@SP` followed by 1, 2 or 3). The square planar also differs from the other
+chiral primitives in that it does not use the notion of (anti-)clockwise. 
+Instead, each primitive represents a shape that is formed by drawing a line 
+starting from the atom that is first in the SMILES pattern to the next until
+the end atom is reached. This may result in 3 possible shaped which are
+referred to by a character with identical shape: `'U'` for `@SP1`, `'4'` for `@SP2` and
+`'Z'` for `@SP3`. The graphical from of these shapes is illustrated in the image 
+below.
+
+image:images/SPshapes.png[]
+
+*Background:*
+
+_Also note that each shape starts and ends at specific positions. Both U and Z
+start from atoms that are successors or predecessors when arranging the atoms
+in the plane in anti-clockwise or clockwise order. The start and end atoms for
+the Z shape are never adjacent in such an ordering. For each shape there are
+4 possible ways to start (and end) drawing the line. Also, for all the drawn
+lines, the start and end point can be exchanged. Thus 3 shapes, 4 ways to
+start/end and 2 ways to order the atoms for a shape results in 3 * 4 * 2 or
+24 combinations. This is the same as the number of permutations that can be
+made with 4 numbers (i.e. P(n) = n!). This allows for canonical SMILES
+writers to use any ordering to output the atoms._
+
+Trigonal Bipyramidal Centers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The chiral atom's neighbors are labeled a, `b`, `c`, `d`, and `e` in the order that they
+are parsed. For example, for `S[As@@](F)(Cl)(Br)N` `S` corresponds to `a`, `F` to `b`, `Cl`
+to `c`, `Br` to `d` and `N` to `e`. This order is the unit permutation, represented as the
+ordered set `(a, b, c, d, e)`. In the simplest case `@TB1` viewing from a towards `e`,
+`(b, c, d)` are anti-clockwise (`@`). Likewise, `@TB2` is specified as viewing from `a`
+towards `e`, `(b, c, d)` are ordered clockwise (`@@`). The remaining TB's permute the
+axis as indicated in the table below. A final example, for `@TB6` the viewing axis is from
+`a` towards `c` and `(b, d, e)` are clockwise (`@@`).
+
+[options="header",frame="topbot",grid="rows",width="40%"]
+|=====================================
+2+| Viewing Axis   | TB Number | Order
+| From | Towards 2+|
+.2+| `a` .2+| `e`  | TB1       | @
+|                    TB2       | @@
+.2+| `a` .2+| `d`  | TB3       | @
+|                    TB4       | @@
+.2+| `a` .2+| `c`  | TB5       | @
+|                    TB6       | @@
+.2+| `a` .2+| `b`  | TB7       | @
+|                    TB8       | @@
+.2+| `b` .2+| `e`  | TB9       | @
+|                    TB11      | @@
+.2+| `b` .2+| `d`  | TB10      | @
+|                    TB12      | @@
+.2+| `b` .2+| `c`  | TB13      | @
+|                    TB14      | @@
+.2+| `c` .2+| `e`  | TB15      | @
+|                    TB20      | @@
+.2+| `c` .2+| `d`  | TB16      | @
+|                    TB19      | @@
+.2+| `d` .2+| `e`  | TB17      | @
+|                    TB18      | @@
+|=====================================
+
+The following SMILES are all equivalent:
+
+[options="header",frame="topbot",grid="rows",width="70%"]
+|===================================================
+| Equivalent SMILES        |
+| `S[As@TB1](F)(Cl)(Br)N`  | `S[As@TB2](Br)(Cl)(F)N`
+| `S[As@TB5](F)(N)(Cl)Br`  | `F[As@TB10](S)(Cl)(N)Br`
+| `F[As@TB15](Cl)(S)(Br)N` | `Br[As@TB20](Cl)(S)(F)N`
+|===================================================
+
+_A tool like http://www.daylight.com/daycgi_tutorials/depictmatch.cgi[Daylight's depict match] can help debugging_
+
+*Background:*
+
+_The trigonal Bipyramidal chirality is considerably more complex than any of the
+previous classes since the chiral atom has an extra neighbor. This increases the
+number of combinations to order the neighbors in a SMILES string from 24
+to 120. Since every order of the atoms should be representable by a SMILES
+string, the 20 TB primitives suffice for this. In the trigonal bipyramidal
+geometry, 3 atoms lie in a plane and the remaining 2 atoms are perpendicular
+to this plane and are on the opposite sides of the plane forming an axis. The
+anti-clockwise and clockwise refers to the order of the 3 plane atoms when
+viewing along the axis in the specified direction. Unlike tetrahedral geometry,
+reordering the 3 atoms does not require that the axis be changed. Given an order
+of the axis atoms the 3 plane atoms are ordered either anti-clockwise or
+clockwise. Although there are P(3) = 3! or 6 possible permutations of 3 numbers,
+exchanging a pair inverts the parity and the 6 permutations are therefore
+divided in two groups (@, @@) containing 3 permutations each. Because there are
+now two atoms that determine the viewing direction along the axis, these atoms
+too can be in any of the 5 positions in a permutation. Given the atoms
+as the set {a, b, c, d, e}, there are C(5, 2) = 20 possible combinations
+of 5 things taken 2 at a time. However, the use of the @ and @@ symbols halve
+this to 10. These 10 combinations are the ordered sets (a, e), (a, d) (a, c),
+(a, b), (b, e), (b, d), (b, c), (c, e), (c, d) and (d, e). Each of these pairs
+correspond to an TB primitive._
+
+Octahedral Centers
+^^^^^^^^^^^^^^^^^^
+
+For 6 atoms, the unit permutation is `(a, b, c ,d ,e ,f)`. `@OH1` means when viewing
+from `a` towards `f`, `(b, c, d, e)` are ordered anti-clockwise (`@`). `@OH2` uses the same
+axis but the 4 intermediate atoms are ordered clockwise. The interpretation of the 28
+remaining numbers is more complex though. The concept of shapes (see square planar
+stereochemistry) to describe the orientation of 4 atoms in a plane is reused. However,
+this time these shapes also have a clockwise or anti-clockwise winding. For the U shape,
+this is trivial since it means that the 4 atoms are listed clockwise or anti-clockwise.
+For the Z shape, the connection between the first two atoms determines the winding.
+Finally, for the 4 shape, the connection between the second and thirth atom determines
+the winding. The table below lists the shapes, axes and orders.
+
+[options="header",frame="topbot",grid="rows",width="40%"]
+|=====================================
+|Shape 2+| Viewing Axis   | OH Number | Order
+| | From | Towards 2+|
+.10+| `U` .2+| `a` .2+| `f` | OH1   | @
+|                             OH2   | @@
+.2+| `a` .2+| `e`           | OH3   | @
+|                             OH16  | @@
+.2+| `a` .2+| `d`           | OH6   | @
+|                             OH18  | @@
+.2+| `a` .2+| `c`           | OH19  | @
+|                             OH24  | @@
+.2+| `a` .2+| `b`           | OH25  | @
+|                             OH30  | @@
+.10+| `Z` .2+| `a` .2+| `f` | OH4   | @
+|                             OH14  | @@
+.2+| `a` .2+| `e`           | OH5   | @
+|                             OH15  | @@
+.2+| `a` .2+| `d`           | OH7   | @
+|                             OH17  | @@
+.2+| `a` .2+| `c`           | OH20  | @
+|                             OH23  | @@
+.2+| `a` .2+| `b`           | OH26  | @
+|                             OH29  | @@
+.10+| `4` .2+| `a` .2+| `f` | OH10  | @
+|                             OH8   | @@
+.2+| `a` .2+| `e`           | OH11  | @
+|                             OH9   | @@
+.2+| `a` .2+| `d`           | OH13  | @
+|                             OH12  | @@
+.2+| `a` .2+| `c`           | OH22  | @
+|                             OH21  | @@
+.2+| `a` .2+| `b`           | OH28  | @
+|                             OH27  | @@
+|=====================================
+
+The following SMILES are all equivalent:
+
+[options="header",frame="topbot",grid="rows",width="70%"]
+|==========================================================
+| Equivalent SMILES           |
+| `C[Co@](F)(Cl)(Br)(I)S`     | `F[Co@@](S)(I)(C)(Cl)Br`
+| `S[Co@OH5](F)(I)(Cl)(C)Br`  | `Br[Co@OH9](C)(S)(Cl)(F)I`
+| `Br[Co@OH12](Cl)(I)(F)(S)C` | `Cl[Co@OH15](C)(Br)(F)(I)S`
+| `Cl[Co@OH19](C)(I)(F)(S)Br` | `I[Co@OH27](Cl)(Br)(F)(S)C`
+|==========================================================
+
+*Background:*
+
+_Octahedral stereochemistry is even more complicated since there is yet another
+extra neighboring atom. This raises the number of permutations to P(6) = 720.
+There are three axis that can be chosen and the orientation of the remaining
+4 atoms has to be described. To describe these 4 atoms, P(4) = 24 permutations
+are used together with a shape. An axis always starts from the first neighbor
+atom and can end at any of the other neighbor atoms giving rise to 5 axis.
+As a result, each OH number encodes the axis positions, a shape and an order.
+Since all 3 axis can be placed in this positions, the start/end can be exchanged
+and each shape can start from any of the 4 atoms, each number represents
+3 * 2 * 4 = 24 of the 720 permutations. Finally, 24 * 30 = 720 so all permutations
+can be used to write a canonical SMILES._
+
 Partial Stereochemistry
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -915,7 +1096,7 @@ configurations:
 
 [options="header",frame="topbot",grid="rows",width="40%"]
 |==============================
-| SMARTS | Configuration
+| SMILES | Configuration
 | `TH`	 | Tetrahedral
 | `AL`	 | Allenal
 | `SP`   | Square Planar
@@ -929,8 +1110,6 @@ clockwise tetrahedral chirality, and are the same a `'@TH1'` and
 notations `'@'` and `'@@'` correspond to `'@AL1'` and `'@AL2'`, respectively.
 
 Very few SMILES systems actually implement the rules for `SP`, `TB` or `OH` chirality.
-
-*NEED COMPLETE DOCUMENTATION for SP, TB and OH.*
 
 Parsing Termination
 ~~~~~~~~~~~~~~~~~~~
@@ -1450,6 +1629,7 @@ Revision History
 | 1.0 | 2007-11-13 | Draft | Craig A. James
 | 1.0 | 2012-09-29 | Reformatting | Tim Vandermeersch
 | 1.0 | 2012-09-29 | Corrections | Andrew Dalke & Tim Vandermeersch
+| 1.0 | 2012-11-17 | SP, TB and OH stereochemistry | Tim Vandermeersch
 |======================
 
 * link:https://github.com/timvdm/OpenSMILES/blob/master/ChangeLog[ChangeLog]

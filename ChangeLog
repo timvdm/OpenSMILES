@@ -1,3 +1,7 @@
+2012-11-17  Tim Vandermeersch <tim.vandermeersch@gmail.com>
+
+	* Add documentation for SP, TB and OH stereochemistry
+
 2012-09-29  Tim Vandermeersch <tim.vandermeersch@gmail.com>
 
         * Add support for a 0 digit in two digit chiral specifiers (Andrew
