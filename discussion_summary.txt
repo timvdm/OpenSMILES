@@ -7,6 +7,16 @@ Tim bullet 4
 
 Tim Vandermeersch:
 
+Is "[0S]" the same as "[S]"?
+
+CC=(CC)CC
+
+Examples in aromaticity section.
+
+--------------------------------------------------------------------------------
+
+Tim Vandermeersch:
+
 Two comments about the specification:
 
 * section 2.2 Grammar: definition chiral for trigonal bipyrimidal has
