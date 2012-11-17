@@ -1,7 +1,7 @@
 OpenSMILES specification
 ========================
 Craig A. James
-v1.0,2012-29-09: Current specification
+v1.0,2012-17-11: Current specification
 
 http://www.opensmiles.org[www.opensmiles.org]
 
