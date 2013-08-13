@@ -237,7 +237,7 @@ Examples:
 | `[OH1-]`  | hydroxyl anion        | `-1` charge, `H1`
 | `[OH-1]`  | hydroxyl anion        | `-1` charge, `H1`
 | `[Cu+2]`  | copper cation         | `+2` charge, `H0` implied
-| `[Cu++]`  | copper anion          | `+2` charge, `H0` implied
+| `[Cu++]`  | copper cation         | `+2` charge, `H0` implied
 |==============================================================
 
 An implementation is required to accept charges in the range `-15` to `+15`.
