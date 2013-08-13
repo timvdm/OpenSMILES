@@ -388,7 +388,7 @@ Double, triple and quadruple bonds are represented by `'='`, `'#'`, and `'$'` re
 [options="header",frame="topbot",grid="rows",width="80%",cols="2,1"]
 |========================================================================
 | SMILES                                      | Name
-| `C=C`                                       | ethane
+| `C=C`                                       | ethene
 | `C#N`                                       | hydrogen cyanide
 | `CC#CC`                                     | 2-butyne
 | `CCC=O`                                     | propanol
