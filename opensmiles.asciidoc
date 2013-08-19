@@ -237,7 +237,7 @@ Examples:
 | `[OH1-]`  | hydroxyl anion        | `-1` charge, `H1`
 | `[OH-1]`  | hydroxyl anion        | `-1` charge, `H1`
 | `[Cu+2]`  | copper cation         | `+2` charge, `H0` implied
-| `[Cu++]`  | copper anion          | `+2` charge, `H0` implied
+| `[Cu++]`  | copper cation         | `+2` charge, `H0` implied
 |==============================================================
 
 An implementation is required to accept charges in the range `-15` to `+15`.
@@ -388,7 +388,7 @@ Double, triple and quadruple bonds are represented by `'='`, `'#'`, and `'$'` re
 [options="header",frame="topbot",grid="rows",width="80%",cols="2,1"]
 |========================================================================
 | SMILES                                      | Name
-| `C=C`                                       | ethane
+| `C=C`                                       | ethene
 | `C#N`                                       | hydrogen cyanide
 | `CC#CC`                                     | 2-butyne
 | `CCC=O`                                     | propanol
@@ -1421,34 +1421,37 @@ if a number appears more than once, it creates a repeating unit.
 | `c&1&1&1`       | graphite
 |==============================
 
-`'@'` for Cis/Trans around Double Bonds
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Atom-based Double Bond Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The `'/'` and `'\'` marks for cis/trans bonds seem simple on the surface but
-are problematic for complex systems.  For example, in a long series of
+The directional `'/'` and `'\'` marks for cis/trans bonds seem simple on
+the surface but are problematic for complex systems. The issue is that
+in a conjugated systems one directional bond _can_ be used in defining the
+configuration of two double bonds. When assigning the directional bonds the
+existing labels must be considered or rewritten.  In a long series of
 conjugated double bonds, changing the configuration of one bond can require
 rewriting dozens of bond symbols.
 
 More importantly, there is a theoretical flaw with the use of `'/'` and
-`'\'`.  In a cyclo-ene (_name??_) ring with an even number of double bonds, it is
-not possible to write a valid SMILES.  (Recall that `'/'` and `'\'` reverse
-sense if moved from the left to the right of the atom, thus `C/1=C/CCCCCCC1`
-represents a cis configuration even though `'/'` appears twice.)
+`'\'`.  It is possible to write valid SMILES for the molecule
+http://en.wikipedia.org/wiki/Cyclooctatetraene[cyclooctatetraene] by alternating
+directional assignments for the cis configurations. However, as shown below attempting
+to change one configuration is not possible. Reassigning the directional labels for
+adjacent double bonds will not work as it reassignment propagates around the ring
+and the conflict is not resolved.
+
+Including directional labels to explicit hydrogen atoms is a possible resolution but
+does not follow standard-form and complicates the assignment procedure.
 
 [options="header",frame="topbot",grid="rows",width="90%"]
-|==============================================================================
+|=====================================================================================
 | Depiction                            | SMILES                | Comment
-| image:depict/cyclooctatetraene.gif[] | `C/1=C/C=C\C=C/C=C\1` | Illegal SMILES
-|==============================================================================
+| image:depict/cyclooctatetraene.gif[] | `C/1=C/C=C\C=C/C=C\1` | cyclooctatetraene
+| Todo								   | `C/1=C/C=C/C=C/C=C\1` | one bond changes two configurations
+|=====================================================================================
 
-The SMILES above is illegal because the first and second `C1` have
-opposite bond symbols `'/'` versus `'\'`, so the single bond that was "broken"
-to create the ring has to be both "up" and "down".  This logical
-flaw follows from using "up" and "down" in a linear notation, when in
-fact the atoms form a circle.
-
-The proposed syntax for cis/trans configurations uses the `'@'` symbol on
-the allenal atoms.  For example:
+The proposed syntax for double bond configurations uses the `'@'` and `'@@'` atom-based 
+specification. For example:
 
 [options="header",frame="topbot",grid="rows",width="90%"]
 |=======================================================================================
@@ -1467,13 +1470,24 @@ configurations are planar, they can also be "viewed from underneath the
 page", which results in the two valid SMILES shown for each compound,
 above.
 
-Note that in all cases, cis and trans are easy for the chemist to
-distinguish visually: A trans form always has opposite "clock-ness" (`@`,`@@` or
-`@@`,`@`), and the cis form always has the same "clock-ness" (`@`,`@` or `@@`,`@@`) for
-the allenal atoms.
+As with the other atom-bases specifications one must consider the relative
+position of implicit atoms. It is not always true that a trans form has 
+opposite "clock-ness" (`'@'`,`'@@'` or `'@@'`,`'@'`), and the cis form 
+has the same "clock-ness" (`'@'`,`'@'` or `'@@'`,`'@@'`). 
 
-This proposed form of cis/trans specification using `'@'` and `'@@'` does not suffer from the
-theoretical flaw illustrated above:
+[options="header",frame="topbot",grid="rows",width="90%"]
+|=======================================================================================
+| Depiction                                  | SMILES              | Name
+.2+| image:depict/trans-difluoroethene.gif[] | `F[C@@H]=[C@H]F` .2+| trans-difluoroethene
+|                                              `[C@H](F)=[C@H]F`
+.2+| image:depict/cis-difluoroethene.gif[]   | `F[C@H]=[C@H]F`  .2+| cis-difluoroethene
+|                                              `[C@@H](F)=[C@H]F`
+|=======================================================================================
+
+Atom-based `'@'` and `'@@'` for the stereo-specification of double bonds does not
+suffer from the theoretical flaw illustrated with cyclooctatetraene. The assignments
+are not-shared and adjacent configurations do not need to be considered. This is more
+flexible and and simplifies generation of canonical SMILES.
 
 [options="header",frame="topbot",grid="rows",width="100%",cols="1,4,1"]
 |===================================================================================================================
@@ -1481,11 +1495,10 @@ theoretical flaw illustrated above:
 | image:depict/cyclooctatetraene.gif[] | `[C@H]1=[C@@H][C@@H]=[C@@H][C@@H]=[C@@H][C@@H]=[C@@H]1` | cyclooctatetraene
 |===================================================================================================================
 
-Note that the first allenal carbon must be represented as `'@'` since the
-`'1'` follows the `H`, whereas the rest of the allenal carbons use `'@@'` to
-characterize the cis configuration of each bond.  Since this is a
-specification on the atom, rather than the single bond, no conflict arises
-at the ring-closure bond.
+Note that the first stereo-specification carbon must be represented as `'@'` since the
+`'1'` follows the `H`, whereas the rest of the carbons use `'@@'` to characterize the
+cis configuration of each bond.  Since this is a specification on the atom, rather than
+the single bond, no conflict arises at the ring-closure bond.
 
 Radical
 ~~~~~~~
