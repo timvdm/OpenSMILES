@@ -533,6 +533,40 @@ body.manpage div.sectionbody {
 }
 
 
+@media screen {
+  body {
+    max-width: 50em; /* approximately 80 characters wide */
+    margin-left: 16em;
+  }
+
+  #toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 13em;
+    padding: 0.5em;
+    padding-bottom: 1.5em;
+    margin: 0;
+    overflow: auto;
+    border-right: 3px solid #f8f8f8;
+    background-color: white;
+  }
+
+  #toc .toclevel1 {
+    margin-top: 0.5em;
+  }
+
+  #toc .toclevel2 {
+    margin-top: 0.25em;
+    display: list-item;
+    color: #aaaaaa;
+  }
+
+  #toctitle {
+    margin-top: 0.5em;
+  }
+}
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -725,7 +759,7 @@ install: function(toclevels) {
 }
 
 }
-asciidoc.install();
+asciidoc.install(2);
 /*]]>*/
 </script>
 </head>
@@ -736,6 +770,10 @@ asciidoc.install();
 <span id="revnumber">version 1.0,</span>
 <span id="revdate">2013-09-06</span>
 <br /><span id="revremark">Current specification</span>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
@@ -749,7 +787,7 @@ Tim Vandermeersch</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_introduction">Introduction</h2>
+<h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="sidebarblock">
 <div class="content">
@@ -760,7 +798,7 @@ which belongs to it &#8230;"</p></div>
 <div class="paragraph"><p><a href="http://en.wikipedia.org/wiki/Antoine_Lavoisier">Antoine Lavoiser, 1787</a></p></div>
 </div></div>
 <div class="sect2">
-<h3 id="_purpose">Purpose</h3>
+<h3 id="_purpose">1.1. Purpose</h3>
 <div class="paragraph"><p>This document formally defines an
 <a href="http://en.wikipedia.org/wiki/Open_specifications">open specification</a> version of the
 <a href="http://en.wikipedia.org/wiki/Simplified_molecular_input_line_entry_specification">SMILES</a>
@@ -771,7 +809,7 @@ project, with the intent to solicit contributions and comments from the
 entire computational chemistry community.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_motivation">Motivation</h3>
+<h3 id="_motivation">1.2. Motivation</h3>
 <div class="paragraph"><p>SMILES was originally developed as a proprietary specification by
 <a href="http://www.daylight.com">Daylight Chemical Information Systems</a>
 Since the introduction of SMILES in the late 1980&#8217;s, it has
@@ -788,7 +826,7 @@ their past contributions, and the excellent SMILES documentation they provided f
 of charge for the past two decades.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_audience">Audience</h3>
+<h3 id="_audience">1.3. Audience</h3>
 <div class="paragraph"><p>This document is intended for developers designing or improving a SMILES
 parser or writer. <strong>Readers are expected to be acquainted with
 SMILES.</strong> Due to the formality of this document, it is not a good
@@ -796,7 +834,7 @@ tutorial for those trying to learn SMILES. This document is written with
 <strong>precision</strong> as the primary goal; <strong>readability</strong> is secondary.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_what_is_a_molecule_the_valence_model_of_chemistry">What is a Molecule? The Valence Model of Chemistry</h3>
+<h3 id="_what_is_a_molecule_the_valence_model_of_chemistry">1.4. What is a Molecule? The Valence Model of Chemistry</h3>
 <div class="paragraph"><p>Before defining the SMILES language, it is important to state the physical model on which it is
 based: the valence model of chemistry, which uses a mathematician&#8217;s
 <a href="http://en.wikipedia.org/wiki/Graph_%28mathematics%29">graph</a> to
@@ -824,10 +862,10 @@ connection-table formats become apparent.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_formal_grammar">Formal Grammar</h2>
+<h2 id="_formal_grammar">2. Formal Grammar</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_syntax_versus_semantics">Syntax versus Semantics</h3>
+<h3 id="_syntax_versus_semantics">2.1. Syntax versus Semantics</h3>
 <div class="paragraph"><p>This SMILES specification is divided into two distinct parts: A
 <strong>syntactic specification</strong> specifies how the atoms,
 bonds, parentheses, digits and so forth are represented, and a <strong>semantic
@@ -843,7 +881,7 @@ together in the code that implements a SMILES parser.  This chapter is only
 concerned with syntax.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_grammar">Grammar</h3>
+<h3 id="_grammar">2.2. Grammar</h3>
 <div class="tableblock">
 <table rules="rows"
 width="100%"
@@ -961,12 +999,12 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect1">
-<h2 id="_reading_smiles">Reading SMILES</h2>
+<h2 id="_reading_smiles">3. Reading SMILES</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="inatoms">Atoms</h3>
+<h3 id="inatoms">3.1. Atoms</h3>
 <div class="sect3">
-<h4 id="atomicsymbol">Atomic Symbol</h4>
+<h4 id="atomicsymbol">3.1.1. Atomic Symbol</h4>
 <div class="paragraph"><p>An atom is represented by its atomic symbol, enclosed in square brackets, <code>[]</code>.
 The first character of the symbol is uppercase and the second (if any) is lowercase,
 except that for aromatic atoms (see below), the first character is lowercase.  There are
@@ -1010,7 +1048,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect3">
-<h4 id="hydrogens">Hydrogens</h4>
+<h4 id="hydrogens">3.1.2. Hydrogens</h4>
 <div class="paragraph"><p>Hydrogens inside of brackets are specified as <code>Hn</code> where <code>n</code> is a number such as <code>H3</code>.  If no
 <code>Hn</code> is specified, it is identical to <code>H0</code>. If <code>H</code> is
 specified without a number, it is identical to <code>H1</code>.  For example, <code>[C]</code> and
@@ -1059,7 +1097,7 @@ hydrogen must be written as <code>[H][H]</code>.</p></div>
 supported?</em></p></div>
 </div>
 <div class="sect3">
-<h4 id="charge">Charge</h4>
+<h4 id="charge">3.1.3. Charge</h4>
 <div class="paragraph"><p>Charge is specified by a <code>+n</code> or <code>-n</code> where <code>n</code> is a number; if the
 number is missing, it means either <code>+1</code> or <code>-1</code> as appropriate.</p></div>
 <div class="paragraph"><p>For backwards compatibility, a general-purpose SMILES parser should
@@ -1113,7 +1151,7 @@ cellspacing="0" cellpadding="4">
 <div class="paragraph"><p>An implementation is required to accept charges in the range <code>-15</code> to <code>+15</code>.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_isotopes">Isotopes</h4>
+<h4 id="_isotopes">3.1.4. Isotopes</h4>
 <div class="paragraph"><p>Isotopic specification is placed inside the square brackets for an atom
 preceding the atomic symbol; for example:</p></div>
 <div class="tableblock">
@@ -1157,7 +1195,7 @@ isotope value 0 also indicates an isotope of zero, that is
 from 0 to 999.</p></div>
 </div>
 <div class="sect3">
-<h4 id="orgsbst">Organic Subset</h4>
+<h4 id="orgsbst">3.1.5. Organic Subset</h4>
 <div class="paragraph"><p>A special subset of elements called the "organic subset" of
 <strong>B</strong>, <strong>C</strong>, <strong>N</strong>, <strong>O</strong>, <strong>P</strong>, <strong>S</strong>, <strong>F</strong>,
 <strong>Cl</strong>, <strong>Br</strong>, <strong>I</strong>, and <strong>*</strong> (the "wildcard" atom) can be
@@ -1275,7 +1313,7 @@ cellspacing="0" cellpadding="4">
 <div class="paragraph"><p><em>Note: The remaining atom properties, chirality and ring-closures, are discussed in later sections.</em></p></div>
 </div>
 <div class="sect3">
-<h4 id="_the_wildcard_code_code_atomic_symbol">The Wildcard <code>'*'</code> Atomic Symbol</h4>
+<h4 id="_the_wildcard_code_code_atomic_symbol">3.1.6. The Wildcard <code>'*'</code> Atomic Symbol</h4>
 <div class="paragraph"><p>The <code>'*'</code> atom represents an atom whose atomic number is unknown or unspecified.  If it occurs
 inside brackets, it can have its isotope, chirality, hydrogen count and charge specified.  If it
 occurs outside of brackets, it has no assumed isotope, a mass of zero, unspecified chirality, a
@@ -1311,7 +1349,7 @@ there is an element which could replace the <code>'*'</code> and make the ring s
 meet the aromaticity rules (see <a href="#inaromaticity">Aromaticity</a>, below).</p></div>
 </div>
 <div class="sect3">
-<h4 id="atomclass">Atom Class</h4>
+<h4 id="atomclass">3.1.7. Atom Class</h4>
 <div class="paragraph"><p>An "atom class" is an arbitrary integer, a number that has no chemical
 meaning.  It is used by applications to mark atoms in ways that are
 meaningful only to the application.  Multiple atoms may be labeled with the
@@ -1344,7 +1382,7 @@ and <code>[NH4+:005]</code> have an atom class of 5.</p></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="bonds">Bonds</h3>
+<h3 id="bonds">3.2. Bonds</h3>
 <div class="paragraph"><p>Atoms that are adjacent in a SMILES string are assumed to
 be joined by a single or aromatic bond (see <a href="#inaromaticity">Aromaticity</a>). For example:</p></div>
 <div class="tableblock">
@@ -1453,7 +1491,7 @@ cellspacing="0" cellpadding="4">
 later sections.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_branches">Branches</h3>
+<h3 id="_branches">3.3. Branches</h3>
 <div class="paragraph"><p>An atom with three or more bonds is called a <strong>branched atom</strong>, and is
 represented using parentheses.</p></div>
 <div class="tableblock">
@@ -1546,7 +1584,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect2">
-<h3 id="ringclosure">Rings</h3>
+<h3 id="ringclosure">3.4. Rings</h3>
 <div class="paragraph"><p>In a SMILES string such as "C1CCCCC1", the first occurrence of a ring-closure
 number (an "rnum") creates an "open bond" to the atom that precedes the
 ring-closure number (the "rnum").  When that same rnum is encountered
@@ -1736,9 +1774,9 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect2">
-<h3 id="inaromaticity">Aromaticity</h3>
+<h3 id="inaromaticity">3.5. Aromaticity</h3>
 <div class="sect3">
-<h4 id="_the_meaning_of_aromaticity_in_smiles">The Meaning of "Aromaticity" in SMILES</h4>
+<h4 id="_the_meaning_of_aromaticity_in_smiles">3.5.1. The Meaning of "Aromaticity" in SMILES</h4>
 <div class="paragraph"><p>"Aromaticity" in SMILES is primarily for
 <a href="http://www.emolecules.com/doc/cheminformatics-101.htm">cheminformatics</a> purposes.
 In a cheminformatics system, we&#8217;d like to have a single representation for each molecule.  The
@@ -1750,7 +1788,7 @@ physical or chemical properties of a substance.  In many or most cases, the SMIL
 aromaticity will match the chemist&#8217;s notion of what is aromatic, but in some cases it will not.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_kekule_and_aromatic_representations">Kekule and Aromatic Representations</h4>
+<h4 id="_kekule_and_aromatic_representations">3.5.2. Kekule and Aromatic Representations</h4>
 <div class="paragraph"><p>Aromaticity can be represented in one of two ways in a SMILES.</p></div>
 <div class="ulist"><ul>
 <li>
@@ -1833,7 +1871,7 @@ symbols eliminate the arbitrary choice of how to assign the single and double bo
 <a href="#normalization">normalized form</a> that more accurately reflects the electronic configuration.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_extended_hueckel_8217_s_rule">Extended Hueckel&#8217;s Rule</h4>
+<h4 id="_extended_hueckel_8217_s_rule">3.5.3. Extended Hueckel&#8217;s Rule</h4>
 <div class="paragraph"><p><strong><span class="red">THIS SECTION IS UNDER MAJOR REVISION, AND AT THIS POINT IS ONLY FOR
 DISCUSSION PURPOSES.</span></strong></p></div>
 <div class="paragraph"><p><strong><span class="red">This proposed section is an attempt to simplify the rule-based
@@ -2002,7 +2040,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect3">
-<h4 id="_aromaticity_algorithm">Aromaticity Algorithm</h4>
+<h4 id="_aromaticity_algorithm">3.5.4. Aromaticity Algorithm</h4>
 <div class="paragraph"><p>In an aromatic system, all of the aromatic atoms must be sp:sup:<code>2</code> hybridized, and the
 number of <a href="http://en.wikipedia.org/wiki/Pi_electron">&#960; electrons</a>
 must meet <a href="http://en.wikipedia.org/wiki/H%C3%BCckel&#8217;s_rule">Huckel&#8217;s 4n+2 criterion</a>
@@ -2047,7 +2085,7 @@ The OpenSMILES specification does not allow this interpretation unless
 </div>
 </div>
 <div class="sect2">
-<h3 id="_more_about_hydrogen">More about Hydrogen</h3>
+<h3 id="_more_about_hydrogen">3.6. More about Hydrogen</h3>
 <div class="paragraph"><p>Hydrogens in a SMILES can be represented in three different ways:</p></div>
 <div class="tableblock">
 <table rules="rows"
@@ -2159,7 +2197,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect2">
-<h3 id="_disconnected_structures">Disconnected Structures</h3>
+<h3 id="_disconnected_structures">3.7. Disconnected Structures</h3>
 <div class="paragraph"><p>The dot <code>'.'</code> symbol (also called a "dot bond") is legal most places where
 a bond symbol would occur, but indicates that the atoms are <strong>not</strong>
 bonded.  The most common use of the dot-bond symbol is to represent
@@ -2244,7 +2282,7 @@ does <strong>not</strong> in itself mean that there are disconnected parts in th
 following section regarding ring digits for some examples that illustrate this.</p></div>
 <div class="paragraph"><p>The dot bond cannot be used in front of a ring-closure digit.  For example, <code>C.1CCCCC.1</code> is illegal.</p></div>
 <div class="sect3">
-<h4 id="_other_uses_of_ring_numbers_and_dot_bond">Other Uses of Ring Numbers and Dot Bond</h4>
+<h4 id="_other_uses_of_ring_numbers_and_dot_bond">3.7.1. Other Uses of Ring Numbers and Dot Bond</h4>
 <div class="paragraph"><p>A ring-number specifications ("rnum") is most commonly used to specify a ring-closure bond, but
 when used with the <code>'.'</code> dot-bond symbol, it can also specify a non-ring bond.  Two rnums in a SMILES
 mean that the two atoms that precede the rnums are bonded.  A dot-bond <code>'.'</code> means that the atoms to
@@ -2292,9 +2330,9 @@ molecules of a combinatorial library using string concatenation.</p></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="chirality">Stereochemistry</h3>
+<h3 id="chirality">3.8. Stereochemistry</h3>
 <div class="sect3">
-<h4 id="_scope_of_stereochemistry_in_smiles">Scope of Stereochemistry in SMILES</h4>
+<h4 id="_scope_of_stereochemistry_in_smiles">3.8.1. Scope of Stereochemistry in SMILES</h4>
 <div class="paragraph"><p>A SMILES string can specify the cis/trans configuration around a double bond,
 and can specify the chiral configuration of specific atoms in a molecule.</p></div>
 <div class="paragraph"><p>SMILES strings do <strong>not</strong> represent all types of stereochemistry.  Examples of
@@ -2319,7 +2357,7 @@ Gross conformational stereochemistry such as the shape of a protein after foldin
 </ul></div>
 </div>
 <div class="sect3">
-<h4 id="_tetrahedral_centers">Tetrahedral Centers</h4>
+<h4 id="_tetrahedral_centers">3.8.2. Tetrahedral Centers</h4>
 <div class="paragraph"><p>SMILES uses an atom-centered chirality specification, in which the atom&#8217;s left-to-right order in
 the SMILES string itself is used as the basis for the chirality marking.</p></div>
 <div class="tableblock">
@@ -2448,7 +2486,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect3">
-<h4 id="_cis_trans_configuration_of_double_bonds">Cis/Trans configuration of Double Bonds</h4>
+<h4 id="_cis_trans_configuration_of_double_bonds">3.8.3. Cis/Trans configuration of Double Bonds</h4>
 <div class="paragraph"><p>The configuration of atoms around double bonds is specified by the bond symbols <code>'/'</code> and <code>'\'</code>.
 These symbols always come in pairs, and indicate cis or trans with a visual "same side" or
 "opposite side" concept.  That is:</p></div>
@@ -2606,7 +2644,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect3">
-<h4 id="_tetrahedral_allene_like_systems">Tetrahedral Allene-like Systems</h4>
+<h4 id="_tetrahedral_allene_like_systems">3.8.4. Tetrahedral Allene-like Systems</h4>
 <div class="paragraph"><p>Extended tetrahedral configurations can be specified for conjugated allenes with an even number
 of double bonds.  The normal tetrahedral rules using <code>'@'</code> and <code>'@@'</code> apply, but the "neighbor" atoms
 to which the chirality refers are at the ends of the allene system.  For example:</p></div>
@@ -2638,7 +2676,7 @@ cellspacing="0" cellpadding="4">
 property of the center atom of the extended allene system.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_square_planar_centers">Square Planar Centers</h4>
+<h4 id="_square_planar_centers">3.8.5. Square Planar Centers</h4>
 <div class="paragraph"><p>There are three tags to represent square planar stereochemistry: <code>@SP1</code>, <code>@SP2</code>
 and <code>@SP3</code>. Since there is no way to determine to what chirality class an atom
 belongs based on the SMILES alone, the SP class is not the default class for
@@ -2668,7 +2706,7 @@ made with 4 numbers (i.e. P(n) = n!). This allows for canonical SMILES
 writers to use any ordering to output the atoms.</em></p></div>
 </div>
 <div class="sect3">
-<h4 id="_trigonal_bipyramidal_centers">Trigonal Bipyramidal Centers</h4>
+<h4 id="_trigonal_bipyramidal_centers">3.8.6. Trigonal Bipyramidal Centers</h4>
 <div class="paragraph"><p>The chiral atom&#8217;s neighbors are labeled a, <code>b</code>, <code>c</code>, <code>d</code>, and <code>e</code> in the order that they
 are parsed. For example, for <code>S[As@@](F)(Cl)(Br)N</code> <code>S</code> corresponds to <code>a</code>, <code>F</code> to <code>b</code>, <code>Cl</code>
 to <code>c</code>, <code>Br</code> to <code>d</code> and <code>N</code> to <code>e</code>. This order is the unit permutation, represented as the
@@ -2857,7 +2895,7 @@ this to 10. These 10 combinations are the ordered sets (a, e), (a, d) (a, c),
 correspond to an TB primitive.</em></p></div>
 </div>
 <div class="sect3">
-<h4 id="_octahedral_centers">Octahedral Centers</h4>
+<h4 id="_octahedral_centers">3.8.7. Octahedral Centers</h4>
 <div class="paragraph"><p>For 6 atoms, the unit permutation is <code>(a, b, c ,d ,e ,f)</code>. <code>@OH1</code> means when viewing
 from <code>a</code> towards <code>f</code>, <code>(b, c, d, e)</code> are ordered anti-clockwise (<code>@</code>). <code>@OH2</code> uses the same
 axis but the 4 intermediate atoms are ordered clockwise. The interpretation of the 28
@@ -3097,7 +3135,7 @@ and each shape can start from any of the 4 atoms, each number represents
 can be used to write a canonical SMILES.</em></p></div>
 </div>
 <div class="sect3">
-<h4 id="_partial_stereochemistry">Partial Stereochemistry</h4>
+<h4 id="_partial_stereochemistry">3.8.8. Partial Stereochemistry</h4>
 <div class="paragraph"><p>SMILES allows partial stereochemical specifications.  It is permissible for some chiral centers
 or double bonds to have stereochemical markings in the SMILES, while others in the same SMILES
 string do not.  For example:</p></div>
@@ -3132,7 +3170,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect3">
-<h4 id="_other_chiral_configurations">Other Chiral Configurations</h4>
+<h4 id="_other_chiral_configurations">3.8.9. Other Chiral Configurations</h4>
 <div class="paragraph"><p>The SMILES language supports a number of atom-centered chiral
 configurations:</p></div>
 <div class="tableblock">
@@ -3180,7 +3218,7 @@ notations <code>'@'</code> and <code>'@@'</code> correspond to <code>'@AL1'</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="_parsing_termination">Parsing Termination</h3>
+<h3 id="_parsing_termination">3.9. Parsing Termination</h3>
 <div class="paragraph"><p>A SMILES string is terminated by a whitespace terminator character (space, tab, newline,
 carriage-return), or by the end of the string.</p></div>
 <div class="paragraph"><p>Other data or information, such as a name, properties, registration number, etc., may follow the
@@ -3188,7 +3226,7 @@ SMILES on a line after the whitespace character.  SMILES parsers will ignore thi
 applications that use the SMILES parser will often make use of it.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_programming_practices">Programming Practices</h3>
+<h3 id="_programming_practices">3.10. Programming Practices</h3>
 <div class="paragraph"><p>OpenSMILES is designed to facilitate exchange of chemical information.  To achieve that goal, it
 SMILES parsers should impose as few limits as possible on the language.</p></div>
 <div class="paragraph"><p>There is no formal limit to the length of a SMILES string; SMILES of over 1 million characters
@@ -3221,10 +3259,10 @@ triggered the error message.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="normalization">Writing SMILES: Normalizations</h2>
+<h2 id="normalization">4. Writing SMILES: Normalizations</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_what_is_normalization">What is Normalization?</h3>
+<h3 id="_what_is_normalization">4.1. What is Normalization?</h3>
 <div class="paragraph"><p>A wide variety of SMILES strings are acceptable as input.  For example, all of the following
 represent ethanol:</p></div>
 <div class="tableblock">
@@ -3270,7 +3308,7 @@ normalization of SMILES are recommended for systems that generate SMILES strings
 mandatory in any sense, they should be considered guidelines for software engineers creating SMILES systems.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_no_normalization">No Normalization</h3>
+<h3 id="_no_normalization">4.2. No Normalization</h3>
 <div class="paragraph"><p>The simplest "normalization" is no normalization.  SMILES can be written in any form whatsoever,
 as long as they meet the rules for SMILES.  Some examples of systems that might produce
 un-normalized SMILES are:</p></div>
@@ -3293,7 +3331,7 @@ Simple pass-through "filters" that don&#8217;t have a full SMILES writer, but me
 </ul></div>
 </div>
 <div class="sect2">
-<h3 id="standardform">Standard Form</h3>
+<h3 id="standardform">4.3. Standard Form</h3>
 <div class="paragraph"><p>The "standard form" of a SMILES is designed to produce a compact SMILES,
 and one that is human readable (for smaller molecules).</p></div>
 <div class="paragraph"><p>In addition, a normalized SMILES has the important property that it
@@ -3304,7 +3342,7 @@ cheminformatics systems.</p></div>
 <div class="paragraph"><p><em>Note: In the example below, the "Wrong" SMILES examples are all valid SMILES, but are "wrong"
 in the sense that they are not the preferred form for standard normalization.</em></p></div>
 <div class="sect3">
-<h4 id="_atoms">Atoms</h4>
+<h4 id="_atoms">4.3.1. Atoms</h4>
 <div class="tableblock">
 <table rules="rows"
 width="90%"
@@ -3355,7 +3393,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect3">
-<h4 id="_bonds">Bonds</h4>
+<h4 id="_bonds">4.3.2. Bonds</h4>
 <div class="tableblock">
 <table rules="rows"
 width="100%"
@@ -3390,7 +3428,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect3">
-<h4 id="_cycles">Cycles</h4>
+<h4 id="_cycles">4.3.3. Cycles</h4>
 <div class="tableblock">
 <table rules="rows"
 width="100%"
@@ -3437,7 +3475,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect3">
-<h4 id="_starting_atom_and_branches">Starting Atom and Branches</h4>
+<h4 id="_starting_atom_and_branches">4.3.4. Starting Atom and Branches</h4>
 <div class="tableblock">
 <table rules="rows"
 width="90%"
@@ -3479,7 +3517,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect3">
-<h4 id="outaromaticity">Aromaticity</h4>
+<h4 id="outaromaticity">4.3.5. Aromaticity</h4>
 <div class="tableblock">
 <table rules="rows"
 width="90%"
@@ -3506,7 +3544,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect3">
-<h4 id="_chirality">Chirality</h4>
+<h4 id="_chirality">4.3.6. Chirality</h4>
 <div class="tableblock">
 <table rules="rows"
 width="90%"
@@ -3539,7 +3577,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect2">
-<h3 id="canonicalization">Canonical SMILES</h3>
+<h3 id="canonicalization">4.4. Canonical SMILES</h3>
 <div class="paragraph"><p>A <em>Canonical SMILES</em> is one that follows the <a href="#standardform">Standard Form</a>
 above, and additionally, always writes the atoms and bonds of any particular molecule in
 the <em>exact same order</em>, regardless of the source of the molecule or its history in the
@@ -3622,7 +3660,7 @@ information.</p></div>
 approved IUPAC naming convention.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_smiles_files">SMILES Files</h3>
+<h3 id="_smiles_files">4.5. SMILES Files</h3>
 <div class="paragraph"><p><em>SMILES file</em> consists of zero or more SMILES strings, one per line, optionally followed
 by at least one whitespace character (space or tab), and other data.  There can be no leading
 whitespace before the SMILES string on a line.  The optional whitespace character and data that
@@ -3636,7 +3674,7 @@ a SMILES parser.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="nonstandard">Nonstandard Forms of SMILES</h2>
+<h2 id="nonstandard">5. Nonstandard Forms of SMILES</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Several SMILES-generating systems are in use that either generate
 incorrect SMILES, or that interpreted some of the ambiguous features of the
@@ -3749,10 +3787,10 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect1">
-<h2 id="_proposed_extensions">Proposed Extensions</h2>
+<h2 id="_proposed_extensions">6. Proposed Extensions</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_external_r_groups">External R-Groups</h3>
+<h3 id="_external_r_groups">6.1. External R-Groups</h3>
 <div class="paragraph"><p>Daylight proposed, and OpenEye actually implemented, an extension that
 specifies bonds to external R-groups.  An external R-group is specified
 using ampersand <code>'&amp;'</code> followed by a ring-closure specification (either a
@@ -3760,7 +3798,7 @@ digit, or <code>'%'</code> and two digits).  However, unlike ring-closures, the 
 an external, unspecified R-group.  Example: <code>n1c(&amp;1)c(&amp;2)cccc1</code> - 2,3-substituted pyridine.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_polymers_and_crystals">Polymers and Crystals</h3>
+<h3 id="_polymers_and_crystals">6.2. Polymers and Crystals</h3>
 <div class="paragraph"><p>Daylight (Weininger) proposed, but never implemented, an extension for crystals and
 polymers.  Daylight also used the ampersand <code>'&amp;'</code> character, (which may
 conflict with the R-group proposal, above), but with the added rule that
@@ -3796,7 +3834,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect2">
-<h3 id="_atom_based_double_bond_configuration">Atom-based Double Bond Configuration</h3>
+<h3 id="_atom_based_double_bond_configuration">6.3. Atom-based Double Bond Configuration</h3>
 <div class="paragraph"><p>The directional <code>'/'</code> and <code>'\'</code> marks for cis/trans bonds seem simple on
 the surface but are problematic for complex systems. The issue is that
 in conjugated systems one directional bond <em>can</em> be used in defining the
@@ -3970,7 +4008,7 @@ cis configuration of each bond.  Since this is a specification on the atom, rath
 the single bond, no conflict arises at the ring-closure bond.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_radical">Radical</h3>
+<h3 id="_radical">6.4. Radical</h3>
 <div class="paragraph"><p><em>This section needs considerable work.  The following text is courtesy Chris Morley, who
 commented: "I guess the last paragraph doesn&#8217;t look too good in a formal specification. There are
 two reasons for the frailty: lack of proof that the radical and aromatic uses can always be
@@ -3986,7 +4024,7 @@ allows the use of implicit hydrogen in radicals. However it is intended only for
 molecules and is not reliable when combined with aromatic atoms.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_twisted_smiles">Twisted SMILES</h3>
+<h3 id="_twisted_smiles">6.5. Twisted SMILES</h3>
 <div class="paragraph"><p>An interesting extension that specifies conformational information via
 bond dihedral angles and bond lengths was proposed by McLeod and Peters:</p></div>
 <div class="sidebarblock">
@@ -3997,15 +4035,15 @@ bond dihedral angles and bond lengths was proposed by McLeod and Peters:</p></di
 </div>
 </div>
 <div class="sect1">
-<h2 id="appendix">APPENDIX 1: References and Citations</h2>
+<h2 id="appendix">7. APPENDIX 1: References and Citations</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_groups">Groups</h3>
+<h3 id="_groups">7.1. Groups</h3>
 <div class="paragraph"><p><strong>Blue Obelisk</strong></p></div>
 <div class="paragraph"><p><a href="http://blueobelisk.sourceforge.net/">http://blueobelisk.sourceforge.net/</a></p></div>
 </div>
 <div class="sect2">
-<h3 id="_documentation">Documentation</h3>
+<h3 id="_documentation">7.2. Documentation</h3>
 <div class="paragraph"><p><strong>Daylight</strong></p></div>
 <div class="paragraph"><p><a href="http://www.daylight.com/dayhtml/doc/theory/theory.smiles.html">http://www.daylight.com/dayhtml/doc/theory/theory.smiles.html</a></p></div>
 <div class="paragraph"><p>The most-referenced definition of SMILES on the web.</p></div>
@@ -4021,7 +4059,7 @@ bond dihedral angles and bond lengths was proposed by McLeod and Peters:</p></di
 <div class="paragraph"><p><a href="http://en.wikipedia.org/wiki/Simplified_molecular_input_line_entry_specification">http://en.wikipedia.org/wiki/Simplified_molecular_input_line_entry_specification</a></p></div>
 </div>
 <div class="sect2">
-<h3 id="_toolkits">Toolkits</h3>
+<h3 id="_toolkits">7.3. Toolkits</h3>
 <div class="paragraph"><p><strong>OpenBabel</strong></p></div>
 <div class="paragraph"><p><a href="http://openbabel.sourceforge.net/wiki/Main_Page">http://openbabel.sourceforge.net/wiki/Main_Page</a></p></div>
 <div class="paragraph"><p><strong>The Chemistry Development Kit</strong></p></div>
@@ -4040,7 +4078,7 @@ bond dihedral angles and bond lengths was proposed by McLeod and Peters:</p></di
 <div class="paragraph"><p><a href="http://en.wikipedia.org/wiki/International_Chemical_Identifier">http://en.wikipedia.org/wiki/International_Chemical_Identifier</a></p></div>
 </div>
 <div class="sect2">
-<h3 id="_some_key_scientific_papers">Some Key Scientific Papers</h3>
+<h3 id="_some_key_scientific_papers">7.4. Some Key Scientific Papers</h3>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -4073,7 +4111,7 @@ R.Balducci and R, Pearlman, Novel Algorithms for the Rapid Perception of a Uniqu
 </ul></div>
 </div>
 <div class="sect2">
-<h3 id="_molecule_editors_that_can_produce_smiles">Molecule Editors that can produce SMILES</h3>
+<h3 id="_molecule_editors_that_can_produce_smiles">7.5. Molecule Editors that can produce SMILES</h3>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -4110,7 +4148,7 @@ ACD/ChemSketch
 </div>
 </div>
 <div class="sect1">
-<h2 id="_revision_history">Revision History</h2>
+<h2 id="_revision_history">8. Revision History</h2>
 <div class="sectionbody">
 <div class="tableblock">
 <table rules="rows"
