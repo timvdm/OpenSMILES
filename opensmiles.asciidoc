@@ -614,7 +614,7 @@ number of &#960; electrons:
 Aromaticity Algorithm
 ^^^^^^^^^^^^^^^^^^^^^
 
-In an aromatic system, all of the aromatic atoms must be sp:sup:`2` hybridized, and the
+In an aromatic system, all of the aromatic atoms must be sp^2^ hybridized, and the
 number of http://en.wikipedia.org/wiki/Pi_electron[&#960; electrons]
 must meet http://en.wikipedia.org/wiki/H%C3%BCckel's_rule[Huckel's 4n+2 criterion]
 When parsing a SMILES, a parser must note the aromatic designation of each atom on
