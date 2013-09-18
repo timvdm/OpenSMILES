@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.8" />
+<meta name="generator" content="AsciiDoc 8.6.7" />
 <title>OpenSMILES specification</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -87,14 +87,10 @@ ul, ol, li > p {
 ul > li     { color: #aaa; }
 ul > li > * { color: black; }
 
-.monospaced, code, pre {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
+pre {
   padding: 0;
   margin: 0;
 }
-
 
 #author {
   color: #527bbd;
@@ -419,6 +415,12 @@ div.unbreakable { page-break-inside: avoid; }
  *
  * */
 
+tt {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+}
+
 div.tableblock {
   margin-top: 1.0em;
   margin-bottom: 1.5em;
@@ -451,6 +453,12 @@ div.tableblock > table[frame="vsides"] {
  * html5 specific
  *
  * */
+
+.monospaced {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+}
 
 table.tableblock {
   margin-top: 1.0em;
@@ -531,8 +539,6 @@ body.manpage div.sectionbody {
 @media print {
   body.manpage div#toc { display: none; }
 }
-
-
 @media screen {
   body {
     max-width: 50em; /* approximately 80 characters wide */
@@ -814,8 +820,8 @@ entire computational chemistry community.</p></div>
 <a href="http://www.daylight.com">Daylight Chemical Information Systems</a>
 Since the introduction of SMILES in the late 1980&#8217;s, it has
 become widely accepted as a defacto standard for exchange of molecular structures.  Many independent
-SMILES software packages have been written in <code>C</code>, <code>C++</code>, <code>Java</code>, <code>Python</code>, <code>LISP</code>, and probably even
-<code>FORTRAN</code>.</p></div>
+SMILES software packages have been written in <tt>C</tt>, <tt>C++</tt>, <tt>Java</tt>, <tt>Python</tt>, <tt>LISP</tt>, and probably even
+<tt>FORTRAN</tt>.</p></div>
 <div class="paragraph"><p>At this point in the history of SMILES, is appropriate for the chemistry community
 to develop a new, non-proprietary specification for the SMILES language.  Daylight&#8217;s
 <a href="http://www.daylight.com/dayhtml/doc/theory/theory.smiles.html">SMILES Theory Manual</a>
@@ -901,86 +907,86 @@ cellspacing="0" cellpadding="4">
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><a href="#inatoms">Atoms</a></p></td>
-<td align="left" valign="top"><p class="table"><em>atom</em> ::= <em>bracket_atom</em> | <em>aliphatic_organic</em> | <em>aromatic_organic</em> | <code>'*'</code></p></td>
+<td align="left" valign="top"><p class="table"><em>atom</em> ::= <em>bracket_atom</em> | <em>aliphatic_organic</em> | <em>aromatic_organic</em> | <tt>'*'</tt></p></td>
 </tr>
 <tr>
 <td colspan="2" align="left" valign="top"><p class="table"><strong>ORGANIC SUBSET ATOMS</strong></p></td>
 </tr>
 <tr>
 <td rowspan="2" align="left" valign="top"><p class="table"><a href="#orgsbst">Organic Subset</a></p></td>
-<td align="left" valign="top"><p class="table"><em>aliphatic_organic</em> ::= <code>'B'</code> | <code>'C'</code> | <code>'N'</code> | <code>'O'</code> | <code>'S'</code> | <code>'P'</code> | <code>'F'</code> | <code>'Cl'</code> | <code>'Br'</code> | <code>'I'</code></p></td>
+<td align="left" valign="top"><p class="table"><em>aliphatic_organic</em> ::= <tt>'B'</tt> | <tt>'C'</tt> | <tt>'N'</tt> | <tt>'O'</tt> | <tt>'S'</tt> | <tt>'P'</tt> | <tt>'F'</tt> | <tt>'Cl'</tt> | <tt>'Br'</tt> | <tt>'I'</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><em>aromatic_organic</em> ::= <code>'b'</code> | <code>'c'</code> | <code>'n'</code> | <code>'o'</code> | <code>'s'</code> | <code>'p'</code></p></td>
+<td align="left" valign="top"><p class="table"><em>aromatic_organic</em> ::= <tt>'b'</tt> | <tt>'c'</tt> | <tt>'n'</tt> | <tt>'o'</tt> | <tt>'s'</tt> | <tt>'p'</tt></p></td>
 </tr>
 <tr>
 <td colspan="2" align="left" valign="top"><p class="table"><strong>BRACKET ATOMS</strong></p></td>
 </tr>
 <tr>
 <td rowspan="5" align="left" valign="top"><p class="table"><a href="#inatoms">Bracket Atoms</a></p></td>
-<td align="left" valign="top"><p class="table"><em>bracket_atom</em> ::= <code>'['</code> <em>isotope</em>? <em>symbol</em> <em>chiral</em>? <em>hcount</em>? <em>charge</em>? <em>class</em>? <code>']'</code></p></td>
+<td align="left" valign="top"><p class="table"><em>bracket_atom</em> ::= <tt>'['</tt> <em>isotope</em>? <em>symbol</em> <em>chiral</em>? <em>hcount</em>? <em>charge</em>? <em>class</em>? <tt>']'</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><em>symbol</em> ::= <em>element_symbols</em> | <em>aromatic_symbols</em> | <code>'*'</code></p></td>
+<td align="left" valign="top"><p class="table"><em>symbol</em> ::= <em>element_symbols</em> | <em>aromatic_symbols</em> | <tt>'*'</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><em>isotope</em> ::= <em>NUMBER</em></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><em>element_symbols</em> ::= <code>'H'</code> | <code>'He'</code> | <code>'Li'</code> | <code>'Be'</code> | <code>'B'</code> | <code>'C'</code> | <code>'N'</code> | <code>'O'</code> | <code>'F'</code> | <code>'Ne'</code> | <code>'Na'</code> | <code>'Mg'</code> | <code>'Al'</code> | <code>'Si'</code> | <code>'P'</code> | <code>'S'</code> | <code>'Cl'</code> | <code>'Ar'</code> | <code>'K'</code> | <code>'Ca'</code> | <code>'Sc'</code> | <code>'Ti'</code> | <code>'V'</code> | <code>'Cr'</code> | <code>'Mn'</code> | <code>'Fe'</code> | <code>'Co'</code> | <code>'Ni'</code> | <code>'Cu'</code> | <code>'Zn'</code> | <code>'Ga'</code> | <code>'Ge'</code> | <code>'As'</code> | <code>'Se'</code> | <code>'Br'</code> | <code>'Kr'</code> | <code>'Rb'</code> | <code>'Sr'</code> | <code>'Y'</code> | <code>'Zr'</code> | <code>'Nb'</code> | <code>'Mo'</code> | <code>'Tc'</code> | <code>'Ru'</code> | <code>'Rh'</code> | <code>'Pd'</code> | <code>'Ag'</code> | <code>'Cd'</code> | <code>'In'</code> | <code>'Sn'</code> | <code>'Sb'</code> | <code>'Te'</code> | <code>'I'</code> | <code>'Xe'</code> | <code>'Cs'</code> | <code>'Ba'</code> | <code>'Hf'</code> | <code>'Ta'</code> | <code>'W'</code> | <code>'Re'</code> | <code>'Os'</code> | <code>'Ir'</code> | <code>'Pt'</code> | <code>'Au'</code> | <code>'Hg'</code> | <code>'Tl'</code> | <code>'Pb'</code> | <code>'Bi'</code> | <code>'Po'</code> | <code>'At'</code> | <code>'Rn'</code> | <code>'Fr'</code> | <code>'Ra'</code> | <code>'Rf'</code> | <code>'Db'</code> | <code>'Sg'</code> | <code>'Bh'</code> | <code>'Hs'</code> | <code>'Mt'</code> | <code>'Ds'</code> | <code>'Rg'</code> | <code>'Cn'</code> | <code>'Fl'</code> | <code>'Lv'</code> | <code>'La'</code> | <code>'Ce'</code> | <code>'Pr'</code> | <code>'Nd'</code> | <code>'Pm'</code> | <code>'Sm'</code> | <code>'Eu'</code> | <code>'Gd'</code> | <code>'Tb'</code> | <code>'Dy'</code> | <code>'Ho'</code> | <code>'Er'</code> | <code>'Tm'</code> | <code>'Yb'</code> | <code>'Lu'</code> | <code>'Ac'</code> | <code>'Th'</code> | <code>'Pa'</code> | <code>'U'</code> | <code>'Np'</code> | <code>'Pu'</code> | <code>'Am'</code> | <code>'Cm'</code> | <code>'Bk'</code> | <code>'Cf'</code> | <code>'Es'</code> | <code>'Fm'</code> | <code>'Md'</code> | <code>'No'</code> | <code>'Lr'</code></p></td>
+<td align="left" valign="top"><p class="table"><em>element_symbols</em> ::= <tt>'H'</tt> | <tt>'He'</tt> | <tt>'Li'</tt> | <tt>'Be'</tt> | <tt>'B'</tt> | <tt>'C'</tt> | <tt>'N'</tt> | <tt>'O'</tt> | <tt>'F'</tt> | <tt>'Ne'</tt> | <tt>'Na'</tt> | <tt>'Mg'</tt> | <tt>'Al'</tt> | <tt>'Si'</tt> | <tt>'P'</tt> | <tt>'S'</tt> | <tt>'Cl'</tt> | <tt>'Ar'</tt> | <tt>'K'</tt> | <tt>'Ca'</tt> | <tt>'Sc'</tt> | <tt>'Ti'</tt> | <tt>'V'</tt> | <tt>'Cr'</tt> | <tt>'Mn'</tt> | <tt>'Fe'</tt> | <tt>'Co'</tt> | <tt>'Ni'</tt> | <tt>'Cu'</tt> | <tt>'Zn'</tt> | <tt>'Ga'</tt> | <tt>'Ge'</tt> | <tt>'As'</tt> | <tt>'Se'</tt> | <tt>'Br'</tt> | <tt>'Kr'</tt> | <tt>'Rb'</tt> | <tt>'Sr'</tt> | <tt>'Y'</tt> | <tt>'Zr'</tt> | <tt>'Nb'</tt> | <tt>'Mo'</tt> | <tt>'Tc'</tt> | <tt>'Ru'</tt> | <tt>'Rh'</tt> | <tt>'Pd'</tt> | <tt>'Ag'</tt> | <tt>'Cd'</tt> | <tt>'In'</tt> | <tt>'Sn'</tt> | <tt>'Sb'</tt> | <tt>'Te'</tt> | <tt>'I'</tt> | <tt>'Xe'</tt> | <tt>'Cs'</tt> | <tt>'Ba'</tt> | <tt>'Hf'</tt> | <tt>'Ta'</tt> | <tt>'W'</tt> | <tt>'Re'</tt> | <tt>'Os'</tt> | <tt>'Ir'</tt> | <tt>'Pt'</tt> | <tt>'Au'</tt> | <tt>'Hg'</tt> | <tt>'Tl'</tt> | <tt>'Pb'</tt> | <tt>'Bi'</tt> | <tt>'Po'</tt> | <tt>'At'</tt> | <tt>'Rn'</tt> | <tt>'Fr'</tt> | <tt>'Ra'</tt> | <tt>'Rf'</tt> | <tt>'Db'</tt> | <tt>'Sg'</tt> | <tt>'Bh'</tt> | <tt>'Hs'</tt> | <tt>'Mt'</tt> | <tt>'Ds'</tt> | <tt>'Rg'</tt> | <tt>'Cn'</tt> | <tt>'Fl'</tt> | <tt>'Lv'</tt> | <tt>'La'</tt> | <tt>'Ce'</tt> | <tt>'Pr'</tt> | <tt>'Nd'</tt> | <tt>'Pm'</tt> | <tt>'Sm'</tt> | <tt>'Eu'</tt> | <tt>'Gd'</tt> | <tt>'Tb'</tt> | <tt>'Dy'</tt> | <tt>'Ho'</tt> | <tt>'Er'</tt> | <tt>'Tm'</tt> | <tt>'Yb'</tt> | <tt>'Lu'</tt> | <tt>'Ac'</tt> | <tt>'Th'</tt> | <tt>'Pa'</tt> | <tt>'U'</tt> | <tt>'Np'</tt> | <tt>'Pu'</tt> | <tt>'Am'</tt> | <tt>'Cm'</tt> | <tt>'Bk'</tt> | <tt>'Cf'</tt> | <tt>'Es'</tt> | <tt>'Fm'</tt> | <tt>'Md'</tt> | <tt>'No'</tt> | <tt>'Lr'</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><em>aromatic_symbols</em> ::= <code>'b'</code> | <code>'c'</code> | <code>'n'</code> | <code>'o'</code> | <code>'p'</code> | <code>'s'</code> | <code>'se'</code> | <code>'as'</code></p></td>
+<td align="left" valign="top"><p class="table"><em>aromatic_symbols</em> ::= <tt>'b'</tt> | <tt>'c'</tt> | <tt>'n'</tt> | <tt>'o'</tt> | <tt>'p'</tt> | <tt>'s'</tt> | <tt>'se'</tt> | <tt>'as'</tt></p></td>
 </tr>
 <tr>
 <td colspan="2" align="left" valign="top"><p class="table"><strong>CHIRALITY</strong></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><a href="#chirality">Chirality</a></p></td>
-<td align="left" valign="top"><p class="table"><em>chiral</em> ::= <code>'@'</code> | <code>'@@'</code> | <code>'@TH1'</code> | <code>'@TH2'</code> | <code>'@AL1'</code> | <code>'@AL2'</code> | <code>'@SP1'</code> | <code>'@SP2'</code> | <code>'@SP3'</code> | <code>'@TB1'</code> | <code>'@TB2'</code> | <code>'@TB3'</code> | &#8230; | <code>'@TB20'</code> | <code>'@OH1'</code> | <code>'@OH2'</code> | <code>'@OH3'</code> | &#8230; | <code>'@OH30'</code> | <code>'@TB'</code> <em>DIGIT</em> <em>DIGIT</em> | <code>'@OH'</code> <em>DIGIT</em> <em>DIGIT</em></p></td>
+<td align="left" valign="top"><p class="table"><em>chiral</em> ::= <tt>'@'</tt> | <tt>'@@'</tt> | <tt>'@TH1'</tt> | <tt>'@TH2'</tt> | <tt>'@AL1'</tt> | <tt>'@AL2'</tt> | <tt>'@SP1'</tt> | <tt>'@SP2'</tt> | <tt>'@SP3'</tt> | <tt>'@TB1'</tt> | <tt>'@TB2'</tt> | <tt>'@TB3'</tt> | &#8230; | <tt>'@TB20'</tt> | <tt>'@OH1'</tt> | <tt>'@OH2'</tt> | <tt>'@OH3'</tt> | &#8230; | <tt>'@OH30'</tt> | <tt>'@TB'</tt> <em>DIGIT</em> <em>DIGIT</em> | <tt>'@OH'</tt> <em>DIGIT</em> <em>DIGIT</em></p></td>
 </tr>
 <tr>
 <td colspan="2" align="left" valign="top"><p class="table"><strong>HYDROGENS</strong></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><a href="#hydrogens">Hydrogens</a></p></td>
-<td align="left" valign="top"><p class="table"><em>hcount</em> ::= <code>'H'</code> | <code>'H'</code> <em>DIGIT</em></p></td>
+<td align="left" valign="top"><p class="table"><em>hcount</em> ::= <tt>'H'</tt> | <tt>'H'</tt> <em>DIGIT</em></p></td>
 </tr>
 <tr>
 <td colspan="2" align="left" valign="top"><p class="table"><strong>CHARGES</strong></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><a href="#charge">Charge</a></p></td>
-<td align="left" valign="top"><p class="table"><em>charge</em> ::= <code>'-'</code> | <code>'-'</code> <em>DIGIT</em>? <em>DIGIT</em> | <code>'+'</code> | <code>'+'</code> <em>DIGIT</em>? <em>DIGIT</em> | <code>'--'</code> <strong>deprecated</strong>  | <code>'++'</code> <strong>deprecated</strong></p></td>
+<td align="left" valign="top"><p class="table"><em>charge</em> ::= <tt>'-'</tt> | <tt>'-'</tt> <em>DIGIT</em>? <em>DIGIT</em> | <tt>'+'</tt> | <tt>'+'</tt> <em>DIGIT</em>? <em>DIGIT</em> | <tt>'--'</tt> <strong>deprecated</strong>  | <tt>'++'</tt> <strong>deprecated</strong></p></td>
 </tr>
 <tr>
 <td colspan="2" align="left" valign="top"><p class="table"><strong>ATOM CLASS</strong></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><a href="#atomclass">Atom Class</a></p></td>
-<td align="left" valign="top"><p class="table"><em>class</em> ::= <code>':'</code> <em>NUMBER</em></p></td>
+<td align="left" valign="top"><p class="table"><em>class</em> ::= <tt>':'</tt> <em>NUMBER</em></p></td>
 </tr>
 <tr>
 <td colspan="2" align="left" valign="top"><p class="table"><strong>BONDS AND CHAINS</strong></p></td>
 </tr>
 <tr>
 <td rowspan="6" align="left" valign="top"><p class="table"><a href="#bonds">Bonds</a></p></td>
-<td align="left" valign="top"><p class="table"><em>bond</em> ::= <code>'-'</code> | <code>'='</code> | <code>'#'</code> | <code>'$'</code> | <code>':'</code> | <code>'/'</code> | <code>'\'</code></p></td>
+<td align="left" valign="top"><p class="table"><em>bond</em> ::= <tt>'-'</tt> | <tt>'='</tt> | <tt>'#'</tt> | <tt>'$'</tt> | <tt>':'</tt> | <tt>'/'</tt> | <tt>'\'</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><em>ringbond</em> ::= <em>bond</em>? <em>DIGIT</em> | <em>bond</em>? <code>'%'</code> <em>DIGIT</em> <em>DIGIT</em></p></td>
+<td align="left" valign="top"><p class="table"><em>ringbond</em> ::= <em>bond</em>? <em>DIGIT</em> | <em>bond</em>? <tt>'%'</tt> <em>DIGIT</em> <em>DIGIT</em></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><em>branched_atom</em> ::= <em>atom</em> <em>ringbond</em>* <em>branch</em>*</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><em>branch</em> ::= <code>'('</code> <em>chain</em> <code>')'</code> | <code>'('</code> <em>bond</em> <em>chain</em> <code>')'</code> | <code>'('</code> <em>dot</em> <em>chain</em> <code>')'</code></p></td>
+<td align="left" valign="top"><p class="table"><em>branch</em> ::= <tt>'('</tt> <em>chain</em> <tt>')'</tt> | <tt>'('</tt> <em>bond</em> <em>chain</em> <tt>')'</tt> | <tt>'('</tt> <em>dot</em> <em>chain</em> <tt>')'</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><em>chain</em> ::= <em>branched_atom</em> | <em>chain</em> <em>branched_atom</em> | <em>chain</em> <em>bond</em> <em>branched_atom</em> | <em>chain</em> <em>dot</em> <em>branched_atom</em></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><em>dot</em> ::= <code>'.'</code></p></td>
+<td align="left" valign="top"><p class="table"><em>dot</em> ::= <tt>'.'</tt></p></td>
 </tr>
 <tr>
 <td colspan="2" align="left" valign="top"><p class="table"><strong>SMILES STRINGS</strong></p></td>
@@ -1005,13 +1011,13 @@ cellspacing="0" cellpadding="4">
 <h3 id="inatoms">3.1. Atoms</h3>
 <div class="sect3">
 <h4 id="atomicsymbol">3.1.1. Atomic Symbol</h4>
-<div class="paragraph"><p>An atom is represented by its atomic symbol, enclosed in square brackets, <code>[]</code>.
+<div class="paragraph"><p>An atom is represented by its atomic symbol, enclosed in square brackets, <tt>[]</tt>.
 The first character of the symbol is uppercase and the second (if any) is lowercase,
 except that for aromatic atoms (see below), the first character is lowercase.  There are
 <a href="http://www.iupac.org/reports/provisional/abstract04/RB-prs310804/TableI-3.04.pdf">114 valid atomic symbols</a>
 , as defined by <a href="http://www.iupac.org">IUPAC</a> (see also
 <a href="http://www.webelements.com">Web Elements</a>).</p></div>
-<div class="paragraph"><p>The symbol <code>'*'</code> is also accepted as a valid atomic symbol, and represents a "wildcard" or unknown atom.</p></div>
+<div class="paragraph"><p>The symbol <tt>'*'</tt> is also accepted as a valid atomic symbol, and represents a "wildcard" or unknown atom.</p></div>
 <div class="paragraph"><p>Examples:</p></div>
 <div class="tableblock">
 <table rules="rows"
@@ -1028,19 +1034,19 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[U]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[U]</tt></p></td>
 <td align="left" valign="top"><p class="table">Uranium</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[Pb]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[Pb]</tt></p></td>
 <td align="left" valign="top"><p class="table">Lead</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[He]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[He]</tt></p></td>
 <td align="left" valign="top"><p class="table">Helium</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[*]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[*]</tt></p></td>
 <td align="left" valign="top"><p class="table">Unkwown atom</p></td>
 </tr>
 </tbody>
@@ -1049,10 +1055,10 @@ cellspacing="0" cellpadding="4">
 </div>
 <div class="sect3">
 <h4 id="hydrogens">3.1.2. Hydrogens</h4>
-<div class="paragraph"><p>Hydrogens inside of brackets are specified as <code>Hn</code> where <code>n</code> is a number such as <code>H3</code>.  If no
-<code>Hn</code> is specified, it is identical to <code>H0</code>. If <code>H</code> is
-specified without a number, it is identical to <code>H1</code>.  For example, <code>[C]</code> and
-<code>[CH0]</code> are identical, and <code>[CH]</code> and <code>[CH1]</code> are identical.</p></div>
+<div class="paragraph"><p>Hydrogens inside of brackets are specified as <tt>Hn</tt> where <tt>n</tt> is a number such as <tt>H3</tt>.  If no
+<tt>Hn</tt> is specified, it is identical to <tt>H0</tt>. If <tt>H</tt> is
+specified without a number, it is identical to <tt>H1</tt>.  For example, <tt>[C]</tt> and
+<tt>[CH0]</tt> are identical, and <tt>[CH]</tt> and <tt>[CH1]</tt> are identical.</p></div>
 <div class="paragraph"><p>Hydrogens that are specified in brackets with this notation have undefined isotope, no chirality,
 no other bound hydrogen, neutral charge, and an undefined atom class.</p></div>
 <div class="paragraph"><p>Examples:</p></div>
@@ -1073,35 +1079,35 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[CH4]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[CH4]</tt></p></td>
 <td align="left" valign="top"><p class="table">methane</p></td>
 <td align="left" valign="top"><p class="table"></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[ClH]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[ClH]</tt></p></td>
 <td align="left" valign="top"><p class="table">hydrochloric acid</p></td>
-<td align="left" valign="top"><p class="table"><code>H1</code> implied</p></td>
+<td align="left" valign="top"><p class="table"><tt>H1</tt> implied</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[ClH1]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[ClH1]</tt></p></td>
 <td align="left" valign="top"><p class="table">hydrochloric acid</p></td>
 <td align="left" valign="top"><p class="table"></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="paragraph"><p>A hydrogen atom cannot have a hydrogen count, for example, <code>[HH1]</code> is illegal.  Hydrogens connected
+<div class="paragraph"><p>A hydrogen atom cannot have a hydrogen count, for example, <tt>[HH1]</tt> is illegal.  Hydrogens connected
 to other hydrogens must be represented as explicit atoms in square brackets. For example molecular
-hydrogen must be written as <code>[H][H]</code>.</p></div>
+hydrogen must be written as <tt>[H][H]</tt>.</p></div>
 <div class="paragraph"><p><em>Question: are more than 9 hydrogens possible?  Should they be
 supported?</em></p></div>
 </div>
 <div class="sect3">
 <h4 id="charge">3.1.3. Charge</h4>
-<div class="paragraph"><p>Charge is specified by a <code>+n</code> or <code>-n</code> where <code>n</code> is a number; if the
-number is missing, it means either <code>+1</code> or <code>-1</code> as appropriate.</p></div>
+<div class="paragraph"><p>Charge is specified by a <tt>+n</tt> or <tt>-n</tt> where <tt>n</tt> is a number; if the
+number is missing, it means either <tt>+1</tt> or <tt>-1</tt> as appropriate.</p></div>
 <div class="paragraph"><p>For backwards compatibility, a general-purpose SMILES parser should
-accept the symbols <code>--</code> and <code>++</code> to mean charges of <code>-2</code> and <code>+2</code>, but this
+accept the symbols <tt>--</tt> and <tt>++</tt> to mean charges of <tt>-2</tt> and <tt>+2</tt>, but this
 is a deprecated form and should be avoided.</p></div>
 <div class="paragraph"><p>Examples:</p></div>
 <div class="tableblock">
@@ -1121,34 +1127,34 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[Cl-]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[Cl-]</tt></p></td>
 <td align="left" valign="top"><p class="table">chloride anion</p></td>
-<td align="left" valign="top"><p class="table"><code>-1</code> charge, <code>H0</code> implied</p></td>
+<td align="left" valign="top"><p class="table"><tt>-1</tt> charge, <tt>H0</tt> implied</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[OH1-]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[OH1-]</tt></p></td>
 <td align="left" valign="top"><p class="table">hydroxyl anion</p></td>
-<td align="left" valign="top"><p class="table"><code>-1</code> charge, <code>H1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>-1</tt> charge, <tt>H1</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[OH-1]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[OH-1]</tt></p></td>
 <td align="left" valign="top"><p class="table">hydroxyl anion</p></td>
-<td align="left" valign="top"><p class="table"><code>-1</code> charge, <code>H1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>-1</tt> charge, <tt>H1</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[Cu+2]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[Cu+2]</tt></p></td>
 <td align="left" valign="top"><p class="table">copper cation</p></td>
-<td align="left" valign="top"><p class="table"><code>+2</code> charge, <code>H0</code> implied</p></td>
+<td align="left" valign="top"><p class="table"><tt>+2</tt> charge, <tt>H0</tt> implied</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[Cu++]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[Cu++]</tt></p></td>
 <td align="left" valign="top"><p class="table">copper cation</p></td>
-<td align="left" valign="top"><p class="table"><code>+2</code> charge, <code>H0</code> implied</p></td>
+<td align="left" valign="top"><p class="table"><tt>+2</tt> charge, <tt>H0</tt> implied</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="paragraph"><p>An implementation is required to accept charges in the range <code>-15</code> to <code>+15</code>.</p></div>
+<div class="paragraph"><p>An implementation is required to accept charges in the range <tt>-15</tt> to <tt>+15</tt>.</p></div>
 </div>
 <div class="sect3">
 <h4 id="_isotopes">3.1.4. Isotopes</h4>
@@ -1169,27 +1175,27 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[13CH4]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[13CH4]</tt></p></td>
 <td align="left" valign="top"><p class="table">methane</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[2H+]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[2H+]</tt></p></td>
 <td align="left" valign="top"><p class="table">deuterium ion</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[238U]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[238U]</tt></p></td>
 <td align="left" valign="top"><p class="table">Uranium 238 atom</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="paragraph"><p>An isotope is interpreted as a number, so that <code>[2H]</code>,
-<code>[02H]</code> and <code>[002H]</code> all mean deuterium.  If the isotope field
+<div class="paragraph"><p>An isotope is interpreted as a number, so that <tt>[2H]</tt>,
+<tt>[02H]</tt> and <tt>[002H]</tt> all mean deuterium.  If the isotope field
 is not specified then the atom is assumed to have the naturally-occurring isotopic ratios.  The
 isotope value 0 also indicates an isotope of zero, that is
-<code>[0S]</code> is <strong>not</strong> the same as <code>[S]</code>.</p></div>
+<tt>[0S]</tt> is <strong>not</strong> the same as <tt>[S]</tt>.</p></div>
 <div class="paragraph"><p>There is no requirement that the isotope is a genuine isotope of the element.  Thus,
-<code>[36Cl]</code> is allowed even though <sup>35</sup>Cl and
+<tt>[36Cl]</tt> is allowed even though <sup>35</sup>Cl and
 <sup>37</sup>Cl are the actual known stable isotopes of chlorine.</p></div>
 <div class="paragraph"><p>A general-purpose SMILES parser must accept at least three digits for the isotope and values
 from 0 to 999.</p></div>
@@ -1296,15 +1302,15 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C</tt></p></td>
 <td align="left" valign="top"><p class="table">methane</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>N</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>N</tt></p></td>
 <td align="left" valign="top"><p class="table">ammonia</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>Cl</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>Cl</tt></p></td>
 <td align="left" valign="top"><p class="table">hydrochloric acid</p></td>
 </tr>
 </tbody>
@@ -1313,8 +1319,8 @@ cellspacing="0" cellpadding="4">
 <div class="paragraph"><p><em>Note: The remaining atom properties, chirality and ring-closures, are discussed in later sections.</em></p></div>
 </div>
 <div class="sect3">
-<h4 id="_the_wildcard_code_code_atomic_symbol">3.1.6. The Wildcard <code>'*'</code> Atomic Symbol</h4>
-<div class="paragraph"><p>The <code>'*'</code> atom represents an atom whose atomic number is unknown or unspecified.  If it occurs
+<h4 id="_the_wildcard_tt_tt_atomic_symbol">3.1.6. The Wildcard <tt>'*'</tt> Atomic Symbol</h4>
+<div class="paragraph"><p>The <tt>'*'</tt> atom represents an atom whose atomic number is unknown or unspecified.  If it occurs
 inside brackets, it can have its isotope, chirality, hydrogen count and charge specified.  If it
 occurs outside of brackets, it has no assumed isotope, a mass of zero, unspecified chirality, a
 hydrogen count of zero, and a charge of zero.</p></div>
@@ -1333,19 +1339,19 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>Oc1c(*)cccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>Oc1c(*)cccc1</tt></p></td>
 <td align="left" valign="top"><p class="table">ortho-substituted phenol</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="paragraph"><p>The <code>'*'</code> atom does not have any specific electronic properties or
+<div class="paragraph"><p>The <tt>'*'</tt> atom does not have any specific electronic properties or
 valence.  If specified outside of square brackets, it takes on the valence
 implied by its bonds.  If it is inside square brackets, it takes on the
 valence implied by its bonds, hydrogens and/or charge.</p></div>
-<div class="paragraph"><p>A <code>'*'</code> atom can be part of an aromatic ring.  When deducing the
+<div class="paragraph"><p>A <tt>'*'</tt> atom can be part of an aromatic ring.  When deducing the
 aromaticity of a ring system, the ring system is considered aromatic if
-there is an element which could replace the <code>'*'</code> and make the ring system
+there is an element which could replace the <tt>'*'</tt> and make the ring system
 meet the aromaticity rules (see <a href="#inaromaticity">Aromaticity</a>, below).</p></div>
 </div>
 <div class="sect3">
@@ -1370,15 +1376,15 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[CH4:2]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[CH4:2]</tt></p></td>
 <td align="left" valign="top"><p class="table">methane, atom&#8217;s class is 2</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="paragraph"><p>If the atom class is not specified then the atom class is zero.
-The atom class is interpreted as a number, so both <code>[CH2:5]</code>
-and <code>[NH4+:005]</code> have an atom class of 5.</p></div>
+The atom class is interpreted as a number, so both <tt>[CH2:5]</tt>
+and <tt>[NH4+:005]</tt> have an atom class of 5.</p></div>
 </div>
 </div>
 <div class="sect2">
@@ -1400,25 +1406,25 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CC</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC</tt></p></td>
 <td align="left" valign="top"><p class="table">ethane</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CCO</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CCO</tt></p></td>
 <td align="left" valign="top"><p class="table">ethanol</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>NCCCC</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>NCCCC</tt></p></td>
 <td align="left" valign="top"><p class="table">n-butylamine</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CCCCN</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CCCCN</tt></p></td>
 <td align="left" valign="top"><p class="table">n-butylamine</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="paragraph"><p>Double, triple and quadruple bonds are represented by <code>'='</code>, <code>'#'</code>, and <code>'$'</code> respectively:</p></div>
+<div class="paragraph"><p>Double, triple and quadruple bonds are represented by <tt>'='</tt>, <tt>'#'</tt>, and <tt>'$'</tt> respectively:</p></div>
 <div class="tableblock">
 <table rules="rows"
 width="80%"
@@ -1434,29 +1440,29 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C=C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C=C</tt></p></td>
 <td align="left" valign="top"><p class="table">ethene</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C#N</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C#N</tt></p></td>
 <td align="left" valign="top"><p class="table">hydrogen cyanide</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CC#CC</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC#CC</tt></p></td>
 <td align="left" valign="top"><p class="table">2-butyne</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CCC=O</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CCC=O</tt></p></td>
 <td align="left" valign="top"><p class="table">propanol</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[Rh-](Cl)(Cl)(Cl)(Cl)$[Rh-](Cl)(Cl)(Cl)Cl</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[Rh-](Cl)(Cl)(Cl)(Cl)$[Rh-](Cl)(Cl)(Cl)Cl</tt></p></td>
 <td align="left" valign="top"><p class="table">octachlorodirhenate (III)</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="paragraph"><p>A single bond can be explicitely represented with <code>'-'</code>, but it is rarely
+<div class="paragraph"><p>A single bond can be explicitely represented with <tt>'-'</tt>, but it is rarely
 necessary.</p></div>
 <div class="tableblock">
 <table rules="rows"
@@ -1473,21 +1479,21 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C-C</code></p></td>
-<td align="left" valign="top"><p class="table">same as: <code>CC</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C-C</tt></p></td>
+<td align="left" valign="top"><p class="table">same as: <tt>CC</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C-C-O</code></p></td>
-<td align="left" valign="top"><p class="table">same as: <code>CCO</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C-C-O</tt></p></td>
+<td align="left" valign="top"><p class="table">same as: <tt>CCO</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C-C=C-C</code></p></td>
-<td align="left" valign="top"><p class="table">same as: <code>CC=CC</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C-C=C-C</tt></p></td>
+<td align="left" valign="top"><p class="table">same as: <tt>CC=CC</tt></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="paragraph"><p>Note: The remaining bond symbols, <code>':\/'</code>, are discussed in
+<div class="paragraph"><p>Note: The remaining bond symbols, <tt>':\/'</tt>, are discussed in
 later sections.</p></div>
 </div>
 <div class="sect2">
@@ -1514,7 +1520,7 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/2-ethyl-1-butanol.gif" alt="depict/2-ethyl-1-butanol.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>CCC(CC)CO</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CCC(CC)CO</tt></p></td>
 <td align="left" valign="top"><p class="table">2-ethyl-1-butanol</p></td>
 </tr>
 </tbody>
@@ -1541,19 +1547,19 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/2-4-dimethyl-3-pentanone.gif" alt="depict/2-4-dimethyl-3-pentanone.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>CC(C)C(=O)C(C)C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC(C)C(=O)C(C)C</tt></p></td>
 <td align="left" valign="top"><p class="table">2,4-dimethyl-3-penthanone</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table">pic here</p></td>
-<td align="left" valign="top"><p class="table"><code>OCC(CCC)C(C(C)C)CCC</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>OCC(CCC)C(C(C)C)CCC</tt></p></td>
 <td align="left" valign="top"><p class="table">2-propyl-3-isopropyl-1-propanol</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/thiosulfate.gif" alt="depict/thiosulfate.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>OS(=O)(=S)O</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>OS(=O)(=S)O</tt></p></td>
 <td align="left" valign="top"><p class="table">thiosulfate</p></td>
 </tr>
 </tbody>
@@ -1576,7 +1582,7 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C))))))))))))))))))))C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C))))))))))))))))))))C</tt></p></td>
 <td align="left" valign="top"><p class="table">C22H46</p></td>
 </tr>
 </tbody>
@@ -1610,14 +1616,14 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/cyclohexane.gif" alt="depict/cyclohexane.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>C1CCCCC1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C1CCCCC1</tt></p></td>
 <td align="left" valign="top"><p class="table">cyclohexane</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/perhydroisoquinoline.gif" alt="depict/perhydroisoquinoline.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>N1CC2CCCC2CC1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>N1CC2CCCC2CC1</tt></p></td>
 <td align="left" valign="top"><p class="table">perhydroisoquinoline</p></td>
 </tr>
 </tbody>
@@ -1646,25 +1652,25 @@ cellspacing="0" cellpadding="4">
 <td rowspan="4" align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/cyclohexane.gif" alt="depict/cyclohexane.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>C=1CCCCC=1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C=1CCCCC=1</tt></p></td>
 <td align="left" valign="top"><p class="table">cyclohexene</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C=1CCCCC1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C=1CCCCC1</tt></p></td>
 <td align="left" valign="top"><p class="table">cyclohexene <strong>(preferred from)</strong></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C1CCCCC=1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C1CCCCC=1</tt></p></td>
 <td align="left" valign="top"><p class="table">cyclohexene</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C-1CCCCC=1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C-1CCCCC=1</tt></p></td>
 <td align="left" valign="top"><p class="table"><strong>invalid</strong></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="paragraph"><p>Ring closures must be matched pairs in a SMILES string, for example, <code>C1CCC</code>
+<div class="paragraph"><p>Ring closures must be matched pairs in a SMILES string, for example, <tt>C1CCC</tt>
 is not a valid SMILES.</p></div>
 <div class="paragraph"><p>It is permissible to re-use ring-closure numbers.  Once a particular number
 has been encountered twice, that number is available again for subsequent ring closures.</p></div>
@@ -1690,12 +1696,12 @@ cellspacing="0" cellpadding="4">
 <td rowspan="2" align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/dicyclohexyl.gif" alt="depict/dicyclohexyl.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>C1CCCCC1C1CCCCC1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C1CCCCC1C1CCCCC1</tt></p></td>
 <td align="left" valign="top"><p class="table">dicyclohexyl</p></td>
 <td align="left" valign="top"><p class="table">both SMILES are valid</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C1CCCCC1C2CCCCC2</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C1CCCCC1C2CCCCC2</tt></p></td>
 <td align="left" valign="top"><p class="table">dicyclohexyl</p></td>
 <td align="left" valign="top"><p class="table"></p></td>
 </tr>
@@ -1703,15 +1709,15 @@ cellspacing="0" cellpadding="4">
 </table>
 </div>
 <div class="paragraph"><p>Note that the ring number zero is valid, for example cyclohexane can be
-written <code>C0CCCCC0</code>.</p></div>
+written <tt>C0CCCCC0</tt>.</p></div>
 <div class="paragraph"><p>Two-digit ring numbers are permitted, but must be preceded by the percent
-<code>'%'</code> symbol, such as <code>C%25CCCCC%25</code> for cyclohexane. Three-digit numbers and
+<tt>'%'</tt> symbol, such as <tt>C%25CCCCC%25</tt> for cyclohexane. Three-digit numbers and
 larger are never permitted.  However, note that three digits are not invalid; for
-example, <code>C%123</code> is the same as <code>C3%12</code>, that is, an atom with two rnum
+example, <tt>C%123</tt> is the same as <tt>C3%12</tt>, that is, an atom with two rnum
 specifications.</p></div>
 <div class="paragraph"><p>The digit(s) representing a ring-closure are interpreted as a number, not a
-symbol, and two rnums match if their numbers match.  Thus, <code>C1CCCCC%01</code> is a
-valid SMILES and is the same as <code>C1CCCCC1</code>.  Likewise, <code>C%00CCCCC%00</code> is a
+symbol, and two rnums match if their numbers match.  Thus, <tt>C1CCCCC%01</tt> is a
+valid SMILES and is the same as <tt>C1CCCCC1</tt>.  Likewise, <tt>C%00CCCCC%00</tt> is a
 valid SMILES.</p></div>
 <div class="paragraph"><p>A single atom can have several ring-closure numbers, such as this spiro
 atom:</p></div>
@@ -1735,7 +1741,7 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/spiro.gif" alt="depict/spiro.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>C12(CCCCC1)CCCCC2</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C12(CCCCC1)CCCCC2</tt></p></td>
 <td align="left" valign="top"><p class="table">spiro[5.5]undecane</p></td>
 </tr>
 </tbody>
@@ -1758,15 +1764,15 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C12CCCCC12</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C12CCCCC12</tt></p></td>
 <td align="left" valign="top"><p class="table"><strong>illegal, two bonds between one pair of atoms</strong></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C12C2CCC1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C12C2CCC1</tt></p></td>
 <td align="left" valign="top"><p class="table"><strong>illegal, two bonds between one pair of atoms</strong></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C11</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C11</tt></p></td>
 <td align="left" valign="top"><p class="table"><strong>illegal, atom bonded to itself</strong></p></td>
 </tr>
 </tbody>
@@ -1799,7 +1805,7 @@ In the Kekule form, using alternating single and double bonds, with
 </li>
 <li>
 <p>
-An atomic symbol that begins with a lowercase letter is an aromatic atom, such as <code>'c'</code>
+An atomic symbol that begins with a lowercase letter is an aromatic atom, such as <tt>'c'</tt>
   for aromatic carbon.  When aromatic symbols are used, no bond symbols are needed.
 </p>
 </li>
@@ -1826,41 +1832,41 @@ cellspacing="0" cellpadding="4">
 <td rowspan="2" align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/benzene.gif" alt="depict/benzene.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">benzene</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C1=CC=CC=C1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C1=CC=CC=C1</tt></p></td>
 </tr>
 <tr>
 <td rowspan="2" align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/indane.gif" alt="depict/indane.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccc2CCCc2c1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccc2CCCc2c1</tt></p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">indane</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C1=CC=CC(CCC2)=C12</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C1=CC=CC(CCC2)=C12</tt></p></td>
 </tr>
 <tr>
 <td rowspan="2" align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/furan.gif" alt="depict/furan.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>c1occc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1occc1</tt></p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">furan</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C1OC=CC=1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C1OC=CC=1</tt></p></td>
 </tr>
 <tr>
 <td rowspan="2" align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/cyclobutadiene.gif" alt="depict/cyclobutadiene.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccc1</tt></p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">cyclobutadiene</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C1=CC=C1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C1=CC=C1</tt></p></td>
 </tr>
 </tbody>
 </table>
@@ -1914,126 +1920,126 @@ cellspacing="0" cellpadding="4">
 <img src="depict/sp2/sp2-c-1.gif" alt="depict/sp2/sp2-c-1.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">1</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-c-2.gif" alt="depict/sp2/sp2-c-2.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">1</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-c-3.gif" alt="depict/sp2/sp2-c-3.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">1</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-c-4.gif" alt="depict/sp2/sp2-c-4.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">1</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-c-5.gif" alt="depict/sp2/sp2-c-5.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">1</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-cO-1.gif" alt="depict/sp2/sp2-cO-1.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">0-1</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-cO-2.gif" alt="depict/sp2/sp2-cO-2.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">0</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-cO-3.gif" alt="depict/sp2/sp2-cO-3.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">1</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-n-1.gif" alt="depict/sp2/sp2-n-1.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">1</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-n-2.gif" alt="depict/sp2/sp2-n-2.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">1</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-n-3.gif" alt="depict/sp2/sp2-n-3.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">1</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-n-4.gif" alt="depict/sp2/sp2-n-4.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">1</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-n-5.gif" alt="depict/sp2/sp2-n-5.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">1</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-n-6.gif" alt="depict/sp2/sp2-n-6.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">1-2</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-n-7.gif" alt="depict/sp2/sp2-n-7.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">1</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-o.gif" alt="depict/sp2/sp2-o.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">2</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-se.gif" alt="depict/sp2/sp2-se.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">2</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sp2/sp2-s.gif" alt="depict/sp2/sp2-s.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">2</p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
 </tr>
 </tbody>
 </table>
@@ -2041,16 +2047,16 @@ cellspacing="0" cellpadding="4">
 </div>
 <div class="sect3">
 <h4 id="_aromaticity_algorithm">3.5.4. Aromaticity Algorithm</h4>
-<div class="paragraph"><p>In an aromatic system, all of the aromatic atoms must be sp:sup:<code>2</code> hybridized, and the
+<div class="paragraph"><p>In an aromatic system, all of the aromatic atoms must be sp<sup>2</sup> hybridized, and the
 number of <a href="http://en.wikipedia.org/wiki/Pi_electron">&#960; electrons</a>
 must meet <a href="http://en.wikipedia.org/wiki/H%C3%BCckel&#8217;s_rule">Huckel&#8217;s 4n+2 criterion</a>
 When parsing a SMILES, a parser must note the aromatic designation of each atom on
 input, then when the parsing is complete, the SMILES software must verify that electrons can be
 assigned without violating the valence rules, consistent with the sp<sup>2</sup> markings, the
 specified or implied hydrogens, external bonds, and charges on the atoms.</p></div>
-<div class="paragraph"><p>The aromatic-bond symbol <code>':'</code> can be used between aromatic atoms, but it is never necessary; a
+<div class="paragraph"><p>The aromatic-bond symbol <tt>':'</tt> can be used between aromatic atoms, but it is never necessary; a
 bond between two aromatic atoms is assumed to be aromatic unless it is explicitly represented as a
-single bond <code>'-'</code>.  However, a single bond (nonaromatic bond) between two aromatic atoms <strong>must</strong>
+single bond <tt>'-'</tt>.  However, a single bond (nonaromatic bond) between two aromatic atoms <strong>must</strong>
 be explicitly represented.  For example:</p></div>
 <div class="tableblock">
 <table rules="rows"
@@ -2072,14 +2078,14 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/biphenyl.gif" alt="depict/biphenyl.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1-c2ccccc2</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1-c2ccccc2</tt></p></td>
 <td align="left" valign="top"><p class="table">biphenyl</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="paragraph"><p><em>Note: Some SMILES parsers interpret a lowercase letter as sp<sup>2</sup> anywhere it appears;
-for example, <code>CccccC</code> would be interpreted as <code>CC=CC=CC</code>.
+for example, <tt>CccccC</tt> would be interpreted as <tt>CC=CC=CC</tt>.
 The OpenSMILES specification does not allow this interpretation unless
 <a href="#nonstandard">nonstandard parsing</a> is explicitely allowed by the user.</em></p></div>
 </div>
@@ -2107,19 +2113,19 @@ cellspacing="0" cellpadding="4">
 <tbody>
 <tr>
 <td align="left" valign="top"><p class="table">implicit hydrogen</p></td>
-<td align="left" valign="top"><p class="table"><code>C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C</tt></p></td>
 <td align="left" valign="top"><p class="table">methane</p></td>
 <td align="left" valign="top"><p class="table">h-count deduced from normal valence (4)</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table">atom property</p></td>
-<td align="left" valign="top"><p class="table"><code>[CH4]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[CH4]</tt></p></td>
 <td align="left" valign="top"><p class="table">methane</p></td>
 <td align="left" valign="top"><p class="table">h-count specified for heavy atom</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table">explicit hydrogen</p></td>
-<td align="left" valign="top"><p class="table"><code>[H]C([H])([H])[H]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[H]C([H])([H])[H]</tt></p></td>
 <td align="left" valign="top"><p class="table">methane</p></td>
 <td align="left" valign="top"><p class="table">hydrogens represented as normal atoms</p></td>
 </tr>
@@ -2144,12 +2150,12 @@ Any atom that is specified with square brackets <strong>must</strong> have its a
 <div class="ulist"><ul>
 <li>
 <p>
-hydrogens with charge (<code>[H+]</code>)
+hydrogens with charge (<tt>[H+]</tt>)
 </p>
 </li>
 <li>
 <p>
-a hydrogen connected to another hydrogen (such as molecular hydrogen, <code>[H][H]</code>)
+a hydrogen connected to another hydrogen (such as molecular hydrogen, <tt>[H][H]</tt>)
 </p>
 </li>
 <li>
@@ -2159,7 +2165,7 @@ hydrogens with more than one bond (bridging hydrogens)
 </li>
 <li>
 <p>
-Deuterium <code>[2H]</code> and tritium <code>[3H]</code>
+Deuterium <tt>[2H]</tt> and tritium <tt>[3H]</tt>
 </p>
 </li>
 </ul></div>
@@ -2181,15 +2187,15 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[CH4]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[CH4]</tt></p></td>
 <td align="left" valign="top"><p class="table">methane</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[H][CH2][H]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[H][CH2][H]</tt></p></td>
 <td align="left" valign="top"><p class="table">methane</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[2H][CH2]C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[2H][CH2]C</tt></p></td>
 <td align="left" valign="top"><p class="table">deuteroethane</p></td>
 </tr>
 </tbody>
@@ -2198,7 +2204,7 @@ cellspacing="0" cellpadding="4">
 </div>
 <div class="sect2">
 <h3 id="_disconnected_structures">3.7. Disconnected Structures</h3>
-<div class="paragraph"><p>The dot <code>'.'</code> symbol (also called a "dot bond") is legal most places where
+<div class="paragraph"><p>The dot <tt>'.'</tt> symbol (also called a "dot bond") is legal most places where
 a bond symbol would occur, but indicates that the atoms are <strong>not</strong>
 bonded.  The most common use of the dot-bond symbol is to represent
 disconnected and ionic compounds.</p></div>
@@ -2222,21 +2228,21 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/sodium-chloride.gif" alt="depict/sodium-chloride.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>[Na+].[Cl-]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[Na+].[Cl-]</tt></p></td>
 <td align="left" valign="top"><p class="table">sodium chloride</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/phenol-2-amino-ethanol.gif" alt="depict/phenol-2-amino-ethanol.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>Oc1ccccc1.NCCO</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>Oc1ccccc1.NCCO</tt></p></td>
 <td align="left" valign="top"><p class="table">phenol, 2-amino ethanol</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/diammonium-thiosulfate.gif" alt="depict/diammonium-thiosulfate.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>[NH4+].[NH4+].[O-]S(=O)(=O)[S-]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[NH4+].[NH4+].[O-]S(=O)(=O)[S-]</tt></p></td>
 <td align="left" valign="top"><p class="table">diammonium thiosulfate</p></td>
 </tr>
 </tbody>
@@ -2264,11 +2270,11 @@ cellspacing="0" cellpadding="4">
 <td rowspan="2" align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/phenol-2-amino-ethanol.gif" alt="depict/phenol-2-amino-ethanol.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>c1cc(O.NCCO)ccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1cc(O.NCCO)ccc1</tt></p></td>
 <td align="left" valign="top"><p class="table">phenol, 2-amino ethanol</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>Oc1cc(.NCCO)ccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>Oc1cc(.NCCO)ccc1</tt></p></td>
 <td align="left" valign="top"><p class="table">phenal, 2-amino ethanol</p></td>
 </tr>
 </tbody>
@@ -2280,12 +2286,12 @@ is that a dot can&#8217;t appear before a ring-closure digit).</p></div>
 <div class="paragraph"><p>Although dot-bonds are commonly used to represent compounds with disconnected parts, a dot-bond
 does <strong>not</strong> in itself mean that there are disconnected parts in the compound.   See the
 following section regarding ring digits for some examples that illustrate this.</p></div>
-<div class="paragraph"><p>The dot bond cannot be used in front of a ring-closure digit.  For example, <code>C.1CCCCC.1</code> is illegal.</p></div>
+<div class="paragraph"><p>The dot bond cannot be used in front of a ring-closure digit.  For example, <tt>C.1CCCCC.1</tt> is illegal.</p></div>
 <div class="sect3">
 <h4 id="_other_uses_of_ring_numbers_and_dot_bond">3.7.1. Other Uses of Ring Numbers and Dot Bond</h4>
 <div class="paragraph"><p>A ring-number specifications ("rnum") is most commonly used to specify a ring-closure bond, but
-when used with the <code>'.'</code> dot-bond symbol, it can also specify a non-ring bond.  Two rnums in a SMILES
-mean that the two atoms that precede the rnums are bonded.  A dot-bond <code>'.'</code> means that the atoms to
+when used with the <tt>'.'</tt> dot-bond symbol, it can also specify a non-ring bond.  Two rnums in a SMILES
+mean that the two atoms that precede the rnums are bonded.  A dot-bond <tt>'.'</tt> means that the atoms to
 which it is adjacent in the SMILES string are <strong>not</strong> bonded to each other.  By combining these
 two constructs, one can "piece together" fragments of SMILES into a whole molecule.  The following
 SMILES illustrate this:</p></div>
@@ -2306,20 +2312,20 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CC</code></p></td>
-<td align="left" valign="top"><p class="table"><code>C1.C1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>C1.C1</tt></p></td>
 <td align="left" valign="top"><p class="table">ethane</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CCC</code></p></td>
-<td align="left" valign="top"><p class="table"><code>C1.C12.C2</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CCC</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>C1.C12.C2</tt></p></td>
 <td align="left" valign="top"><p class="table">propane</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/1-bromo-2-3-dichlorobenzene.gif" alt="depict/1-bromo-2-3-dichlorobenzene.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>c1c2c3c4cc1.Br2.Cl3.Cl4</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1c2c3c4cc1.Br2.Cl3.Cl4</tt></p></td>
 <td align="left" valign="top"><p class="table">1-bromo-2,3-dichlorobenzene</p></td>
 </tr>
 </tbody>
@@ -2381,22 +2387,22 @@ cellspacing="0" cellpadding="4">
 <td rowspan="3" align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/tetrahedral.gif" alt="depict/tetrahedral.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>N[C@](Br)(O)C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>N[C@](Br)(O)C</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table">&#8230;or clockwise</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>N[C@@](Br)(C)O</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>N[C@@](Br)(C)O</tt></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="paragraph"><p>For the structure above, starting with the nitrogen atom, one "looks" toward the chiral
-center. The remaining three neighbor atoms are written by listing them in anticlockwise order using the <code>'@'</code>
-chiral property on the atom, or in clockwise order using the <code>'@@'</code> chiral property, as illustrated
-above.  The <code>'@'</code> symbol is a "visual mnemonic" in that the spiral around the character goes in the
-anticlockwise direction, and means "anticlockwise" in the SMILES string (thus, <code>'@@'</code> can be thought of
+center. The remaining three neighbor atoms are written by listing them in anticlockwise order using the <tt>'@'</tt>
+chiral property on the atom, or in clockwise order using the <tt>'@@'</tt> chiral property, as illustrated
+above.  The <tt>'@'</tt> symbol is a "visual mnemonic" in that the spiral around the character goes in the
+anticlockwise direction, and means "anticlockwise" in the SMILES string (thus, <tt>'@@'</tt> can be thought of
 as anti-anti-clockwise).</p></div>
 <div class="paragraph"><p>A chiral center can be written starting anywhere in the SMILES string, and the choice of
 whether to list the remaining neighbor in clockwise or anticlockwise order is also arbitrary. The
@@ -2416,24 +2422,24 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>N[C@](Br)(O)C</code></p></td>
-<td align="left" valign="top"><p class="table"><code>Br[C@](O)(N)C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>N[C@](Br)(O)C</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>Br[C@](O)(N)C</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>O[C@](Br)(C)N</code></p></td>
-<td align="left" valign="top"><p class="table"><code>Br[C@](C)(O)N</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>O[C@](Br)(C)N</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>Br[C@](C)(O)N</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C[C@](Br)(N)O</code></p></td>
-<td align="left" valign="top"><p class="table"><code>Br[C@](N)(C)O</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C[C@](Br)(N)O</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>Br[C@](N)(C)O</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C[C@@](Br)(O)N</code></p></td>
-<td align="left" valign="top"><p class="table"><code>Br[C@@](N)(O)C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C[C@@](Br)(O)N</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>Br[C@@](N)(O)C</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[C@@](C)(Br)(O)N</code></p></td>
-<td align="left" valign="top"><p class="table"><code>[C@@](Br)(N)(O)C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[C@@](C)(Br)(O)N</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>[C@@](Br)(N)(O)C</tt></p></td>
 </tr>
 </tbody>
 </table>
@@ -2456,14 +2462,14 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>FC1C[C@](Br)(Cl)CCC1</code></p></td>
-<td align="left" valign="top"><p class="table"><code>[C@]1(Br)(Cl)CCCC(F)C1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>FC1C[C@](Br)(Cl)CCC1</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>[C@]1(Br)(Cl)CCCC(F)C1</tt></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="paragraph"><p>If one of the neighbor atoms is a hydrogen and is represented as an atomic property of the
-chiral center (rather than explicitly as <code>[H]</code>), then it is considered to be the first atom in the
+chiral center (rather than explicitly as <tt>[H]</tt>), then it is considered to be the first atom in the
 clockwise or anticlockwise accounting.  For example, if we replaced the bromine in the illustration
 above with a hydrogen atom, its SMILES would be:</p></div>
 <div class="tableblock">
@@ -2479,7 +2485,7 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>N[C@H](O)C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>N[C@H](O)C</tt></p></td>
 </tr>
 </tbody>
 </table>
@@ -2487,7 +2493,7 @@ cellspacing="0" cellpadding="4">
 </div>
 <div class="sect3">
 <h4 id="_cis_trans_configuration_of_double_bonds">3.8.3. Cis/Trans configuration of Double Bonds</h4>
-<div class="paragraph"><p>The configuration of atoms around double bonds is specified by the bond symbols <code>'/'</code> and <code>'\'</code>.
+<div class="paragraph"><p>The configuration of atoms around double bonds is specified by the bond symbols <tt>'/'</tt> and <tt>'\'</tt>.
 These symbols always come in pairs, and indicate cis or trans with a visual "same side" or
 "opposite side" concept.  That is:</p></div>
 <div class="tableblock">
@@ -2510,28 +2516,28 @@ cellspacing="0" cellpadding="4">
 <td rowspan="2" align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/trans-difluoroethene.gif" alt="depict/trans-difluoroethene.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>F/C=C/F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F/C=C/F</tt></p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">trans-difluoroethane <strong>(both SMILES are equivalent)</strong></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>F\C=C\F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F\C=C\F</tt></p></td>
 </tr>
 <tr>
 <td rowspan="2" align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/cis-difluoroethene.gif" alt="depict/cis-difluoroethene.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>F\C=C/F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F\C=C/F</tt></p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">cis-difluoroethane <strong>(both SMILES are equivalent)</strong></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>F/C=C\F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F/C=C\F</tt></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="paragraph"><p>The "visual interpretation" of the <code>'/'</code> and <code>'\'</code> symbol is that they are thought of as bonds that
-"point" above or below the alkene bond.  That is, <code>F/C=C/Br</code> means "The <code>F</code> is below the first carbon,
-and the <code>Br</code> is above the second carbon," leading to the interpretation of a trans configuration.</p></div>
+<div class="paragraph"><p>The "visual interpretation" of the <tt>'/'</tt> and <tt>'\'</tt> symbol is that they are thought of as bonds that
+"point" above or below the alkene bond.  That is, <tt>F/C=C/Br</tt> means "The <tt>F</tt> is below the first carbon,
+and the <tt>Br</tt> is above the second carbon," leading to the interpretation of a trans configuration.</p></div>
 <div class="paragraph"><p>This notation can be confusing when parentheses follow one of the alkene carbons:</p></div>
 <div class="tableblock">
 <table rules="rows"
@@ -2548,18 +2554,18 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>F/C=C/F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F/C=C/F</tt></p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">trans-difluoroethane</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C(\F)=C/F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C(\F)=C/F</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>F\C=C/F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F\C=C/F</tt></p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">cis-difluoroethane</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C(/F)=C/F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C(/F)=C/F</tt></p></td>
 </tr>
 </tbody>
 </table>
@@ -2568,7 +2574,7 @@ cellspacing="0" cellpadding="4">
 bond is <strong>relative to the carbon atom</strong>, not the double bond, so the sense of the symbol changes
 when the fluorine atom moved from the left to the right side of the alkene carbon atom.</p></div>
 <div class="paragraph"><p><em>Note: This point was not well documented in earlier SMILES specifications, and several SMILES
-interpreters are known to interpret the <code>'/'</code> and <code>'\'</code> symbols incorrectly.</em></p></div>
+interpreters are known to interpret the <tt>'/'</tt> and <tt>'\'</tt> symbols incorrectly.</em></p></div>
 <div class="paragraph"><p>A SMILES with conflicting up/down specifications is invalid:</p></div>
 <div class="tableblock">
 <table rules="rows"
@@ -2585,7 +2591,7 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C/C(\F)=C/F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C/C(\F)=C/F</tt></p></td>
 <td align="left" valign="top"><p class="table">Invalid SMILES: Both the methyl and fluorine are "down" relative to the first allenal carbon</p></td>
 </tr>
 </tbody>
@@ -2609,7 +2615,7 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>F/C(CC)=C/F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F/C(CC)=C/F</tt></p></td>
 <td align="left" valign="top"><p class="table">trans-difluoro configuration, position of methyl is implied</p></td>
 </tr>
 </tbody>
@@ -2632,11 +2638,11 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>F/C=C=C=C/F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F/C=C=C=C/F</tt></p></td>
 <td align="left" valign="top"><p class="table">trans-difluorobutatriene</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>F/C=C=C=C\F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F/C=C=C=C\F</tt></p></td>
 <td align="left" valign="top"><p class="table">cis-difluorobutatriene</p></td>
 </tr>
 </tbody>
@@ -2646,7 +2652,7 @@ cellspacing="0" cellpadding="4">
 <div class="sect3">
 <h4 id="_tetrahedral_allene_like_systems">3.8.4. Tetrahedral Allene-like Systems</h4>
 <div class="paragraph"><p>Extended tetrahedral configurations can be specified for conjugated allenes with an even number
-of double bonds.  The normal tetrahedral rules using <code>'@'</code> and <code>'@@'</code> apply, but the "neighbor" atoms
+of double bonds.  The normal tetrahedral rules using <tt>'@'</tt> and <tt>'@@'</tt> apply, but the "neighbor" atoms
 to which the chirality refers are at the ends of the allene system.  For example:</p></div>
 <div class="tableblock">
 <table rules="rows"
@@ -2666,7 +2672,7 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/tetrahedral-allene.gif" alt="depict/tetrahedral-allene.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>NC(Br)=[C@]=C(O)C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>NC(Br)=[C@]=C(O)C</tt></p></td>
 </tr>
 </tbody>
 </table>
@@ -2677,18 +2683,18 @@ property of the center atom of the extended allene system.</p></div>
 </div>
 <div class="sect3">
 <h4 id="_square_planar_centers">3.8.5. Square Planar Centers</h4>
-<div class="paragraph"><p>There are three tags to represent square planar stereochemistry: <code>@SP1</code>, <code>@SP2</code>
-and <code>@SP3</code>. Since there is no way to determine to what chirality class an atom
+<div class="paragraph"><p>There are three tags to represent square planar stereochemistry: <tt>@SP1</tt>, <tt>@SP2</tt>
+and <tt>@SP3</tt>. Since there is no way to determine to what chirality class an atom
 belongs based on the SMILES alone, the SP class is not the default class for
-tetravalent stereocenters. Therefore are the shorthand notations (<code>@</code>, <code>@@</code>) not
-equivalent to <code>@SP1</code> and <code>@SP2</code>. That is, the full specification must be there
-(<code>@SP</code> followed by 1, 2 or 3). The square planar also differs from the other
+tetravalent stereocenters. Therefore are the shorthand notations (<tt>@</tt>, <tt>@@</tt>) not
+equivalent to <tt>@SP1</tt> and <tt>@SP2</tt>. That is, the full specification must be there
+(<tt>@SP</tt> followed by 1, 2 or 3). The square planar also differs from the other
 chiral primitives in that it does not use the notion of (anti-)clockwise.
 Instead, each primitive represents a shape that is formed by drawing a line
 starting from the atom that is first in the SMILES pattern to the next until
 the end atom is reached. This may result in 3 possible shaped which are
-referred to by a character with identical shape: <code>'U'</code> for <code>@SP1</code>, <code>'4'</code> for <code>@SP2</code> and
-<code>'Z'</code> for <code>@SP3</code>. The graphical from of these shapes is illustrated in the image
+referred to by a character with identical shape: <tt>'U'</tt> for <tt>@SP1</tt>, <tt>'4'</tt> for <tt>@SP2</tt> and
+<tt>'Z'</tt> for <tt>@SP3</tt>. The graphical from of these shapes is illustrated in the image
 below.</p></div>
 <div class="paragraph"><p><span class="image">
 <img src="images/SPshapes.png" alt="images/SPshapes.png" />
@@ -2707,14 +2713,14 @@ writers to use any ordering to output the atoms.</em></p></div>
 </div>
 <div class="sect3">
 <h4 id="_trigonal_bipyramidal_centers">3.8.6. Trigonal Bipyramidal Centers</h4>
-<div class="paragraph"><p>The chiral atom&#8217;s neighbors are labeled a, <code>b</code>, <code>c</code>, <code>d</code>, and <code>e</code> in the order that they
-are parsed. For example, for <code>S[As@@](F)(Cl)(Br)N</code> <code>S</code> corresponds to <code>a</code>, <code>F</code> to <code>b</code>, <code>Cl</code>
-to <code>c</code>, <code>Br</code> to <code>d</code> and <code>N</code> to <code>e</code>. This order is the unit permutation, represented as the
-ordered set <code>(a, b, c, d, e)</code>. In the simplest case <code>@TB1</code> viewing from a towards <code>e</code>,
-<code>(b, c, d)</code> are anti-clockwise (<code>@</code>). Likewise, <code>@TB2</code> is specified as viewing from <code>a</code>
-towards <code>e</code>, <code>(b, c, d)</code> are ordered clockwise (<code>@@</code>). The remaining TB&#8217;s permute the
-axis as indicated in the table below. A final example, for <code>@TB6</code> the viewing axis is from
-<code>a</code> towards <code>c</code> and <code>(b, d, e)</code> are clockwise (<code>@@</code>).</p></div>
+<div class="paragraph"><p>The chiral atom&#8217;s neighbors are labeled a, <tt>b</tt>, <tt>c</tt>, <tt>d</tt>, and <tt>e</tt> in the order that they
+are parsed. For example, for <tt>S[As@@](F)(Cl)(Br)N</tt> <tt>S</tt> corresponds to <tt>a</tt>, <tt>F</tt> to <tt>b</tt>, <tt>Cl</tt>
+to <tt>c</tt>, <tt>Br</tt> to <tt>d</tt> and <tt>N</tt> to <tt>e</tt>. This order is the unit permutation, represented as the
+ordered set <tt>(a, b, c, d, e)</tt>. In the simplest case <tt>@TB1</tt> viewing from a towards <tt>e</tt>,
+<tt>(b, c, d)</tt> are anti-clockwise (<tt>@</tt>). Likewise, <tt>@TB2</tt> is specified as viewing from <tt>a</tt>
+towards <tt>e</tt>, <tt>(b, c, d)</tt> are ordered clockwise (<tt>@@</tt>). The remaining TB&#8217;s permute the
+axis as indicated in the table below. A final example, for <tt>@TB6</tt> the viewing axis is from
+<tt>a</tt> towards <tt>c</tt> and <tt>(b, d, e)</tt> are clockwise (<tt>@@</tt>).</p></div>
 <div class="tableblock">
 <table rules="rows"
 width="40%"
@@ -2738,8 +2744,8 @@ cellspacing="0" cellpadding="4">
 <td colspan="2" align="left" valign="top"><p class="table"></p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>e</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>e</tt></p></td>
 <td align="left" valign="top"><p class="table">TB1</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2748,8 +2754,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>d</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>d</tt></p></td>
 <td align="left" valign="top"><p class="table">TB3</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2758,8 +2764,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>c</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>c</tt></p></td>
 <td align="left" valign="top"><p class="table">TB5</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2768,8 +2774,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>b</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>b</tt></p></td>
 <td align="left" valign="top"><p class="table">TB7</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2778,8 +2784,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>b</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>e</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>b</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>e</tt></p></td>
 <td align="left" valign="top"><p class="table">TB9</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2788,8 +2794,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>b</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>d</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>b</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>d</tt></p></td>
 <td align="left" valign="top"><p class="table">TB10</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2798,8 +2804,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>b</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>c</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>b</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>c</tt></p></td>
 <td align="left" valign="top"><p class="table">TB13</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2808,8 +2814,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>c</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>e</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>c</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>e</tt></p></td>
 <td align="left" valign="top"><p class="table">TB15</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2818,8 +2824,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>c</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>d</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>c</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>d</tt></p></td>
 <td align="left" valign="top"><p class="table">TB16</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2828,8 +2834,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>d</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>e</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>d</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>e</tt></p></td>
 <td align="left" valign="top"><p class="table">TB17</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2856,16 +2862,16 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>S[As@TB1](F)(Cl)(Br)N</code></p></td>
-<td align="left" valign="top"><p class="table"><code>S[As@TB2](Br)(Cl)(F)N</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>S[As@TB1](F)(Cl)(Br)N</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>S[As@TB2](Br)(Cl)(F)N</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>S[As@TB5](F)(N)(Cl)Br</code></p></td>
-<td align="left" valign="top"><p class="table"><code>F[As@TB10](S)(Cl)(N)Br</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>S[As@TB5](F)(N)(Cl)Br</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>F[As@TB10](S)(Cl)(N)Br</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>F[As@TB15](Cl)(S)(Br)N</code></p></td>
-<td align="left" valign="top"><p class="table"><code>Br[As@TB20](Cl)(S)(F)N</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F[As@TB15](Cl)(S)(Br)N</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>Br[As@TB20](Cl)(S)(F)N</tt></p></td>
 </tr>
 </tbody>
 </table>
@@ -2896,8 +2902,8 @@ correspond to an TB primitive.</em></p></div>
 </div>
 <div class="sect3">
 <h4 id="_octahedral_centers">3.8.7. Octahedral Centers</h4>
-<div class="paragraph"><p>For 6 atoms, the unit permutation is <code>(a, b, c ,d ,e ,f)</code>. <code>@OH1</code> means when viewing
-from <code>a</code> towards <code>f</code>, <code>(b, c, d, e)</code> are ordered anti-clockwise (<code>@</code>). <code>@OH2</code> uses the same
+<div class="paragraph"><p>For 6 atoms, the unit permutation is <tt>(a, b, c ,d ,e ,f)</tt>. <tt>@OH1</tt> means when viewing
+from <tt>a</tt> towards <tt>f</tt>, <tt>(b, c, d, e)</tt> are ordered anti-clockwise (<tt>@</tt>). <tt>@OH2</tt> uses the same
 axis but the 4 intermediate atoms are ordered clockwise. The interpretation of the 28
 remaining numbers is more complex though. The concept of shapes (see square planar
 stereochemistry) to describe the orientation of 4 atoms in a plane is reused. However,
@@ -2932,9 +2938,9 @@ cellspacing="0" cellpadding="4">
 <td colspan="2" align="left" valign="top"><p class="table"></p></td>
 </tr>
 <tr>
-<td rowspan="10" align="left" valign="top"><p class="table"><code>U</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>f</code></p></td>
+<td rowspan="10" align="left" valign="top"><p class="table"><tt>U</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>f</tt></p></td>
 <td align="left" valign="top"><p class="table">OH1</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2943,8 +2949,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>e</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>e</tt></p></td>
 <td align="left" valign="top"><p class="table">OH3</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2953,8 +2959,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>d</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>d</tt></p></td>
 <td align="left" valign="top"><p class="table">OH6</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2963,8 +2969,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>c</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>c</tt></p></td>
 <td align="left" valign="top"><p class="table">OH19</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2973,8 +2979,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>b</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>b</tt></p></td>
 <td align="left" valign="top"><p class="table">OH25</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2983,9 +2989,9 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="10" align="left" valign="top"><p class="table"><code>Z</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>f</code></p></td>
+<td rowspan="10" align="left" valign="top"><p class="table"><tt>Z</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>f</tt></p></td>
 <td align="left" valign="top"><p class="table">OH4</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -2994,8 +3000,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>e</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>e</tt></p></td>
 <td align="left" valign="top"><p class="table">OH5</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -3004,8 +3010,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>d</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>d</tt></p></td>
 <td align="left" valign="top"><p class="table">OH7</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -3014,8 +3020,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>c</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>c</tt></p></td>
 <td align="left" valign="top"><p class="table">OH20</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -3024,8 +3030,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>b</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>b</tt></p></td>
 <td align="left" valign="top"><p class="table">OH26</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -3034,9 +3040,9 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="10" align="left" valign="top"><p class="table"><code>4</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>f</code></p></td>
+<td rowspan="10" align="left" valign="top"><p class="table"><tt>4</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>f</tt></p></td>
 <td align="left" valign="top"><p class="table">OH10</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -3045,8 +3051,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>e</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>e</tt></p></td>
 <td align="left" valign="top"><p class="table">OH11</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -3055,8 +3061,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>d</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>d</tt></p></td>
 <td align="left" valign="top"><p class="table">OH13</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -3065,8 +3071,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>c</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>c</tt></p></td>
 <td align="left" valign="top"><p class="table">OH22</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -3075,8 +3081,8 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">@@</p></td>
 </tr>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>a</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>b</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>a</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>b</tt></p></td>
 <td align="left" valign="top"><p class="table">OH28</p></td>
 <td align="left" valign="top"><p class="table">@</p></td>
 </tr>
@@ -3103,20 +3109,20 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C[Co@](F)(Cl)(Br)(I)S</code></p></td>
-<td align="left" valign="top"><p class="table"><code>F[Co@@](S)(I)(C)(Cl)Br</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C[Co@](F)(Cl)(Br)(I)S</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>F[Co@@](S)(I)(C)(Cl)Br</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>S[Co@OH5](F)(I)(Cl)(C)Br</code></p></td>
-<td align="left" valign="top"><p class="table"><code>Br[Co@OH9](C)(S)(Cl)(F)I</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>S[Co@OH5](F)(I)(Cl)(C)Br</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>Br[Co@OH9](C)(S)(Cl)(F)I</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>Br[Co@OH12](Cl)(I)(F)(S)C</code></p></td>
-<td align="left" valign="top"><p class="table"><code>Cl[Co@OH15](C)(Br)(F)(I)S</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>Br[Co@OH12](Cl)(I)(F)(S)C</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>Cl[Co@OH15](C)(Br)(F)(I)S</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>Cl[Co@OH19](C)(I)(F)(S)Br</code></p></td>
-<td align="left" valign="top"><p class="table"><code>I[Co@OH27](Cl)(Br)(F)(S)C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>Cl[Co@OH19](C)(I)(F)(S)Br</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>I[Co@OH27](Cl)(Br)(F)(S)C</tt></p></td>
 </tr>
 </tbody>
 </table>
@@ -3154,15 +3160,15 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>F/C=C/C/C=C\C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F/C=C/C/C=C\C</tt></p></td>
 <td align="left" valign="top"><p class="table">completely specified</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>F/C=C/CC=CC</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F/C=C/CC=CC</tt></p></td>
 <td align="left" valign="top"><p class="table">partially specified</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>N1[C@H](Cl)[C@@H](Cl)C(Cl)CC1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>N1[C@H](Cl)[C@@H](Cl)C(Cl)CC1</tt></p></td>
 <td align="left" valign="top"><p class="table">partially specified</p></td>
 </tr>
 </tbody>
@@ -3188,33 +3194,33 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>TH</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>TH</tt></p></td>
 <td align="left" valign="top"><p class="table">Tetrahedral</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>AL</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>AL</tt></p></td>
 <td align="left" valign="top"><p class="table">Allenal</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>SP</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>SP</tt></p></td>
 <td align="left" valign="top"><p class="table">Square Planar</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>TB</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>TB</tt></p></td>
 <td align="left" valign="top"><p class="table">Trigonal Bipyramidal</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>OH</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>OH</tt></p></td>
 <td align="left" valign="top"><p class="table">Octahedral</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="paragraph"><p>The shorthand notations <code>'@'</code> and <code>'@@'</code> correspond to anti-clockwise and
-clockwise tetrahedral chirality, and are the same a <code>'@TH1'</code> and
-<code>'@TH2'</code>, respectively.  Likewise, in an allenal configuration, the shorthand
-notations <code>'@'</code> and <code>'@@'</code> correspond to <code>'@AL1'</code> and <code>'@AL2'</code>, respectively.</p></div>
-<div class="paragraph"><p>Very few SMILES systems actually implement the rules for <code>SP</code>, <code>TB</code> or <code>OH</code> chirality.</p></div>
+<div class="paragraph"><p>The shorthand notations <tt>'@'</tt> and <tt>'@@'</tt> correspond to anti-clockwise and
+clockwise tetrahedral chirality, and are the same a <tt>'@TH1'</tt> and
+<tt>'@TH2'</tt>, respectively.  Likewise, in an allenal configuration, the shorthand
+notations <tt>'@'</tt> and <tt>'@@'</tt> correspond to <tt>'@AL1'</tt> and <tt>'@AL2'</tt>, respectively.</p></div>
+<div class="paragraph"><p>Very few SMILES systems actually implement the rules for <tt>SP</tt>, <tt>TB</tt> or <tt>OH</tt> chirality.</p></div>
 </div>
 </div>
 <div class="sect2">
@@ -3280,23 +3286,23 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CCO</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CCO</tt></p></td>
 <td align="left" valign="top"><p class="table">ethanol</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>OCC</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>OCC</tt></p></td>
 <td align="left" valign="top"><p class="table">ethanol</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C(O)C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C(O)C</tt></p></td>
 <td align="left" valign="top"><p class="table">ethanol</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[CH3][CH2][OH]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[CH3][CH2][OH]</tt></p></td>
 <td align="left" valign="top"><p class="table">ethanol</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[H][C]([H])([H])C([H])([H])[O][H]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[H][C]([H])([H])C([H])([H])[O][H]</tt></p></td>
 <td align="left" valign="top"><p class="table">ethanol</p></td>
 </tr>
 </tbody>
@@ -3360,33 +3366,33 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CC</code></p></td>
-<td align="left" valign="top"><p class="table"><code>[CH3][CH3]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>[CH3][CH3]</tt></p></td>
 <td align="left" valign="top"><p class="table">Write atoms in the "organic subset" as bare atomic symbols whenever possible.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[CH3-]</code></p></td>
-<td align="left" valign="top"><p class="table"><code>[CH3-1]</code></p></td>
-<td align="left" valign="top"><p class="table">If the charge is <code>+1</code> or <code>-1</code>, leave off the digit.</p></td>
+<td align="left" valign="top"><p class="table"><tt>[CH3-]</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>[CH3-1]</tt></p></td>
+<td align="left" valign="top"><p class="table">If the charge is <tt>+1</tt> or <tt>-1</tt>, leave off the digit.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C[13CH](C)C</code></p></td>
-<td align="left" valign="top"><p class="table"><code>C[13CH1](C)C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C[13CH](C)C</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>C[13CH1](C)C</tt></p></td>
 <td align="left" valign="top"><p class="table">If the hydrogen count is 1, leave off the digit.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[CH3-]</code></p></td>
-<td align="left" valign="top"><p class="table"><code>[C-H3]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[CH3-]</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>[C-H3]</tt></p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">Always write the atom properties in the order: Chirality, hydrogen-count, charge.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C[C@H](Br)Cl</code></p></td>
-<td align="left" valign="top"><p class="table"><code>C[CH@](Br)Cl</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C[C@H](Br)Cl</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>C[CH@](Br)Cl</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[CH3-]</code></p></td>
-<td align="left" valign="top"><p class="table"><code>[H][C-]([H])[H]</code></p></td>
-<td align="left" valign="top"><p class="table">Represent hydrogens as a property of the heavy atom rather than as explicit atoms, unless other rules (e.g. <code>[2H]</code>) require that the hydrogen be explicit.</p></td>
+<td align="left" valign="top"><p class="table"><tt>[CH3-]</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>[H][C-]([H])[H]</tt></p></td>
+<td align="left" valign="top"><p class="table">Represent hydrogens as a property of the heavy atom rather than as explicit atoms, unless other rules (e.g. <tt>[2H]</tt>) require that the hydrogen be explicit.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3411,17 +3417,17 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CC</code></p></td>
-<td align="left" valign="top"><p class="table"><code>C-C</code></p></td>
-<td rowspan="3" align="left" valign="top"><p class="table">Only write <code>'-'</code> (single bond) when it is between two aromatic atoms.  Never write the <code>':'</code> (aromatic bond) symbol.  Bonds are single or aromatic by default (as appropriate).</p></td>
+<td align="left" valign="top"><p class="table"><tt>CC</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>C-C</tt></p></td>
+<td rowspan="3" align="left" valign="top"><p class="table">Only write <tt>'-'</tt> (single bond) when it is between two aromatic atoms.  Never write the <tt>':'</tt> (aromatic bond) symbol.  Bonds are single or aromatic by default (as appropriate).</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
-<td align="left" valign="top"><p class="table"><code>c:1:c:c:c:c:c:1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>c:1:c:c:c:c:c:1</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1-c2ccccc2</code></p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1c2ccccc2</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1-c2ccccc2</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1c2ccccc2</tt></p></td>
 </tr>
 </tbody>
 </table>
@@ -3446,28 +3452,28 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1C2CCCC2</code></p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1C1CCCC1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1C2CCCC2</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1C1CCCC1</tt></p></td>
 <td align="left" valign="top"><p class="table">Don&#8217;t reuse ring-closure digits.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1C2CCCC2</code></p></td>
-<td align="left" valign="top"><p class="table"><code>c0ccccc0C1CCCC1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1C2CCCC2</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>c0ccccc0C1CCCC1</tt></p></td>
 <td align="left" valign="top"><p class="table">Begin ring numbering with 1, not zero (or any other number)</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CC1=CCCCC1</code></p></td>
-<td align="left" valign="top"><p class="table"><code>CC=1CCCCC=1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC1=CCCCC1</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC=1CCCCC=1</tt></p></td>
 <td align="left" valign="top"><p class="table">Avoid making a ring-closure on a double or triple bond.  For the ring-closure digits, choose a single bond whenever possible.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C1CC2CCCCC2CC1</code></p></td>
-<td align="left" valign="top"><p class="table"><code>C12(CCCCC1)CCCCC2</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C1CC2CCCCC2CC1</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>C12(CCCCC1)CCCCC2</tt></p></td>
 <td align="left" valign="top"><p class="table">Avoid starting a ring system on an atom that is in two or more rings, such that two ring-closure bonds will be on the same atom.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C1CCCCC1</code></p></td>
-<td align="left" valign="top"><p class="table"><code>C%01CCCCC%01</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C1CCCCC1</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>C%01CCCCC%01</tt></p></td>
 <td align="left" valign="top"><p class="table">Use the simpler single-digit form for rnums less than 10.</p></td>
 </tr>
 </tbody>
@@ -3493,23 +3499,23 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>OCc1ccccc1</code></p></td>
-<td align="left" valign="top"><p class="table"><code>c1cc(CO)ccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>OCc1ccccc1</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1cc(CO)ccc1</tt></p></td>
 <td align="left" valign="top"><p class="table">Start on a terminal atom if possible.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CC(C)CCCCCC</code></p></td>
-<td align="left" valign="top"><p class="table"><code>CC(CCCCCC)C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC(C)CCCCCC</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC(CCCCCC)C</tt></p></td>
 <td align="left" valign="top"><p class="table">Try to make "side chains" short; pick the longest chains as the "main branch" of the SMILES.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>OCCC</code></p></td>
-<td align="left" valign="top"><p class="table"><code>CCCO</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>OCCC</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>CCCO</tt></p></td>
 <td align="left" valign="top"><p class="table">Start on a heteroatom if possible.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CC</code></p></td>
-<td align="left" valign="top"><p class="table"><code>C1.C1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>C1.C1</tt></p></td>
 <td align="left" valign="top"><p class="table">Only use dots for disconnected components.</p></td>
 </tr>
 </tbody>
@@ -3535,8 +3541,8 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1</code></p></td>
-<td align="left" valign="top"><p class="table"><code>C1=CC=CC=C1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>C1=CC=CC=C1</tt></p></td>
 <td align="left" valign="top"><p class="table">Write the aromatic form in preference to the Kekule form.</p></td>
 </tr>
 </tbody>
@@ -3562,13 +3568,13 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>BrC(Br)C</code></p></td>
-<td align="left" valign="top"><p class="table"><code>Br[C@H](Br)C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>BrC(Br)C</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>Br[C@H](Br)C</tt></p></td>
 <td align="left" valign="top"><p class="table">Remove chiral markings for atoms that are not chiral.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>FC(F)=CF</code></p></td>
-<td align="left" valign="top"><p class="table"><code>F/C(/F)=C/F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>FC(F)=CF</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>F/C(/F)=C/F</tt></p></td>
 <td align="left" valign="top"><p class="table">Remove cis/trans markings for double bonds that are not cis or trans.</p></td>
 </tr>
 </tbody>
@@ -3599,23 +3605,23 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td rowspan="2" align="left" valign="top"><p class="table"><code>OCC</code></p></td>
-<td align="left" valign="top"><p class="table"><code>CCO</code></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table"><tt>OCC</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>CCO</tt></p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">ethanol</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C(C)O</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C(C)O</tt></p></td>
 </tr>
 <tr>
-<td rowspan="3" align="left" valign="top"><p class="table"><code>Oc1ccccc1</code></p></td>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1O</code></p></td>
+<td rowspan="3" align="left" valign="top"><p class="table"><tt>Oc1ccccc1</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1O</tt></p></td>
 <td rowspan="3" align="left" valign="top"><p class="table">phenol</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>c1(O)ccccc1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1(O)ccccc1</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>c1(ccccc1)O</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1(ccccc1)O</tt></p></td>
 </tr>
 </tbody>
 </table>
@@ -3709,77 +3715,77 @@ cellspacing="0" cellpadding="4">
 <tbody>
 <tr>
 <td rowspan="3" align="left" valign="top"><p class="table">Extra parentheses</p></td>
-<td align="left" valign="top"><p class="table"><code>C((C))O</code></p></td>
-<td align="left" valign="top"><p class="table"><code>C(C)O</code></p></td>
-<td rowspan="3" align="left" valign="top"><p class="table">Extra parentheses are ignored in places where there is no ambiguity as to the meaning.  Note that the form <code>(CO)N</code> is never allowed, since it isn&#8217;t clear which atom the nitrogen should connect to.</p></td>
+<td align="left" valign="top"><p class="table"><tt>C((C))O</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>C(C)O</tt></p></td>
+<td rowspan="3" align="left" valign="top"><p class="table">Extra parentheses are ignored in places where there is no ambiguity as to the meaning.  Note that the form <tt>(CO)N</tt> is never allowed, since it isn&#8217;t clear which atom the nitrogen should connect to.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C((C))O</code></p></td>
-<td align="left" valign="top"><p class="table"><code>C(C)O</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C((C))O</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>C(C)O</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>(N1CCCC1)</code></p></td>
-<td align="left" valign="top"><p class="table"><code>N1CCCCC1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>(N1CCCC1)</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>N1CCCCC1</tt></p></td>
 </tr>
 <tr>
 <td rowspan="3" align="left" valign="top"><p class="table">Misplaced dots</p></td>
-<td align="left" valign="top"><p class="table"><code>[Na+]..[Cl-]</code></p></td>
-<td align="left" valign="top"><p class="table"><code>[Na+].[Cl-]</code></p></td>
-<td rowspan="3" align="left" valign="top"><p class="table">Two or more dot-bonds in a row are condensed into one.  A leading or trailing dot-bond is ignored.  Note that a dot that starts a branch is <em>legal</em> in strict SMILES; for example, <code>C1CC(.[Na+])CC1[O-]</code> is a legal (though strange) SMILES.</p></td>
+<td align="left" valign="top"><p class="table"><tt>[Na+]..[Cl-]</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>[Na+].[Cl-]</tt></p></td>
+<td rowspan="3" align="left" valign="top"><p class="table">Two or more dot-bonds in a row are condensed into one.  A leading or trailing dot-bond is ignored.  Note that a dot that starts a branch is <em>legal</em> in strict SMILES; for example, <tt>C1CC(.[Na+])CC1[O-]</tt> is a legal (though strange) SMILES.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>.CCO</code></p></td>
-<td align="left" valign="top"><p class="table"><code>CCO</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>.CCO</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>CCO</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CCO.</code></p></td>
-<td align="left" valign="top"><p class="table"><code>CCO</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CCO.</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>CCO</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table">Mismatched Ring Bonds</p></td>
-<td align="left" valign="top"><p class="table"><code>C1CCC</code></p></td>
-<td align="left" valign="top"><p class="table"><code>CCCC</code></p></td>
-<td align="left" valign="top"><p class="table">Mismatched ring bonds are ignored.  Note that this is almost always a bad idea.  For example, <code>C1CCCCC2</code> is almost certainly supposed to be cyclohexane <code>C1CCCCC1</code>, but with "relaxed" parsing would be interpreted as hexane.</p></td>
+<td align="left" valign="top"><p class="table"><tt>C1CCC</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>CCCC</tt></p></td>
+<td align="left" valign="top"><p class="table">Mismatched ring bonds are ignored.  Note that this is almost always a bad idea.  For example, <tt>C1CCCCC2</tt> is almost certainly supposed to be cyclohexane <tt>C1CCCCC1</tt>, but with "relaxed" parsing would be interpreted as hexane.</p></td>
 </tr>
 <tr>
 <td rowspan="3" align="left" valign="top"><p class="table">Invalid Cis/Trans specification</p></td>
-<td align="left" valign="top"><p class="table"><code>C/C=C</code></p></td>
-<td align="left" valign="top"><p class="table"><code>CC=C</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C/C=C</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC=C</tt></p></td>
 <td rowspan="3" align="left" valign="top"><p class="table">Mismatched or incomplete cis/trans bonds are ignored.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C/C=CC</code></p></td>
-<td align="left" valign="top"><p class="table"><code>CC=CC</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C/C=CC</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC=CC</tt></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>CC/=C/C</code></p></td>
-<td align="left" valign="top"><p class="table"><code>CC=CC</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC/=C/C</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC=CC</tt></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table">Conflicting cis/trans specification</p></td>
-<td align="left" valign="top"><p class="table"><code>C/C(\F)=C/C</code></p></td>
-<td align="left" valign="top"><p class="table"><code>CC(F)=CC</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C/C(\F)=C/C</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC(F)=CC</tt></p></td>
 <td align="left" valign="top"><p class="table">Conflicting cis/trans bonds are ignored. (In this case, both the methyl and fluorine on the left are shown as <em>trans</em> to the methyl on the right, an impossible configuration.)</p></td>
 </tr>
 <tr>
 <td rowspan="2" align="left" valign="top"><p class="table">D and T</p></td>
-<td align="left" valign="top"><p class="table"><code>D[CH3]</code></p></td>
-<td align="left" valign="top"><p class="table"><code>[2H][CH3]</code></p></td>
-<td rowspan="2" align="left" valign="top"><p class="table">The symbols <code>D</code> and <code>T</code> are treated as synonyms for <code>[2H]</code> and <code>[3H]</code>.</p></td>
+<td align="left" valign="top"><p class="table"><tt>D[CH3]</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>[2H][CH3]</tt></p></td>
+<td rowspan="2" align="left" valign="top"><p class="table">The symbols <tt>D</tt> and <tt>T</tt> are treated as synonyms for <tt>[2H]</tt> and <tt>[3H]</tt>.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>T[CH3]</code></p></td>
-<td align="left" valign="top"><p class="table"><code>[3H][CH3]</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>T[CH3]</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>[3H][CH3]</tt></p></td>
 </tr>
 <tr>
 <td rowspan="2" align="left" valign="top"><p class="table">Lowercase as sp<sup>2</sup></p></td>
-<td align="left" valign="top"><p class="table"><code>CccccC</code></p></td>
-<td align="left" valign="top"><p class="table"><code>CC=CC=CC</code> 2,4-hexadiene</p></td>
+<td align="left" valign="top"><p class="table"><tt>CccccC</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC=CC=CC</tt> 2,4-hexadiene</p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">Lowercase letters are interpreted as sp<sup>2</sup>, even outside of ring systems.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>Ccc</code></p></td>
-<td align="left" valign="top"><p class="table"><code>CC=C</code> propene</p></td>
+<td align="left" valign="top"><p class="table"><tt>Ccc</tt></p></td>
+<td align="left" valign="top"><p class="table"><tt>CC=C</tt> propene</p></td>
 </tr>
 </tbody>
 </table>
@@ -3793,14 +3799,14 @@ cellspacing="0" cellpadding="4">
 <h3 id="_external_r_groups">6.1. External R-Groups</h3>
 <div class="paragraph"><p>Daylight proposed, and OpenEye actually implemented, an extension that
 specifies bonds to external R-groups.  An external R-group is specified
-using ampersand <code>'&amp;'</code> followed by a ring-closure specification (either a
-digit, or <code>'%'</code> and two digits).  However, unlike ring-closures, the bond is to
-an external, unspecified R-group.  Example: <code>n1c(&amp;1)c(&amp;2)cccc1</code> - 2,3-substituted pyridine.</p></div>
+using ampersand <tt>'&amp;'</tt> followed by a ring-closure specification (either a
+digit, or <tt>'%'</tt> and two digits).  However, unlike ring-closures, the bond is to
+an external, unspecified R-group.  Example: <tt>n1c(&amp;1)c(&amp;2)cccc1</tt> - 2,3-substituted pyridine.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_polymers_and_crystals">6.2. Polymers and Crystals</h3>
 <div class="paragraph"><p>Daylight (Weininger) proposed, but never implemented, an extension for crystals and
-polymers.  Daylight also used the ampersand <code>'&amp;'</code> character, (which may
+polymers.  Daylight also used the ampersand <tt>'&amp;'</tt> character, (which may
 conflict with the R-group proposal, above), but with the added rule that
 if a number appears more than once, it creates a repeating unit.</p></div>
 <div class="tableblock">
@@ -3818,15 +3824,15 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><code>c1ccccc1C&amp;1&amp;1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c1ccccc1C&amp;1&amp;1</tt></p></td>
 <td align="left" valign="top"><p class="table">polystyrene</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>C&amp;1&amp;1&amp;1&amp;1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C&amp;1&amp;1&amp;1&amp;1</tt></p></td>
 <td align="left" valign="top"><p class="table">diamond</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>c&amp;1&amp;1&amp;1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>c&amp;1&amp;1&amp;1</tt></p></td>
 <td align="left" valign="top"><p class="table">graphite</p></td>
 </tr>
 </tbody>
@@ -3835,15 +3841,15 @@ cellspacing="0" cellpadding="4">
 </div>
 <div class="sect2">
 <h3 id="_atom_based_double_bond_configuration">6.3. Atom-based Double Bond Configuration</h3>
-<div class="paragraph"><p>The directional <code>'/'</code> and <code>'\'</code> marks for cis/trans bonds seem simple on
+<div class="paragraph"><p>The directional <tt>'/'</tt> and <tt>'\'</tt> marks for cis/trans bonds seem simple on
 the surface but are problematic for complex systems. The issue is that
 in conjugated systems one directional bond <em>can</em> be used in defining the
 configuration of two double bonds. When assigning the directional bonds the
 existing labels must be considered or rewritten.  In a long series of
 conjugated double bonds, changing the configuration of one bond can require
 rewriting dozens of bond symbols.</p></div>
-<div class="paragraph"><p>More importantly, there is a theoretical flaw with the use of <code>'/'</code> and
-<code>'\'</code>.  It is possible to write valid SMILES for the molecule
+<div class="paragraph"><p>More importantly, there is a theoretical flaw with the use of <tt>'/'</tt> and
+<tt>'\'</tt>.  It is possible to write valid SMILES for the molecule
 <a href="http://en.wikipedia.org/wiki/Cyclooctatetraene">cyclooctatetraene</a> by alternating
 directional assignments for the cis configurations. However, as shown below attempting
 to change one configuration is not possible. Reassigning the directional labels for
@@ -3871,18 +3877,18 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/cyclooctatetraene.gif" alt="depict/cyclooctatetraene.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>C/1=C/C=C\C=C/C=C\1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C/1=C/C=C\C=C/C=C\1</tt></p></td>
 <td align="left" valign="top"><p class="table">cyclooctatetraene</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table">Todo</p></td>
-<td align="left" valign="top"><p class="table"><code>C/1=C/C=C/C=C/C=C\1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>C/1=C/C=C/C=C/C=C\1</tt></p></td>
 <td align="left" valign="top"><p class="table">one bond changes two configurations</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="paragraph"><p>The proposed syntax for double bond configurations uses the <code>'@'</code> and <code>'@@'</code> atom-based
+<div class="paragraph"><p>The proposed syntax for double bond configurations uses the <tt>'@'</tt> and <tt>'@@'</tt> atom-based
 specification. For example:</p></div>
 <div class="tableblock">
 <table rules="rows"
@@ -3904,35 +3910,35 @@ cellspacing="0" cellpadding="4">
 <td rowspan="2" align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/trans-difluoroethene.gif" alt="depict/trans-difluoroethene.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>F[C@@H]=[C@H]F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F[C@@H]=[C@H]F</tt></p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">trans-difluoroethene</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>F[C@H]=[C@@H]F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F[C@H]=[C@@H]F</tt></p></td>
 </tr>
 <tr>
 <td rowspan="2" align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/cis-difluoroethene.gif" alt="depict/cis-difluoroethene.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>F[C@H]=[C@H]F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F[C@H]=[C@H]F</tt></p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">cis-difluoroethene</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>F[C@@H]=[C@@H]F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F[C@@H]=[C@@H]F</tt></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="paragraph"><p>Interpretation of <code>'@'</code> and <code>'@@'</code> follows the tetrahedral convention:
+<div class="paragraph"><p>Interpretation of <tt>'@'</tt> and <tt>'@@'</tt> follows the tetrahedral convention:
 The atoms, as encountered in the SMILES string, are either in anticlockwise
-<code>'@'</code> or clockwise <code>'@@'</code> order as viewed on the page.  Since cis/trans
+<tt>'@'</tt> or clockwise <tt>'@@'</tt> order as viewed on the page.  Since cis/trans
 configurations are planar, they can also be "viewed from underneath the
 page", which results in the two valid SMILES shown for each compound,
 above.</p></div>
 <div class="paragraph"><p>As with the other atom-bases specifications one must consider the relative
 position of implicit atoms. It is not always true that a trans form has
-opposite "clock-ness" (<code>'@'</code>,<code>'@@'</code> or <code>'@@'</code>,<code>'@'</code>), and the cis form
-has the same "clock-ness" (<code>'@'</code>,<code>'@'</code> or <code>'@@'</code>,<code>'@@'</code>).</p></div>
+opposite "clock-ness" (<tt>'@'</tt>,<tt>'@@'</tt> or <tt>'@@'</tt>,<tt>'@'</tt>), and the cis form
+has the same "clock-ness" (<tt>'@'</tt>,<tt>'@'</tt> or <tt>'@@'</tt>,<tt>'@@'</tt>).</p></div>
 <div class="tableblock">
 <table rules="rows"
 width="90%"
@@ -3953,26 +3959,26 @@ cellspacing="0" cellpadding="4">
 <td rowspan="2" align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/trans-difluoroethene.gif" alt="depict/trans-difluoroethene.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>F[C@@H]=[C@H]F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F[C@@H]=[C@H]F</tt></p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">trans-difluoroethene</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[C@H](F)=[C@H]F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[C@H](F)=[C@H]F</tt></p></td>
 </tr>
 <tr>
 <td rowspan="2" align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/cis-difluoroethene.gif" alt="depict/cis-difluoroethene.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>F[C@H]=[C@H]F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>F[C@H]=[C@H]F</tt></p></td>
 <td rowspan="2" align="left" valign="top"><p class="table">cis-difluoroethene</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><code>[C@@H](F)=[C@H]F</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[C@@H](F)=[C@H]F</tt></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="paragraph"><p>Atom-based <code>'@'</code> and <code>'@@'</code> for the stereo-specification of double bonds does not
+<div class="paragraph"><p>Atom-based <tt>'@'</tt> and <tt>'@@'</tt> for the stereo-specification of double bonds does not
 suffer from the theoretical flaw illustrated with cyclooctatetraene. The assignments
 are not-shared and adjacent configurations do not need to be considered. This is more
 flexible and and simplifies generation of canonical SMILES.</p></div>
@@ -3996,14 +4002,14 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/cyclooctatetraene.gif" alt="depict/cyclooctatetraene.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>[C@H]1=[C@@H][C@@H]=[C@@H][C@@H]=[C@@H][C@@H]=[C@@H]1</code></p></td>
+<td align="left" valign="top"><p class="table"><tt>[C@H]1=[C@@H][C@@H]=[C@@H][C@@H]=[C@@H][C@@H]=[C@@H]1</tt></p></td>
 <td align="left" valign="top"><p class="table">cyclooctatetraene</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="paragraph"><p>Note that the first stereo-specification carbon must be represented as <code>'@'</code> since the
-<code>'1'</code> follows the <code>H</code>, whereas the rest of the carbons use <code>'@@'</code> to characterize the
+<div class="paragraph"><p>Note that the first stereo-specification carbon must be represented as <tt>'@'</tt> since the
+<tt>'1'</tt> follows the <tt>H</tt>, whereas the rest of the carbons use <tt>'@@'</tt> to characterize the
 cis configuration of each bond.  Since this is a specification on the atom, rather than
 the single bond, no conflict arises at the ring-closure bond.</p></div>
 </div>
@@ -4014,10 +4020,10 @@ commented: "I guess the last paragraph doesn&#8217;t look too good in a formal s
 two reasons for the frailty: lack of proof that the radical and aromatic uses can always be
 unambigous (I doubt anybody has tried); and a known deficiency in the parser."  However, it is a
 good starting point&#8230;</em></p></div>
-<div class="paragraph"><p>A single lowercase symbol is interpreted as a radical center. <code>CCc</code> is an alternative to <code>CC[CH2]</code> and
-is the 1-propyl radical; <code>CcC</code> or <code>C[CH]C</code> is the 2-propyl radical, <code>Co</code> is the methoxy radical. An odd
-number of adjacent lowercase symbols is a delocalized conjugated radical. So <code>Cccccc</code> is <code>CC=CC=C[CH2]</code>
-or <code>CC=C[CH]C=C</code> or <code>C[CH]C=CC=C</code> Lowercase <code>'c'</code> or <code>'n'</code> can be used in a ring: <code>C1cCCCC1</code> is the cyclohexyl
+<div class="paragraph"><p>A single lowercase symbol is interpreted as a radical center. <tt>CCc</tt> is an alternative to <tt>CC[CH2]</tt> and
+is the 1-propyl radical; <tt>CcC</tt> or <tt>C[CH]C</tt> is the 2-propyl radical, <tt>Co</tt> is the methoxy radical. An odd
+number of adjacent lowercase symbols is a delocalized conjugated radical. So <tt>Cccccc</tt> is <tt>CC=CC=C[CH2]</tt>
+or <tt>CC=C[CH]C=C</tt> or <tt>C[CH]C=CC=C</tt> Lowercase <tt>'c'</tt> or <tt>'n'</tt> can be used in a ring: <tt>C1cCCCC1</tt> is the cyclohexyl
 radical.</p></div>
 <div class="paragraph"><p>The use of the non-aromatic lowercase symbol is a shorted form with improved intelligibility that
 allows the use of implicit hydrogen in radicals. However it is intended only for simple unambiguous
@@ -4226,7 +4232,7 @@ cellspacing="0" cellpadding="4">
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br />
-Last updated 2013-09-18 15:09:01 CEST
+Last updated 2013-09-18 20:37:17 CEST
 </div>
 </div>
 </body>
