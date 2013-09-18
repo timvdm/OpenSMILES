@@ -1,7 +1,11 @@
+2013-09-17  Tim Vandermeersch <tim.vandermeersch@gmail.com>
+
+	* Merge contributions from John May.
+
 2013-09-06  Richard Apodaca <rapodaca@metamolecular.com>
 
-  * Fixed typographical errors, removed link to non-SMILES software
-  
+        * Fixed typographical errors, removed link to non-SMILES software
+
 2012-11-17  Tim Vandermeersch <tim.vandermeersch@gmail.com>
 
 	* Add documentation for SP, TB and OH stereochemistry

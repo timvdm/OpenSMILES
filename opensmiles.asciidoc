@@ -1643,6 +1643,7 @@ Revision History
 | 1.0 | 2012-09-29 | Corrections | Andrew Dalke & Tim Vandermeersch
 | 1.0 | 2012-11-17 | SP, TB and OH stereochemistry | Tim Vandermeersch
 | 1.0 | 2013-09-06 | Corrections | Richard Apodaca
+| 1.0 | 2013-09-17 | Corrections | John May
 |======================
 
 * link:https://github.com/timvdm/OpenSMILES/blob/master/ChangeLog[ChangeLog]
