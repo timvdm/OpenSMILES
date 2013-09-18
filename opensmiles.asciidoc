@@ -1426,7 +1426,7 @@ Atom-based Double Bond Configuration
 
 The directional `'/'` and `'\'` marks for cis/trans bonds seem simple on
 the surface but are problematic for complex systems. The issue is that
-in a conjugated systems one directional bond _can_ be used in defining the
+in conjugated systems one directional bond _can_ be used in defining the
 configuration of two double bonds. When assigning the directional bonds the
 existing labels must be considered or rewritten.  In a long series of
 conjugated double bonds, changing the configuration of one bond can require
