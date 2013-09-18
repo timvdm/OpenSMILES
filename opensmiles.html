@@ -734,7 +734,7 @@ asciidoc.install();
 <h1>OpenSMILES specification</h1>
 <span id="author">Craig A. James</span><br />
 <span id="revnumber">version 1.0,</span>
-<span id="revdate">2012-17-11</span>
+<span id="revdate">2013-09-06</span>
 <br /><span id="revremark">Current specification</span>
 </div>
 <div id="content">
@@ -817,7 +817,7 @@ valence model.</p></div>
 <div class="paragraph"><p>"If you can build a molecule from a modeling kit, you can name it."</p></div>
 <div class="paragraph"><p><a href="http://www.daylight.com/meetings/mug03/McLeod/MUG03McLeodPeters.pdf">McLeod Peters</a></p></div>
 </div></div>
-<div class="paragraph"><p>McLeod and Peter&#8217;s quip captures the deficiencies of SMILES well: if you
+<div class="paragraph"><p>McLeod and Peters' quip captures the deficiencies of SMILES well: if you
 <strong>can&#8217;t</strong> build a molecule from a modeling kit, the deficiencies of SMILES and other
 connection-table formats become apparent.</p></div>
 </div>
@@ -1104,7 +1104,11 @@ cellspacing="0" cellpadding="4">
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><code>[Cu++]</code></p></td>
+<<<<<<< HEAD
 <td align="left" valign="top"><p class="table">copper cation</p></td>
+=======
+<td align="left" valign="top"><p class="table">copper anion</p></td>
+>>>>>>> 607d953ee39558b412ecb4b9782fa5dbd6687ed7
 <td align="left" valign="top"><p class="table"><code>+2</code> charge, <code>H0</code> implied</p></td>
 </tr>
 </tbody>
@@ -1115,7 +1119,7 @@ cellspacing="0" cellpadding="4">
 <div class="sect3">
 <h4 id="_isotopes">Isotopes</h4>
 <div class="paragraph"><p>Isotopic specification is placed inside the square brackets for an atom
-preceeding the atomic symbol; for example:</p></div>
+preceding the atomic symbol; for example:</p></div>
 <div class="tableblock">
 <table rules="rows"
 width="40%"
@@ -1397,7 +1401,11 @@ cellspacing="0" cellpadding="4">
 <tbody>
 <tr>
 <td align="left" valign="top"><p class="table"><code>C=C</code></p></td>
+<<<<<<< HEAD
 <td align="left" valign="top"><p class="table">ethene</p></td>
+=======
+<td align="left" valign="top"><p class="table">ethane</p></td>
+>>>>>>> 607d953ee39558b412ecb4b9782fa5dbd6687ed7
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table"><code>C#N</code></p></td>
@@ -2492,9 +2500,15 @@ cellspacing="0" cellpadding="4">
 </table>
 </div>
 <div class="paragraph"><p>The "visual interpretation" of the <code>'/'</code> and <code>'\'</code> symbol is that they are thought of as bonds that
+<<<<<<< HEAD
 "point" above or below the allenal carbon.  That is, <code>F/C=C/Br</code> means "The <code>F</code> is below the first carbon,
 and the <code>Br</code> is above the second carbon," leading to the interpretation of a trans configuration.</p></div>
 <div class="paragraph"><p>This notation can be confusing when parentheses follow one of the allenal carbons:</p></div>
+=======
+"point" above or below the alkene bond.  That is, <code>F/C=C/Br</code> means "The <code>F</code> is below the first carbon,
+and the <code>Br</code> is above the second carbon," leading to the interpretation of a trans configuration.</p></div>
+<div class="paragraph"><p>This notation can be confusing when parentheses follow one of the alkene carbons:</p></div>
+>>>>>>> 607d953ee39558b412ecb4b9782fa5dbd6687ed7
 <div class="tableblock">
 <table rules="rows"
 width="40%"
@@ -2528,7 +2542,7 @@ cellspacing="0" cellpadding="4">
 </div>
 <div class="paragraph"><p>The "visual interpretation" of the "up-ness" or "down-ness" of each single
 bond is <strong>relative to the carbon atom</strong>, not the double bond, so the sense of the symbol changes
-when the fluorine atom moved from the left to the right side of the allenal carbon atom.</p></div>
+when the fluorine atom moved from the left to the right side of the alkene carbon atom.</p></div>
 <div class="paragraph"><p><em>Note: This point was not well documented in earlier SMILES specifications, and several SMILES
 interpreters are known to interpret the <code>'/'</code> and <code>'\'</code> symbols incorrectly.</em></p></div>
 <div class="paragraph"><p>A SMILES with conflicting up/down specifications is invalid:</p></div>
@@ -2609,7 +2623,11 @@ cellspacing="0" cellpadding="4">
 <h4 id="_tetrahedral_allene_like_systems">Tetrahedral Allene-like Systems</h4>
 <div class="paragraph"><p>Extended tetrahedral configurations can be specified for conjugated allenes with an even number
 of double bonds.  The normal tetrahedral rules using <code>'@'</code> and <code>'@@'</code> apply, but the "neighbor" atoms
+<<<<<<< HEAD
 to which the chirality refers are at the ends of the allenal system.  For example:</p></div>
+=======
+to which the chirality refers are at the ends of the allene system.  For example:</p></div>
+>>>>>>> 607d953ee39558b412ecb4b9782fa5dbd6687ed7
 <div class="tableblock">
 <table rules="rows"
 width="70%"
@@ -2638,7 +2656,11 @@ cellspacing="0" cellpadding="4">
 property of the center atom of the extended allene system.</p></div>
 </div>
 <div class="sect3">
+<<<<<<< HEAD
 <h4 id="_square_panar_centers">Square Panar Centers</h4>
+=======
+<h4 id="_square_planar_centers">Square Planar Centers</h4>
+>>>>>>> 607d953ee39558b412ecb4b9782fa5dbd6687ed7
 <div class="paragraph"><p>There are three tags to represent square planar stereochemistry: <code>@SP1</code>, <code>@SP2</code>
 and <code>@SP3</code>. Since there is no way to determine to what chirality class an atom
 belongs based on the SMILES alone, the SP class is not the default class for
@@ -2866,7 +2888,7 @@ stereochemistry) to describe the orientation of 4 atoms in a plane is reused. Ho
 this time these shapes also have a clockwise or anti-clockwise winding. For the U shape,
 this is trivial since it means that the 4 atoms are listed clockwise or anti-clockwise.
 For the Z shape, the connection between the first two atoms determines the winding.
-Finally, for the 4 shape, the connection between the second and thirth atom determines
+Finally, for the 4 shape, the connection between the second and third atom determines
 the winding. The table below lists the shapes, axes and orders.</p></div>
 <div class="tableblock">
 <table rules="rows"
@@ -3796,6 +3818,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect2">
+<<<<<<< HEAD
 <h3 id="_atom_based_double_bond_configuration">Atom-based Double Bond Configuration</h3>
 <div class="paragraph"><p>The directional <code>'/'</code> and <code>'\'</code> marks for cis/trans bonds seem simple on
 the surface but are problematic for complex systems. The issue is that
@@ -3813,6 +3836,18 @@ adjacent double bonds will not work as it reassignment propagates around the rin
 and the conflict is not resolved.</p></div>
 <div class="paragraph"><p>Including directional labels to explicit hydrogen atoms is a possible resolution but
 does not follow standard-form and complicates the assignment procedure.</p></div>
+=======
+<h3 id="_code_code_for_cis_trans_around_double_bonds"><code>'@'</code> for Cis/Trans around Double Bonds</h3>
+<div class="paragraph"><p>The <code>'/'</code> and <code>'\'</code> marks for cis/trans bonds seem simple on the surface but
+are problematic for complex systems.  For example, in a long series of
+conjugated double bonds, changing the configuration of one bond can require
+rewriting dozens of bond symbols.</p></div>
+<div class="paragraph"><p>More importantly, there is a theoretical flaw with the use of <code>'/'</code> and
+<code>'\'</code>.  In a cyclo-ene (<em>name??</em>) ring with an even number of double bonds, it is
+not possible to write a valid SMILES.  (Recall that <code>'/'</code> and <code>'\'</code> reverse
+sense if moved from the left to the right of the atom, thus <code>C/1=C/CCCCCCC1</code>
+represents a cis configuration even though <code>'/'</code> appears twice.)</p></div>
+>>>>>>> 607d953ee39558b412ecb4b9782fa5dbd6687ed7
 <div class="tableblock">
 <table rules="rows"
 width="90%"
@@ -3834,18 +3869,32 @@ cellspacing="0" cellpadding="4">
 <img src="depict/cyclooctatetraene.gif" alt="depict/cyclooctatetraene.gif" />
 </span></p></td>
 <td align="left" valign="top"><p class="table"><code>C/1=C/C=C\C=C/C=C\1</code></p></td>
+<<<<<<< HEAD
 <td align="left" valign="top"><p class="table">cyclooctatetraene</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table">Todo</p></td>
 <td align="left" valign="top"><p class="table"><code>C/1=C/C=C/C=C/C=C\1</code></p></td>
 <td align="left" valign="top"><p class="table">one bond changes two configurations</p></td>
+=======
+<td align="left" valign="top"><p class="table">Illegal SMILES</p></td>
+>>>>>>> 607d953ee39558b412ecb4b9782fa5dbd6687ed7
 </tr>
 </tbody>
 </table>
 </div>
+<<<<<<< HEAD
 <div class="paragraph"><p>The proposed syntax for double bond configurations uses the <code>'@'</code> and <code>'@@'</code> atom-based
 specification. For example:</p></div>
+=======
+<div class="paragraph"><p>The SMILES above is illegal because the first and second <code>C1</code> have
+opposite bond symbols <code>'/'</code> versus <code>'\'</code>, so the single bond that was "broken"
+to create the ring has to be both "up" and "down".  This logical
+flaw follows from using "up" and "down" in a linear notation, when in
+fact the atoms form a circle.</p></div>
+<div class="paragraph"><p>The proposed syntax for cis/trans configurations uses the <code>'@'</code> symbol on
+the allenal atoms.  For example:</p></div>
+>>>>>>> 607d953ee39558b412ecb4b9782fa5dbd6687ed7
 <div class="tableblock">
 <table rules="rows"
 width="90%"
@@ -3891,6 +3940,7 @@ The atoms, as encountered in the SMILES string, are either in anticlockwise
 configurations are planar, they can also be "viewed from underneath the
 page", which results in the two valid SMILES shown for each compound,
 above.</p></div>
+<<<<<<< HEAD
 <div class="paragraph"><p>As with the other atom-bases specifications one must consider the relative
 position of implicit atoms. It is not always true that a trans form has
 opposite "clock-ness" (<code>'@'</code>,<code>'@@'</code> or <code>'@@'</code>,<code>'@'</code>), and the cis form
@@ -3938,6 +3988,14 @@ cellspacing="0" cellpadding="4">
 suffer from the theoretical flaw illustrated with cyclooctatetraene. The assignments
 are not-shared and adjacent configurations do not need to be considered. This is more
 flexible and and simplifies generation of canonical SMILES.</p></div>
+=======
+<div class="paragraph"><p>Note that in all cases, cis and trans are easy for the chemist to
+distinguish visually: A trans form always has opposite "clock-ness" (<code>@</code>,<code>@@</code> or
+<code>@@</code>,<code>@</code>), and the cis form always has the same "clock-ness" (<code>@</code>,<code>@</code> or <code>@@</code>,<code>@@</code>) for
+the allenal atoms.</p></div>
+<div class="paragraph"><p>This proposed form of cis/trans specification using <code>'@'</code> and <code>'@@'</code> does not suffer from the
+theoretical flaw illustrated above:</p></div>
+>>>>>>> 607d953ee39558b412ecb4b9782fa5dbd6687ed7
 <div class="tableblock">
 <table rules="rows"
 width="100%"
@@ -3964,10 +4022,18 @@ cellspacing="0" cellpadding="4">
 </tbody>
 </table>
 </div>
+<<<<<<< HEAD
 <div class="paragraph"><p>Note that the first stereo-specification carbon must be represented as <code>'@'</code> since the
 <code>'1'</code> follows the <code>H</code>, whereas the rest of the carbons use <code>'@@'</code> to characterize the
 cis configuration of each bond.  Since this is a specification on the atom, rather than
 the single bond, no conflict arises at the ring-closure bond.</p></div>
+=======
+<div class="paragraph"><p>Note that the first allenal carbon must be represented as <code>'@'</code> since the
+<code>'1'</code> follows the <code>H</code>, whereas the rest of the allenal carbons use <code>'@@'</code> to
+characterize the cis configuration of each bond.  Since this is a
+specification on the atom, rather than the single bond, no conflict arises
+at the ring-closure bond.</p></div>
+>>>>>>> 607d953ee39558b412ecb4b9782fa5dbd6687ed7
 </div>
 <div class="sect2">
 <h3 id="_radical">Radical</h3>
@@ -3978,7 +4044,11 @@ unambigous (I doubt anybody has tried); and a known deficiency in the parser."  
 good starting point&#8230;</em></p></div>
 <div class="paragraph"><p>A single lowercase symbol is interpreted as a radical center. <code>CCc</code> is an alternative to <code>CC[CH2]</code> and
 is the 1-propyl radical; <code>CcC</code> or <code>C[CH]C</code> is the 2-propyl radical, <code>Co</code> is the methoxy radical. An odd
+<<<<<<< HEAD
 number of adjacent lowercase symbols is a delocalised conjugated radical. So <code>Cccccc</code> is <code>CC=CC=C[CH2]</code>
+=======
+number of adjacent lowercase symbols is a delocalized conjugated radical. So <code>Cccccc</code> is <code>CC=CC=C[CH2]</code>
+>>>>>>> 607d953ee39558b412ecb4b9782fa5dbd6687ed7
 or <code>CC=C[CH]C=C</code> or <code>C[CH]C=CC=C</code> Lowercase <code>'c'</code> or <code>'n'</code> can be used in a ring: <code>C1cCCCC1</code> is the cyclohexyl
 radical.</p></div>
 <div class="paragraph"><p>The use of the non-aromatic lowercase symbol is a shorted form with improved intelligibility that
@@ -4077,11 +4147,6 @@ R.Balducci and R, Pearlman, Novel Algorithms for the Rapid Perception of a Uniqu
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://www.metamolecular.com">ChemWriter</a>
-</p>
-</li>
-<li>
-<p>
 JME
 </p>
 </li>
@@ -4159,6 +4224,12 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table">SP, TB and OH stereochemistry</p></td>
 <td align="left" valign="top"><p class="table">Tim Vandermeersch</p></td>
 </tr>
+<tr>
+<td align="left" valign="top"><p class="table">1.0</p></td>
+<td align="left" valign="top"><p class="table">2013-09-06</p></td>
+<td align="left" valign="top"><p class="table">Corrections</p></td>
+<td align="left" valign="top"><p class="table">Richard Apodaca</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -4181,7 +4252,11 @@ cellspacing="0" cellpadding="4">
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br />
+<<<<<<< HEAD
 Last updated 2013-09-18 02:28:12 CEST
+=======
+Last updated 2013-09-06 15:07:58 PDT
+>>>>>>> 607d953ee39558b412ecb4b9782fa5dbd6687ed7
 </div>
 </div>
 </body>

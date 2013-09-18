@@ -1,7 +1,7 @@
 OpenSMILES specification
 ========================
 Craig A. James
-v1.0,2012-17-11: Current specification
+v1.0,2013-09-06: Current specification
 
 http://www.opensmiles.org[www.opensmiles.org]
 
@@ -91,7 +91,7 @@ valence model.
 http://www.daylight.com/meetings/mug03/McLeod/MUG03McLeodPeters.pdf[McLeod Peters]
 ****
 
-McLeod and Peter's quip captures the deficiencies of SMILES well: if you
+McLeod and Peters' quip captures the deficiencies of SMILES well: if you
 *can't* build a molecule from a modeling kit, the deficiencies of SMILES and other
 connection-table formats become apparent.
 
@@ -246,7 +246,7 @@ Isotopes
 ^^^^^^^^
 
 Isotopic specification is placed inside the square brackets for an atom
-preceeding the atomic symbol; for example:
+preceding the atomic symbol; for example:
 
 [options="header",frame="topbot",grid="rows",width="40%"]
 |=============================
@@ -826,10 +826,10 @@ These symbols always come in pairs, and indicate cis or trans with a visual "sam
 |=========================================================================================================================
 
 The "visual interpretation" of the `'/'` and `'\'` symbol is that they are thought of as bonds that
-"point" above or below the allenal carbon.  That is, `F/C=C/Br` means "The `F` is below the first carbon,
+"point" above or below the alkene bond.  That is, `F/C=C/Br` means "The `F` is below the first carbon,
 and the `Br` is above the second carbon," leading to the interpretation of a trans configuration.
 
-This notation can be confusing when parentheses follow one of the allenal carbons:
+This notation can be confusing when parentheses follow one of the alkene carbons:
 
 [options="header",frame="topbot",grid="rows",width="40%"]
 |===========================================
@@ -842,7 +842,7 @@ This notation can be confusing when parentheses follow one of the allenal carbon
 
 The "visual interpretation" of the "up-ness" or "down-ness" of each single
 bond is *relative to the carbon atom*, not the double bond, so the sense of the symbol changes
-when the fluorine atom moved from the left to the right side of the allenal carbon atom.
+when the fluorine atom moved from the left to the right side of the alkene carbon atom.
 
 _Note: This point was not well documented in earlier SMILES specifications, and several SMILES
 interpreters are known to interpret the `'/'` and `'\'` symbols incorrectly._
@@ -880,7 +880,7 @@ Tetrahedral Allene-like Systems
 
 Extended tetrahedral configurations can be specified for conjugated allenes with an even number
 of double bonds.  The normal tetrahedral rules using `'@'` and `'@@'` apply, but the "neighbor" atoms
-to which the chirality refers are at the ends of the allenal system.  For example:
+to which the chirality refers are at the ends of the allene system.  For example:
 
 [options="header",frame="topbot",grid="rows",width="70%",cols="2,1"]
 |============================================================
@@ -892,7 +892,7 @@ To determine the correct clockwise or anticlockwise specification, the allene is
 "collapsed" into a single tetrahedral chiral center, and the resulting chirality is marked as a
 property of the center atom of the extended allene system.
 
-Square Panar Centers
+Square Planar Centers
 ^^^^^^^^^^^^^^^^^^^^
 
 There are three tags to represent square planar stereochemistry: `@SP1`, `@SP2`
@@ -1009,7 +1009,7 @@ stereochemistry) to describe the orientation of 4 atoms in a plane is reused. Ho
 this time these shapes also have a clockwise or anti-clockwise winding. For the U shape,
 this is trivial since it means that the 4 atoms are listed clockwise or anti-clockwise.
 For the Z shape, the connection between the first two atoms determines the winding.
-Finally, for the 4 shape, the connection between the second and thirth atom determines
+Finally, for the 4 shape, the connection between the second and third atom determines
 the winding. The table below lists the shapes, axes and orders.
 
 [options="header",frame="topbot",grid="rows",width="40%"]
@@ -1511,7 +1511,7 @@ good starting point..._
 
 A single lowercase symbol is interpreted as a radical center. `CCc` is an alternative to `CC[CH2]` and
 is the 1-propyl radical; `CcC` or `C[CH]C` is the 2-propyl radical, `Co` is the methoxy radical. An odd
-number of adjacent lowercase symbols is a delocalised conjugated radical. So `Cccccc` is `CC=CC=C[CH2]`
+number of adjacent lowercase symbols is a delocalized conjugated radical. So `Cccccc` is `CC=CC=C[CH2]`
 or `CC=C[CH]C=C` or `C[CH]C=CC=C` Lowercase `'c'` or `'n'` can be used in a ring: `C1cCCCC1` is the cyclohexyl
 radical.
 
@@ -1625,7 +1625,6 @@ Journal of Chemical Information and Computer Sciences, 1989, 29:97-101.
 Molecule Editors that can produce SMILES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* http://www.metamolecular.com[ChemWriter]
 * JME
 * CACTVS
 * ISISDraw?
@@ -1643,6 +1642,7 @@ Revision History
 | 1.0 | 2012-09-29 | Reformatting | Tim Vandermeersch
 | 1.0 | 2012-09-29 | Corrections | Andrew Dalke & Tim Vandermeersch
 | 1.0 | 2012-11-17 | SP, TB and OH stereochemistry | Tim Vandermeersch
+| 1.0 | 2013-09-06 | Corrections | Richard Apodaca
 |======================
 
 * link:https://github.com/timvdm/OpenSMILES/blob/master/ChangeLog[ChangeLog]
