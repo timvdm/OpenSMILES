@@ -699,7 +699,7 @@ can also be written:
 |======================================================================================================
 | Depiction                                     | SMILES                      | Name
 .2+| image:depict/phenol-2-amino-ethanol.gif[]  | `c1cc(O.NCCO)ccc1`          | phenol, 2-amino ethanol
-|                                                 `Oc1cc(.NCCO)ccc1`          | phenal, 2-amino ethanol
+|                                                 `Oc1cc(.NCCO)ccc1`          | phenol, 2-amino ethanol
 |======================================================================================================
 
 The second example above is an odd, but legal, use of parentheses and the dot bond, since the
