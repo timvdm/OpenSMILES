@@ -453,9 +453,9 @@ forms a cyclic structure.
 
 [options="header",frame="topbot",grid="rows",width="90%"]
 |==================================================================================
-| Depiction                               | SMILES           | Name
-| image:depict/cyclohexane.gif[]          | `C1CCCCC1`       | cyclohexane
-| image:depict/perhydroisoquinoline.gif[] | `N1CC2CCCC2CC1`  | perhydroisoquinoline
+| Depiction                               | SMILES            | Name
+| image:depict/cyclohexane.gif[]          | `C1CCCCC1`        | cyclohexane
+| image:depict/perhydroisoquinoline.gif[] | `N1CC2CCCCC2CC1`  | perhydroisoquinoline
 |==================================================================================
 
 If a bond symbol is present between the atom and rnum, it can be
